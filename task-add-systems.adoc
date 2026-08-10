@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: task-add-systems.html 
+keywords: add storage systems, ONTAP, cluster, discover storage, fleet, storage discovery, centralized monitoring, storage management, netapp console local 
+summary: Ajoutez des systèmes de stockage au déploiement local de la NetApp Console. 
+---
+= Ajouter des systèmes de stockage au déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ajoutez des systèmes de stockage au déploiement local de NetApp Console pour activer la surveillance, la gestion de l'inventaire et l'administration de votre infrastructure de stockage. Une fois un système de stockage ajouté, le déploiement local de Console détecte le système et commence à collecter des informations pouvant être utilisées pour les tâches de surveillance et de gestion.
+
+Avant de commencer, assurez-vous de disposer des autorisations requises pour ajouter des systèmes de stockage et que le système de stockage est accessible depuis le déploiement local de NetApp Console.
+
+.Étapes
+. Sélectionnez *Stockage > Gestion*.
+. Dans la liste déroulante Scope, sélectionnez la flotte à laquelle vous souhaitez ajouter un système de stockage.
+. Sélectionnez *Ajouter un système*.
+. Saisissez les informations requises concernant le système de stockage, y compris les informations de connexion et les identifiants.
+. Vérifiez les informations que vous avez saisies et sélectionnez *Ajouter*.
++
+Le système de stockage est ajouté au parc sélectionné. Le déploiement local de la NetApp Console commence à détecter et à surveiller le système. Selon l’environnement et la connectivité réseau, il peut s’écouler plusieurs minutes avant que le système n’apparaisse comme entièrement géré.
+
+
+
+
+NOTE: Vous pouvez également ajouter un système de stockage depuis la page *Administration > Identité et accès* en sélectionnant *Ajouter un système* et en fournissant les informations système requises.

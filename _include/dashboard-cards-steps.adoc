@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+. Sélectionnez *Ajouter une carte*.
+. Sélectionnez le *type de ressource* pour la carte, tel que flotte, système ou volume, puis choisissez des ressources dans la liste des ressources disponibles.
+. Sélectionnez *Suivant* pour continuer à choisir une métrique et un type de carte.
+. Choisissez une métrique à afficher. Vous pouvez filtrer les métriques disponibles par type : le *Type de métrique* : *Performance*, *Capacity*, *Health* ou *Alerts*, ou rechercher une métrique spécifique par nom. Les métriques disponibles dépendent du type de ressource que vous avez sélectionné.
++
+link:reference-dashboard-card-templates.html#metrics-list["Découvrez les indicateurs disponibles."]
+
+. Sélectionnez une carte à inclure dans le tableau de bord et sélectionnez *Suivant*.
++
+Vous ne pouvez sélectionner qu'une seule carte à la fois. L'aperçu de la carte affiche les données en temps réel pour la métrique et le type de ressource sélectionnés.
+
+. Nommez votre carte. Ce nom doit être unique dans le tableau de bord.
+. Vérifiez l'aperçu de la carte, saisissez un nom et une description de carte, puis sélectionnez *Ajouter*.
+. Répétez ces étapes pour les autres cartes.
+
+
+. Sélectionnez *Storage > Dashboards > Card Templates*.
+. Parcourez, triez ou filtrez les modèles par type de métrique, métrique ou type de ressource cible.
+. Sélectionnez un modèle, puis sélectionnez *Créer une carte à partir d’un modèle*.
++
+La fenêtre temporelle et l'agrégation sont configurées au niveau du tableau de bord. Les valeurs que vous définissez s'appliquent à toutes les cartes du tableau de bord.
+
+. Personnalisez la portée, l’agrégation, le type de ressource cible, les ressources cibles et la fenêtre temporelle.
+. Vérifiez l'aperçu de la carte et saisissez un nom et une description.
+. Ajoutez la carte à un tableau de bord existant ou créez un nouveau tableau de bord.
+. Enregistrez le tableau de bord.
+

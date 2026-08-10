@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: reference-storage-class-policies.html 
+keywords: storage class policies, performance policy, capacity policy, security policy, data protection policy, netapp console 
+summary: Consultez les stratégies de classe de stockage définies par le système disponibles dans le déploiement local de la NetApp Console. 
+---
+= Examinez les stratégies de classe de stockage prédéfinies dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console local deployment inclut des stratégies système définies pour les quatre types de stratégies. Utilisez cette référence pour identifier la stratégie la mieux adaptée à vos besoins de charge de travail lors de la création ou de la personnalisation d'une classe de stockage.
+
+
+
+[[performance-policies]]
+== Politiques de performance
+
+Performances extrêmes:: À utiliser pour les charges de travail HPC, IA/ML et analytiques nécessitant des IOPS en rafale élevées et une faible latence prévisible.
+Extrême pour les données de base de données:: À utiliser pour les volumes de données de bases de données transactionnelles nécessitant un nombre élevé d'IOPS soutenu et une latence inférieure à la milliseconde.
+Extrême pour les journaux de bases de données:: À utiliser pour les volumes de journaux de transaction de bases de données nécessitant le seuil d'IOPS le plus élevé afin de prévenir les goulots d'étranglement en écriture.
+Extrême pour les données partagées de bases de données:: À utiliser pour les volumes de base de données partagés accessibles par plusieurs hôtes nécessitant un débit élevé et une latence constante.
+Performances:: À utiliser pour les applications virtualisées et d'entreprise nécessitant des performances fiables sans exigences extrêmes en matière d'IOPS.
+Valeur:: À utiliser pour les charges de travail sensibles aux coûts, telles que les répertoires personnels, les partages de fichiers et les archives.
+
+
+
+
+[[capacity-policies]]
+== Politiques de capacité
+
+capacité d'autogrow:: À utiliser pour les charges de travail de production qui doivent s'étendre automatiquement afin d'éviter les pannes dues à un manque d'espace.
+
+
+
+
+[[security-policies]]
+== Politiques de sécurité
+
+Chiffrement au repos:: À utiliser pour les charges de travail de production où le chiffrement est requis pour la conformité.
+Protection contre les ransomwares:: À utiliser pour les charges de travail contenant des données stratégiques qui nécessitent une protection active contre les ransomwares.
+Sécurité standard:: À utiliser pour les charges de travail où le comportement de sécurité par défaut de la plateforme est acceptable.
+
+
+
+
+[[data-protection-policies]]
+== Politiques de protection des données
+
+défaut:: À utiliser pour les charges de travail standard nécessitant des points de récupération à court terme sans surcharge de conservation à long terme.
+horaire sur 3 mois:: À utiliser pour les charges de travail réglementées ou critiques pour l'entreprise nécessitant des points de récupération intra-journaliers précis et une conservation de l'historique sur trois mois.
+récupération sur 30 jours:: À utiliser pour les charges de travail standard nécessitant des points de récupération à court terme sans surcharge de conservation à long terme.
+récupération sur 90 jours:: À utiliser pour les charges de travail réglementées ou critiques pour l'entreprise nécessitant des points de récupération intra-journaliers précis et une conservation de l'historique sur trois mois.
+

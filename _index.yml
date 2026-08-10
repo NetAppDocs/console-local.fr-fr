@@ -1,0 +1,102 @@
+---
+indexpage:
+  title: NetApp Console documentation de déploiement local
+  summary: Utilisez le déploiement local de la console NetApp
+  keywords: storage management, data protection, operational efficiency, cost optimization,
+    business continuity, unified management, self-hosted, high availability, LLM integration,
+    role-based access control, storage provisioning
+  lead: Gérez, surveillez et protégez votre infrastructure de stockage avec le déploiement
+    local de NetApp Console.
+  tiles:
+  - title: Découvrez le déploiement local de la NetApp Console
+    links:
+    - title: Découvrez le déploiement local de la NetApp Console
+      url: "/concept-netapp-console-local.html"
+    - title: Découvrez la gestion des identités et des accès
+      url: "/concept-identity-and-access-management.html"
+    - title: Découvrez comment gérer le stockage avec le déploiement local de la NetApp
+        Console
+      url: "/concept-manage-storage.html"
+    - title: Découvrez l'intégration LLM (gestion assistée par l'IA)
+      url: "/concept-llm-integration.html"
+    - title: Découvrez NetApp Backup and Recovery
+      url: "/concept-data-services.html"
+    - title: Comparez le déploiement local de NetApp Console et NetApp Console
+      url: "/console-differences.html"
+  - title: Déployer NetApp Console en local et ajouter des systèmes de stockage
+    links:
+    - title: Découvrez le déploiement local de NetApp Console
+      url: "/concept-deploy-netapp-console-local.html"
+    - title: Installez le déploiement local de la console dans votre vCenter environnement
+      url: "/task-install-agent-on-prem-ova.html"
+    - title: Ajouter des systèmes de stockage au déploiement local de la NetApp Console
+      url: "/task-add-systems.html"
+    - title: Démarrage rapide pour la configuration de NetApp Console
+      url: "/task-quick-start-console-setup.html"
+    - title: Connectez votre LLM et activez l’assistant NetApp Console
+      url: "/task-llm-connect.html"
+    - title: Connectez un serveur de messagerie pour les notifications
+      url: "/task-console-configure-notifications-delivery.html"
+  - title: Configurer l'accès et l'organisation
+    links:
+    - title: Commencez avec l'identité et l'accès
+      url: "/task-iam-fleet-mgmt-get-started.html"
+    - title: Créer des dossiers et des flottes
+      url: "/task-iam-manage-folders-fleets.html"
+    - title: Ajouter des membres et attribuer des rôles
+      url: "/task-iam-manage-members-permissions.html"
+    - title: Intégrez-vous à Active Directory
+      url: "/task-iam-active-directory-integrate.html"
+  - title: Provisionner et standardiser le stockage
+    links:
+    - title: Découvrez les classes de stockage et les politiques associées
+      url: "/concept-storage-classes.html"
+    - title: Créer une classe de stockage
+      url: "/task-storage-class-manage.html"
+    - title: Provisionner manuellement le stockage
+      url: "/task-provisioning-manual.html"
+    - title: Provisionner automatiquement le stockage
+      url: "/task-provisioning-automated.html"
+  - title: Surveillez, examinez et corrigez le stockage
+    links:
+    - title: Découvrez comment surveiller l'état du stockage dans la NetApp Console
+      url: "/concept-monitor-storage.html"
+    - title: Consultez les statistiques de la page d'accueil
+      url: "/task-storage-dashboard.html"
+    - title: Commencez à utiliser les tableaux de bord dans le déploiement local de
+        la NetApp Console
+      url: "/task-dashboard-get-started.html"
+    - title: Analysez un volume avec le Workload Analyzer
+      url: "/concept-workload-analyzer.html"
+    - title: Consulter et gérer les alertes
+      url: "/task-alerts-monitor.html"
+  - title: Utilisez la gestion assistée par l'IA
+    links:
+    - title: Utilisez l’assistant de la console NetApp
+      url: "/task-console-asst-use.html"
+    - title: Fournisseurs et modèles de LLM pris en charge
+      url: "/reference-llm-supported-models.html"
+  - title: Maintenir le déploiement local de NetApp Console
+    links:
+    - title: Maintenir un déploiement local de NetApp Console installé sur vCenter
+      url: "/task-console-local-vm-config.html"
+    - title: Audit des opérations de déploiement local de la NetApp Console
+      url: "/task-audit-console-activity.html"
+  - title: Documentation API
+    links:
+    - title: Agentic Platform
+      url: "/agentic/get-configs.html"
+    - title: Actifs
+      url: "/asset/get-organizations-aggregates.html"
+    - title: gestion des accès et des identités
+      url: "/tenancyv4/get-fleets.html"
+    - title: Gestion du stockage
+      url: "/storage-management/get-v1-organizations-capacitypolicies.html"
+  - title: Blogs et communauté
+    links:
+    - title: NetApp Console déploiement local
+      url: https://www.netapp.com/console
+    - title: NetApp Data Services
+      url: https://www.netapp.com/data-services/
+    - title: Communauté NetApp
+      url: https://community.netapp.com/

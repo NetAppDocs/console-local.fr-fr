@@ -1,0 +1,11 @@
+= 
+:allow-uri-read: 
+
+
+[IMPORTANT]
+====
+* Pour les nouveaux déploiements d’agents, NetApp vérifie les points de terminaison suivants : link:reference-networking-saas-console.html["indiqué ici"^]. Cette vérification de configuration échoue avec une erreur si vous utilisez les points de terminaison précédemment utilisés pour les mises à niveau, link:reference-networking-saas-console-previous.html["indiqué ici"]. NetApp recommande de mettre à jour vos règles de pare-feu afin d’autoriser l’accès aux points de terminaison actuels et de bloquer l’accès aux points de terminaison précédents dès que possible link:reference-networking-saas-console-previous.html#update-endpoint-list["Découvrez comment mettre à jour votre réseau"].
+* Si vous mettez à jour les points de terminaison de votre pare-feu, vos agents existants continueront de fonctionner.
+
+
+====

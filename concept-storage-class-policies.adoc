@@ -1,0 +1,120 @@
+---
+sidebar: sidebar 
+permalink: concept-storage-class-policies.html 
+keywords: storage class policies, policies, storage class, IOPS, latency, throughput, capacity, security, data protection, performance policy, tiering, encryption, ransomware protection, storage standardization, policy enforcement, compliance monitoring, netapp console local 
+summary: Découvrez les politiques qui servent de base aux classes de stockage dans le déploiement local de NetApp Console. 
+---
+= Comprendre les stratégies de classe de stockage dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les stratégies de classe de stockage constituent les éléments de base permettant de construire une classe de stockage. Chaque stratégie contrôle un aspect spécifique du comportement du stockage. En combinant des stratégies au sein d'une classe de stockage, vous créez un modèle réutilisable que le NetApp Console déploiement local applique automatiquement lors de l'approvisionnement et surveille en continu tout au long du cycle de vie d'une charge de travail.
+
+
+
+[[policies-as-building-blocks]]
+== Les politiques comme éléments constitutifs
+
+Une classe de stockage est composée d'une ou plusieurs politiques, chacune régissant un aspect différent du comportement du stockage. Les administrateurs de stockage définissent des politiques pour formaliser les normes de l'entreprise — attentes de performance, seuils de capacité, règles de placement des données — puis assemblent ces politiques dans des modèles de classes de stockage. Lorsqu'une charge de travail est provisionnée à l'aide d'une classe de stockage, elle hérite de toutes les politiques de cette classe. Cette conception dissocie la responsabilité de la définition des normes de l'acte de provisionnement, de sorte que le stockage puisse être provisionné de manière cohérente par des flux de travail automatisés, sans qu'il soit nécessaire de prendre des décisions de configuration individuelles.
+
+
+
+[[types-of-storage-class-policies]]
+== Types de politiques de classe de stockage
+
+NetApp Console local deployment comprend quatre types de stratégies que vous pouvez utiliser pour construire des classes de stockage :
+
+Politique de performance:: Une politique de performance définit les objectifs d'IOPS/TB attendus, d'IOPS/TB de pointe, d'IOPS minimum absolu et de latence attendue pour une charge de travail. Le déploiement local de NetApp Console utilise ces valeurs pour recommander des clusters disposant d'une marge suffisante lors du provisionnement et pour détecter les dérives d'IOPS ou de latence après le provisionnement.
+politique de capacité:: Une politique de capacité contrôle la manière dont un volume consomme et gère l'espace. Elle définit la réservation d'espace (épaisse, fine ou par défaut du système), le comportement d'extension automatique, la hiérarchisation FabricPool et indique si les charges de travail NAS doivent être provisionnées en tant que volumes FlexVol ou FlexGroup.
+politique de sécurité:: Une politique de sécurité définit les exigences de chiffrement, de protection contre les ransomwares et de conformité FIPS pour une charge de travail. Chaque attribut peut être défini sur une valeur obligatoire ou laissé sur « any » pour accepter la valeur par défaut du système.
+politique de protection des données:: Une politique de protection des données définit le nombre d'instantanés conservés à chaque intervalle afin de garantir que les charges de travail utilisant cette politique bénéficient d'un calendrier de sauvegarde cohérent.
+
+
+
+
+[[default-policies]]
+== Politiques par défaut
+
+Le déploiement local de la Console inclut des stratégies système définies pour les quatre types de stratégies. Vous pouvez utiliser ces stratégies telles quelles lors de la création d'une classe de stockage, ou les copier comme base pour des stratégies personnalisées adaptées aux besoins de votre organisation.
+
+
+
+[[performance-policies]]
+=== Politiques de performance
+
+[cols="2,1,1,1,1,1,3"]
+|===
+| Nom | Type | IOPS/TB attendus | Pic d'IOPS/TB | IOPS minimales absolues | Latence attendue (ms) | Résumé 
+
+
+| Extrême pour les données de base de données | Système défini | 12 288 | 24 576 | 2 000 | 1 | À utiliser pour les volumes de données de bases de données transactionnelles nécessitant un nombre élevé d'IOPS soutenu et une latence inférieure à la milliseconde. 
+
+
+| Extrême pour les journaux de bases de données | Système défini | 22 528 | 45 056 | 4 000 | 1 | À utiliser pour les volumes de journaux de transaction de bases de données nécessitant le seuil d'IOPS le plus élevé afin de prévenir les goulots d'étranglement en écriture. 
+
+
+| Extrême pour les données partagées de bases de données | Système défini | 16 384 | 32 768 | 2 000 | 1 | À utiliser pour les volumes de base de données partagés accessibles par plusieurs hôtes nécessitant un débit élevé et une latence constante. 
+
+
+| Performances extrêmes | Système défini | 6 144 | 12 288 | 1 000 | 1 | À utiliser pour les charges de travail HPC, IA/ML et analytiques nécessitant des IOPS en rafale élevées et une faible latence prévisible. 
+
+
+| Performances | Système défini | 2 048 | 4 096 | 500 | 2 | À utiliser pour les applications virtualisées et d'entreprise nécessitant des performances fiables sans exigences extrêmes en matière d'IOPS. 
+
+
+| Valeur | Système défini | 128 | 512 | 75 | 17 | À utiliser pour les charges de travail sensibles aux coûts, telles que les répertoires personnels, les partages de fichiers et les archives. 
+|===
+
+
+[[capacity-policies]]
+=== Politiques de capacité
+
+[cols="2,1,1,1,1,1,3"]
+|===
+| Nom | Type | Réserve d'espace | Mode de croissance automatique | politique de hiérarchisation | Type de volume (NAS) | Résumé 
+
+
+| défaut | Système défini | Paramètre par défaut du système | Paramètre par défaut du système | aucun | Paramètre par défaut du système | À utiliser pour les charges de travail générales où le comportement de capacité par défaut de la plateforme est acceptable. 
+
+
+| production | Système défini | Paramètre par défaut du système | étendre | aucun | Paramètre par défaut du système | À utiliser pour les charges de travail de production qui doivent s'étendre automatiquement afin d'éviter les pannes dues à un manque d'espace. 
+|===
+
+
+[[security-policies]]
+=== Politiques de sécurité
+
+[cols="2,1,1,1,1,3"]
+|===
+| Nom | Type | Chiffrement | Protection contre les ransomwares | FIPS | Résumé 
+
+
+| défaut | Système défini | n'importe lequel | n'importe lequel | n'importe lequel | À utiliser pour les charges de travail où le comportement de sécurité par défaut de la plateforme est acceptable. 
+
+
+| anti-ransomware | Système défini | n'importe lequel | sur | n'importe lequel | À utiliser pour les charges de travail contenant des données stratégiques qui nécessitent une protection active contre les ransomwares. 
+
+
+| production | Système défini | activé | n'importe lequel | n'importe lequel | À utiliser pour les charges de travail de production où le chiffrement est requis pour la conformité. 
+|===
+
+
+[[data-protection-policies]]
+=== Politiques de protection des données
+
+[cols="2,1,1,1,1,1,3"]
+|===
+| Nom | Type | Instantanés horaires | Instantanés quotidiens | Instantanés hebdomadaires | Instantanés mensuels | Résumé 
+
+
+| défaut | Système défini | 6 | 2 | 2 | 0 | À utiliser pour les charges de travail standard nécessitant des points de récupération à court terme sans surcharge de conservation à long terme. 
+
+
+| horaire sur 3 mois | Système défini | 23 | 6 | 4 | 3 | À utiliser pour les charges de travail réglementées ou critiques pour l'entreprise nécessitant des points de récupération intrajournaliers précis et une conservation de l'historique sur trois mois. 
+|===

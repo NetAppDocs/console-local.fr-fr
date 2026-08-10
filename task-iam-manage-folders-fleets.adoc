@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-folders-fleets.html 
+keywords: folders, fleets, resource hierarchy, create folders, create fleets, iam, identity and access management, fleet id, initial iam setup, fleet hierarchy design, folder hierarchy configuration, rbac setup, tenancy setup, organizational onboarding, team structure alignment, delegated administration model, access governance planning, operational readiness 
+summary: 'Ajoutez des dossiers et des flottes en fonction de la structure de votre entreprise. Après avoir créé des dossiers et des flottes, vous pouvez leur associer des ressources et gérer l"accès des membres à ces flottes.' 
+---
+= Ajoutez des dossiers et des flottes à l’organisation de déploiement local de votre NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Créez des dossiers et des flottes adaptés à la structure de votre entreprise, contrôlez l'accès et organisez les ressources dans le déploiement local de NetApp Console.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, ou administrateur de dossier ou de flotte. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+NetApp Console le déploiement local crée une flotte par défaut lors de la création d'une organisation. Vous pouvez ajouter d'autres flottes et les regrouper dans des dossiers. link:concept-identity-and-access-management.html["Découvrez la hiérarchie des ressources dans la NetApp Console"].
+
+
+
+[[using-folders-and-fleets-to-organize-resources]]
+== Utilisation de dossiers et de flottes pour organiser les ressources
+
+Les dossiers et les flottes sont les deux éléments fondamentaux qui vous permettent d'organiser votre organisation selon le mode de fonctionnement réel de vos équipes. Par exemple, un dossier par région avec une flotte de production et une flotte de développement à l'intérieur de chacun.
+
+* Les dossiers regroupent les flottes apparentées et prennent en charge l'administration déléguée et l'héritage des rôles.
+* Les flottes sont l’endroit où vous associez des ressources à la gestion et où vous accordez aux utilisateurs un accès opérationnel.
+
+
+Vous pouvez créer des dossiers et des flottes en premier, puis ajouter des ressources et des accès membres ultérieurement. Cela vous permet de planifier votre hiérarchie de ressources avant d’ajouter des utilisateurs et des ressources dans le déploiement local de NetApp Console. Si votre structure est déjà définie, vous pouvez ajouter des ressources et attribuer des accès lors de la création de la flotte. Vous pouvez mettre à jour les flottes à tout moment.
+
+Par exemple, placez les clusters de production dans une flotte de Production et les clusters de test dans une flotte de Test, et accordez à chaque équipe l'accès uniquement à la flotte dont elle est propriétaire.
+
+
+
+[[folders]]
+=== Dossiers
+
+Les dossiers permettent d'organiser les flottes selon leur structure organisationnelle, par exemple par unité commerciale, région ou équipe. Vous pouvez imbriquer les dossiers pour refléter votre organisation.
+
+Les rôles attribués au niveau d'un dossier sont hérités par ses sous-dossiers et les flottes. Vous pouvez également utiliser un dossier pour déléguer les tâches d'attribution de flottes à un administrateur de dossier ou de flotte pour cette partie de la hiérarchie.
+
+
+NOTE: Les membres travaillent par flottes, et non par dossiers. Une ressource associée uniquement à un dossier n'est gérable par les membres que lorsqu'elle est associée à une flotte.
+
+Par exemple, une entreprise régionale peut utiliser des dossiers pour organiser le stockage ONTAP par unité opérationnelle et charge de travail. Elle peut créer un dossier principal pour North America, des sous-dossiers pour Production et Development, ainsi que des fleets pour les clusters ONTAP hébergeant SAP, VMware et les volumes de sauvegarde. Les administrateurs de stockage affectés au dossier North America héritent de l'accès à toutes les fleets enfants, tandis que les équipes applicatives n'ont accès qu'aux fleets qu'elles gèrent.
+
+
+
+[[fleets]]
+=== Flottes
+
+Associez les ressources aux flottes pour que les membres puissent les gérer. Une flotte peut se trouver directement au niveau de l'organisation ou dans un dossier.
+
+Par exemple, une entreprise du domaine de la santé utilise le stockage ONTAP dans des environnements distincts de production et de développement. La flotte de production exécute des applications cliniques et des bases de données de dossiers patients, tandis que la flotte de développement prend en charge les tests et la validation. Cette séparation protège les données en direct, applique un contrôle d'accès plus strict en production, facilite l'auditabilité et le contrôle du moindre privilège, et permet aux équipes de développement de travailler sans impacter les charges de travail orientées vers les patients.
+
+Les utilisateurs naviguent entre les flottes qui leur sont attribuées sur la page *Systèmes* pour gérer les ressources associées à chaque flotte.
+
+
+
+[[add-a-folder-or-fleet]]
+== Ajouter un dossier ou une flotte
+
+Ajoutez une flotte lorsque vous avez besoin de définir une nouvelle limite pour les ressources et l'accès des membres, et ajoutez un dossier lorsque vous souhaitez regrouper des flottes liées et déléguer leur administration. Par exemple, ajoutez un `Production` dossier contenant une `Production-US-East` flotte et une `Production-EU-West` flotte, puis attribuez à un responsable régional le rôle d'administrateur de dossier ou de flotte uniquement pour sa flotte.
+
+Vous pouvez créer jusqu'à sept niveaux hiérarchiques.
+
+Vous pouvez ajouter des ressources et attribuer des accès aux membres lors de la création d'une flotte ou d'un dossier, ou vous pouvez le faire ultérieurement.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Organization*.
+. Depuis la page *Organization*, sélectionnez *Add folder or fleet*.
+. Sélectionnez *Dossier* ou *Flotte*.
+. Dans *Nom et emplacement* : saisissez un nom et choisissez un emplacement pour le dossier ou la flotte.
+
+
+[[associate-resource-folder]]
+. Facultatif : Développez la section *Ressources* pour associer des ressources à la flotte ou au dossier.
++
+.. Cochez la case à cocher en regard de la ressource que vous souhaitez associer, puis sélectionnez *Associer à la flotte*. Si vous n'avez pas encore ajouté de systèmes au déploiement local de NetApp Console, vous pouvez effectuer cette étape ultérieurement.
++
+
+NOTE: Les membres ne peuvent pas accéder aux ressources d'un dossier tant que ces ressources ne sont pas affectées à une flotte.
+
+
+
+. Facultatif : développez la section *Accès* pour attribuer des droits d’accès aux membres. Sélectionnez *Ajouter un membre* pour attribuer un accès et un rôle. Par défaut, l’utilisateur qui crée la flotte y a accès.
++
+link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+. Sélectionnez *Add*.
+
+
+
+
+[[rename-a-folder-or-fleet]]
+== Renommer un dossier ou une flotte
+
+Renommez un dossier ou une flotte selon vos besoins. Le renommage n'affecte pas les ressources associées ni l'accès des membres.
+
+.Étapes
+. Depuis la page *Organisation*, accédez à une flotte ou un dossier dans le tableau, sélectionnez image:icon-action.png["Une icône avec trois points"] puis sélectionnez *Modifier le dossier* ou *Modifier la flotte*.
+. Sur la page *Modifier*, saisissez un nouveau nom et sélectionnez *Appliquer*.
+
+
+
+
+[[delete-a-folder-or-fleet]]
+== Supprimer un dossier ou une flotte
+
+Supprimez les dossiers et les flottes dont vous n'avez plus besoin, par exemple après une restructuration d'équipe ou la finalisation d'une flotte.
+
+Avant de supprimer un dossier ou une flotte, effectuez les vérifications suivantes :
+
+* Vérifiez que le dossier ou la flotte ne contient pas de ressources. link:task-iam-manage-resources.html#remove-resource["Apprenez comment supprimer les associations de ressources"].
+* Examiner les membres qui ont encore accès au dossier ou à la flotte. link:task-iam-users-fleets-assign.html["Afficher les attributions d'accès des membres"].
+* Supprimez ou mettez à jour les accès des membres selon les besoins. link:task-iam-users-fleets-assign.html["Modifier les attributions d'accès des membres"].
+* Si vous supprimez une flotte, transférez d'abord les ressources vers la flotte cible. link:task-iam-manage-resources.html["Découvrez comment déplacer des ressources entre les flottes"].
+
+
+.Étapes
+. Depuis la page *Organisation*, accédez à une flotte ou un dossier dans le tableau, sélectionnez image:icon-action.png["Une icône avec trois points"] puis sélectionnez *Supprimer*.
+. Confirmez que vous souhaitez supprimer le dossier ou la flotte.
+
+
+
+
+[[manage-fleets-and-folders-in-netapp-console-local-deployment]]
+== Gérez les flottes et les dossiers dans le déploiement local de NetApp Console
+
+Après la configuration initiale, vous pouvez effectuer les opérations suivantes :
+
+* *Gérer les associations de ressources pour les dossiers et les flottes* : link:task-iam-manage-resources.html["Apprenez à associer des ressources à des flottes et à des dossiers"].
+* *Afficher ou mettre à jour les droits d'accès pour un dossier ou une flotte* : link:task-iam-users-fleets-assign.html["Découvrez comment accorder aux utilisateurs l'accès aux flottes"].
+* *Gérer un membre sur plusieurs dossiers et flottes* : link:task-iam-manage-roles.html["Découvrez comment gérer l'accès des membres"].
+* *Ajouter des membres supplémentaires et attribuer des autorisations initiales* : link:task-iam-manage-members-permissions.html["Apprenez à gérer les membres et les autorisations"].
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:concept-identity-and-access-management.html["Découvrez les notions d'identité et d'accès dans la NetApp Console"]
+* link:task-iam-fleet-mgmt-get-started.html["Commencez à utiliser la gestion des identités et des accès dans la NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Gérer les affectations d'accès à la flotte"]
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Découvrez l'API d'identité et de gestion des accès"^]
+

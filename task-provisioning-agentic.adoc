@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: task-provisioning-agentic.html 
+keywords: agentic provisioning, AI-assisted provisioning, natural language, conversational provisioning, plan-and-approve, storage class, Console assistant, LLM, RBAC, netapp console local 
+summary: 'Utilisez le provisionnement agentique piloté par l"IA pour répondre de manière autonome aux demandes de stockage dans le déploiement local de NetApp Console.' 
+---
+= Provisionnez le stockage avec des workflows assistés par l'IA (agentiques) dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, utilisez le provisionnement assisté par IA (agentique) lorsque vous souhaitez demander du stockage de manière conversationnelle, examiner un plan proposé et approuver la modification. Cette approche est utile lorsque vous souhaitez effectuer des demandes plus rapidement avec moins de navigation dans l’interface utilisateur, tout en maintenant le provisionnement aligné sur les classes de stockage et le RBAC.
+
+
+NOTE: Cette documentation relative à la connexion d'un LLM à l'assistant Console pour activer les fonctionnalités d'IA est fournie à titre d'aperçu technologique. Dans le cadre de cette offre d'aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, administrateur de dossier ou de parc, ou administrateur de stockage. Vos actions assistées par l'IA sont limitées par les mêmes droits d'accès que les actions basées sur l'interface utilisateur. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Le provisionnement par agent nécessite qu'une intégration LLM soit configurée et disponible dans votre environnement de déploiement local NetApp Console.
+
+
+
+[[before-you-begin]]
+== Avant de commencer
+
+* Assurez-vous que l'intégration LLM est configurée et activée pour votre déploiement local NetApp Console.
+* Assurez-vous que la flotte cible contient des systèmes de stockage découverts.
+* Assurez-vous que les classes de stockage sont configurées et associées à la flotte afin que l'assistant puisse proposer des plans alignés sur les classes.
+
+
+.Étapes (à réexaminer)
+. Ouvrez l’assistant NetApp Console.
+. Décrivez ce dont vous avez besoin en langage clair (par exemple, protocole, taille, environnement, objectif de performance et flotte cible, le cas échéant).
+. Examinez le plan proposé, notamment : la flotte sélectionnée et l’emplacement du système cible (le cas échéant), la classe de stockage sélectionnée ou recommandée, les principaux paramètres qui seront appliqués (comportement de capacité, calendrier de protection, exigences de sécurité et toute intention relative à la QoS, si elle est indiquée)
+. Confirmez ou modifiez le plan. Si le plan sélectionne une classe ou un emplacement inattendu, spécifiez la classe, la flotte ou les contraintes souhaitées et régénérez le plan.
+. Approuvez l'exécution pour provisionner la charge de travail.
+. Vérifiez la ressource créée dans l'inventaire de stockage et confirmez qu'elle est associée à la classe de stockage prévue pour la surveillance continue des dérives.
+

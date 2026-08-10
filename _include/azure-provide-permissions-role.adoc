@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+Accédez au portail Azure et attribuez le rôle personnalisé Azure à la machine virtuelle de l’agent Console pour un ou plusieurs abonnements.
+
+.Étapes
+. Dans le portail Azure, ouvrez le service *Abonnements* et sélectionnez votre abonnement.
++
+Il est important d'attribuer le rôle depuis le service *Subscriptions* car cela spécifie la portée de l'attribution de rôle au niveau de l'abonnement. La _portée_ définit l'ensemble des ressources auxquelles l'accès s'applique. Si vous spécifiez une portée à un niveau différent (par exemple, au niveau de la machine virtuelle), votre capacité à effectuer des actions depuis la NetApp Console sera affectée.
+
++
+https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview["Documentation Microsoft Azure : Comprendre la portée du contrôle d’accès basé sur les rôles (RBAC) Azure"^]
+
+. Sélectionnez *Contrôle d’accès (IAM)* > *Ajouter* > *Ajouter une attribution de rôle*.
+. Dans l'onglet *Rôle*, sélectionnez le rôle *Console Operator* et sélectionnez *Suivant*.
++
+
+NOTE: Console Operator est le nom par défaut indiqué dans la stratégie. Si vous avez choisi un autre nom pour le rôle, sélectionnez ce nom à la place.
+
+. Dans l'onglet *Membres*, complétez les étapes suivantes :
++
+.. Attribuez l’accès à une *identité gérée*.
+.. Sélectionnez *Select members*, sélectionnez l’abonnement dans lequel la machine virtuelle de l’agent Console a été créée, sous *Identité gérée*, choisissez *Machine virtuelle*, puis sélectionnez la machine virtuelle de l’agent Console.
+.. Sélectionnez *Sélectionner*.
+.. Sélectionnez *Suivant*.
+.. Sélectionnez *Révision + attribution*.
+.. Si vous souhaitez gérer des ressources dans d'autres abonnements Azure, basculez vers cet abonnement, puis répétez ces étapes.
+
+
+

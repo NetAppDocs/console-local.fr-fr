@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: reference-llm-supported-models.html 
+keywords: LLM, supported models, OpenAI, OpenAI-compatible, model selection, netapp console 
+summary: Examinez les types et modèles de fournisseurs LLM que vous pouvez utiliser dans le déploiement local de NetApp Console. 
+---
+= Fournisseurs et modèles LLM pris en charge dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console le déploiement local prend en charge les types de fournisseurs OpenAI, compatibles OpenAI et Anthropic LLM. Les modèles que vous pouvez sélectionner dépendent du type de fournisseur et du point de terminaison que vous configurez.
+
+
+NOTE: Cette documentation relative à la connexion d'un LLM à l'assistant Console pour activer les fonctionnalités d'IA est fournie à titre d'aperçu technologique. Dans le cadre de cette offre d'aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+
+Choisissez un modèle qui corresponde à vos exigences en matière de performance, de coût et de gouvernance.
+
+
+
+[[see-how-provider-type-affects-model-availability]]
+== Découvrez comment le type de fournisseur affecte la disponibilité du modèle
+
+Le type de fournisseur que vous choisissez détermine les modèles qui apparaissent dans la liste des modèles de déploiement local de la Console :
+
+* *OpenAI* — fournit des modèles pour une intégration directe à OpenAI.
+* *Compatible avec OpenAI* — fournit des modèles que le point de terminaison compatible de votre organisation expose.
+* *Anthropic* — propose des modèles pour une intégration directe à Anthropic.
+
+
+Les modèles affichés peuvent varier en fonction de la configuration du point de terminaison, du comportement du proxy ou de la passerelle et de la politique de l'organisation. Les types de fournisseurs diffèrent selon le point de terminaison auquel vous vous connectez et les modèles exposés par ce point de terminaison, et non selon le protocole de transport.
+
+
+
+[[supported-openai-models]]
+== Modèles OpenAI pris en charge
+
+* GPT-5.4
+* GPT-5.5
+
+
+
+
+[[supported-anthropic-models]]
+== Modèles Anthropic pris en charge
+
+* Claude Sonnet 4.6
+* Claude Opus 4.6, 4.7 et 4.8
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:task-llm-connect.html["Connectez votre LLM et activez l’assistant NetApp Console"].
+* link:concept-llm-integration.html["Découvrez l'intégration LLM dans le déploiement local de NetApp Console"].
+

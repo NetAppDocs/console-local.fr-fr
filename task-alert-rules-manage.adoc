@@ -1,0 +1,178 @@
+---
+sidebar: sidebar 
+permalink: task-alert-rules-manage.html 
+keywords: notifications, alerts, notification rules, alert rules, severity, impact area, email, webhook, mute, netapp console local 
+summary: Configurez les règles de notification dans le déploiement local de NetApp Console pour contrôler quelles alertes déclenchent des notifications, qui les reçoit et comment elles sont distribuées. 
+---
+= Configurez les règles de notification pour les alertes dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Configurez les règles de notification dans le déploiement local de NetApp Console pour contrôler quelles alertes déclenchent des notifications, qui les reçoit et comment elles sont distribuées.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, administrateur de stockage, analyste de support opérationnel ou tout autre rôle d'administrateur pour NetApp Backup and Recovery. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Utilisez les règles de notification pour acheminer les alertes pertinentes aux bonnes personnes via les canaux adaptés à votre environnement, tout en réduisant le bruit des alertes qui ne vous concernent pas. Les règles de notification complètent la page Alerts : vous examinez ou résolvez l'alerte dans le workflow Alerts, puis vous utilisez les règles pour contrôler la façon dont les alertes similaires seront transmises à l'avenir.
+
+Une règle de notification associe les alertes à des conditions que vous définissez, telles que le service, la gravité et la zone d'impact, puis délivre une notification via les canaux que vous sélectionnez. Le déploiement local de la Console inclut des règles de notification par défaut que vous pouvez consulter et ajuster, et vous pouvez créer vos propres règles personnalisées. Vous pouvez également mettre en sourdine des règles pour supprimer temporairement les notifications lors d'événements planifiés, comme les fenêtres de maintenance.
+
+* link:https://docs.netapp.com/us-en/ontap-ems/acp-auto-events.html["En savoir plus sur le ONTAP EMS et les alertes disponibles."^]
+
+
+
+
+[[before-you-begin]]
+== Avant de commencer
+
+* Pour envoyer des notifications par e-mail, l'administrateur de votre organisation doit configurer un serveur de messagerie dans le déploiement local de la Console. Pour envoyer des notifications à un système externe, l'administrateur de votre organisation doit configurer un webhook. Pour connaître la procédure, consultez link:task-console-configure-notifications-delivery.html["Configurer la diffusion des notifications"].
+* Le centre de notifications du déploiement local de la Console affiche les notifications par défaut, aucune configuration supplémentaire n’est donc requise pour les notifications dans la Console.
+
+
+
+
+[[view-notification-rules]]
+== Consulter les règles de notification
+
+La page des règles de notification centralise la consultation et la gestion de toutes les règles applicables à votre organisation. Chaque règle présente ses attributs principaux, ce qui vous permet d’évaluer et d’ajuster rapidement le comportement de vos alertes.
+
+.Étapes
+. Dans le menu de navigation de gauche, sélectionnez *Santé > Alertes*.
+. Sélectionnez *Paramètres de notification*.
+. Consultez les règles de la liste. Chaque règle indique son statut actif, son nom, les services et niveaux de gravité qu'elle surveille, les rôles autorisés à recevoir des notifications, les canaux de diffusion activés, la date de sa dernière modification et toute période de mise en sourdine programmée.
+. Pour trouver une règle spécifique, utilisez les commandes de filtre et de recherche pour filtrer par statut actif, service, gravité, rôle, canal ou statut de mise en sourdine.
+
+
+
+
+[[create-a-notification-rule]]
+== Créer une règle de notification
+
+Créez une règle de notification pour définir les conditions qui déclenchent une notification et la manière dont cette notification est diffusée.
+
+
+NOTE: Vous ne pouvez pas définir de règles de notification pour les flottes. Vous pouvez les définir uniquement pour des systèmes spécifiques. Dans les environnements de grande taille comportant de nombreux systèmes, envisagez de créer des règles plus larges par niveau de gravité plutôt que de dupliquer les règles pour chaque système. Par exemple, une règle Critique unique couvrant tous les systèmes agit comme une règle générale, avec des règles supplémentaires ciblées pour les systèmes nécessitant un routage ou des destinataires différents.
+
+.Exemple de règle de notification pour les alertes critiques dans tous les systèmes
+Supposons que vous souhaitiez éviter qu'une alerte critique ne passe inaperçue, quel que soit le système d'origine. Vous pouvez créer une règle générale qui achemine toutes les alertes critiques vers le Console Notification Center pour les administrateurs de stockage.
+
+Dans cet exemple, vous créez une règle avec les paramètres suivants :
+
+* *Services* : Tous
+* *Gravité* : Critique
+* *Rôle IAM* : Administrateur de stockage
+* *Système* : (Laisser vide pour appliquer à tous les systèmes)
+* *Méthode de distribution* : Centre de notifications de la console
+
+
+Grâce à cette règle, les administrateurs de stockage voient une notification dans la Console pour chaque alerte critique sur l'ensemble des systèmes. Cette règle sert de base que vous pouvez compléter par des règles plus ciblées.
+
+.Exemple de règle de notification ciblée pour les alertes de capacité d'administration du stockage
+Supposons que vos administrateurs de stockage doivent intervenir immédiatement en cas de problème critique de capacité sur un système de production spécifique, mais que vous ne souhaitez pas encombrer leurs boîtes de réception d'alertes de moindre gravité. Vous pouvez créer une règle ciblée qui envoie un e-mail aux administrateurs de stockage uniquement lorsqu'une alerte critique de capacité est déclenchée sur ce système.
+
+Dans cet exemple, vous créez une règle avec les paramètres suivants :
+
+* *Services* : gestion ONTAP
+* *Gravité* : Critique
+* *Zone d'impact* : Capacité
+* *Rôle IAM* : Administrateur de stockage
+* *Système* : <system_name>
+* *Mode de livraison* : Email
+
+
+Grâce à cette règle, le déploiement local de Console envoie un e-mail à tous les administrateurs de stockage du système spécifié lorsqu'une alerte de capacité critique survient. Les alertes de moindre gravité, telles que les avertissements ou les messages d'information, ne génèrent pas d'e-mail, de sorte que l'équipe puisse se concentrer sur les problèmes nécessitant une attention urgente.
+
+.Étapes
+. Dans le menu de navigation de gauche, sélectionnez *Santé > Alertes*.
+. Sélectionnez *Paramètres de notification*, puis sélectionnez *Ajouter une règle*.
+. Définissez les conditions auxquelles la règle correspond :
++
+** *Nom de la règle* : saisissez un nom concis et descriptif. Ce champ est obligatoire.
+** *Description de la règle* : saisissez éventuellement un contexte supplémentaire concernant l'objectif de la règle.
+** *Services* : sélectionnez un ou plusieurs services ONTAP ou de plateforme auxquels la règle s’applique.
+** *Rôles* : sélectionnez les rôles d’accès que les utilisateurs doivent posséder pour recevoir des notifications lorsque la règle est déclenchée.
+** *Niveaux de gravité* : sélectionnez les niveaux de gravité que la règle surveille, tels que Critique, Avertissement, Erreur ou Information.
+** *Domaine d'impact* : sélectionnez les domaines opérationnels à faire correspondre, tels que la capacité ou la performance.
+** *Nom de l'alerte* : sélectionnez les types d'alerte spécifiques qui déclenchent la règle.
+** *Système* : sélectionnez le contexte système auquel la règle s’applique.
+
+
+. Sélectionnez les canaux de diffusion de la notification :
++
+** *Courriel* : envoie des courriels d'alerte aux utilisateurs qui ont les rôles sélectionnés. Nécessite un serveur de messagerie configuré.
+** *Webhook* : envoie des données d’alerte à un système externe. Nécessite la sélection d’une intégration webhook configurée.
+** *Centre de notifications de la console* : affiche des alertes en temps réel pour les utilisateurs qui ont les rôles sélectionnés.
+
+
+. Pour désactiver les notifications de cette règle pendant une période planifiée, comme une fenêtre de maintenance, définissez une planification *Désactiver les notifications* et choisissez une récurrence si vous souhaitez que la période de désactivation se répète. Vous pouvez ajouter plusieurs périodes de désactivation par règle, ce qui est utile pour les cycles de maintenance récurrents, comme les mises à jour hebdomadaires.
+. Sélectionnez *Créer*.
+
+
+
+
+[[enable-or-disable-a-notification-rule]]
+== Activer ou désactiver une règle de notification
+
+Activez ou désactivez les règles de notification individuelles pour contrôler les conditions qui déclenchent des notifications. Désactivez les règles qui ne sont pas pertinentes pour votre environnement afin de réduire les notifications superflues, et activez les règles pour recommencer à recevoir leurs notifications.
+
+.Étapes
+. Dans le menu de navigation de gauche, sélectionnez *Santé > Alertes*.
+. Sélectionnez *Paramètres de notification*.
+. Repérez la règle que vous souhaitez modifier.
+. Activez ou désactivez le commutateur *Actif* de la règle. La modification prend effet immédiatement.
+
+
+
+
+[[mute-a-notification-rule]]
+== Mettre en sourdine une règle de notification
+
+Mettez en sourdine une règle de notification pour suspendre la livraison des alertes pendant un événement planifié, tel qu'une fenêtre de maintenance, sans désactiver la règle. Les alertes continuent d'apparaître dans la page Alertes pendant la période de mise en sourdine — seules les notifications par e-mail, webhook et dans la console sont supprimées. Lorsque la période de mise en sourdine expire, les notifications reprennent automatiquement.
+
+Vous pouvez ajouter plusieurs fenêtres de mise en sourdine à une seule règle et configurer chacune d'elles pour qu'elle se répète selon une planification.
+
+.Exemples de fenêtres muettes
+* *Fenêtre de maintenance ponctuelle* : Vous effectuez une mise à jour du firmware d'un système de stockage samedi soir et souhaitez désactiver les alertes pendant cette période. Définissez une fenêtre de désactivation des notifications du samedi 22h00 au dimanche 2h00, sans récurrence. À l'expiration de cette fenêtre, les notifications reprennent automatiquement.
+* *Fenêtre de mise à jour hebdomadaire récurrente* : Votre équipe effectue des mises à jour des systèmes tous les dimanches de minuit à 4 h du matin. Ajoutez une fenêtre de mise en sourdine avec récurrence hebdomadaire afin que les notifications soient automatiquement désactivées chaque semaine sans intervention manuelle. Si un deuxième système a son propre calendrier de mise à jour à un autre moment, ajoutez une deuxième fenêtre de mise en sourdine à la même règle, avec sa propre heure de début et sa propre récurrence.
+
+
+.Étapes
+. Dans le menu de navigation de gauche, sélectionnez *Santé > Alertes*.
+. Sélectionnez *Règles de notification*.
+. Dans la liste des règles, repérez la règle que vous souhaitez désactiver et sélectionnez le menu d'actions correspondant.
+. Sélectionnez *Modifier*.
+. Dans la section *Désactiver les notifications*, définissez la date et l'heure de début et de fin de la période de désactivation.
+. Vous pouvez également sélectionner une récurrence pour répéter la fenêtre selon un calendrier.
+. Pour ajouter des fenêtres muettes supplémentaires, sélectionnez *Ajouter une fenêtre muette* et répétez les étapes précédentes.
+. Sélectionnez *Enregistrer*.
+
+
+
+
+[[delete-a-notification-rule]]
+== Supprimer une règle de notification
+
+Supprimez une règle de notification si vous n'en avez plus besoin. La suppression d'une règle est définitive, vous ne pourrez donc pas la récupérer.
+
+.Étapes
+. Dans le menu de navigation de gauche, sélectionnez *Santé > Alertes*.
+. Sélectionnez *Paramètres de notification*.
+. Dans la liste des règles, repérez la règle que vous souhaitez supprimer et sélectionnez le menu d’actions correspondant.
+. Sélectionnez *Supprimer* dans le menu d’actions.
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:task-console-configure-notifications-delivery.html["Configurer la diffusion des notifications"]
+* link:concept-console-alerts.html["Découvrez les alertes de la Console"]
+* link:task-alerts-monitor.html["Afficher les alertes"]
+

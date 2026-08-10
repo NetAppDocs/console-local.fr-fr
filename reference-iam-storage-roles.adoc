@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: reference-iam-storage-roles.html 
+keywords: storage roles, Storage admin, Storage viewer, System health specialist, ONTAP management, storage governance, identity and access management, access roles, rbac, netapp console local 
+summary: Vous pouvez attribuer les rôles suivants aux utilisateurs afin de leur donner accès aux fonctionnalités de gestion du stockage dans le déploiement local de NetApp Console. Vous pouvez attribuer aux utilisateurs un rôle d’administrateur pour gérer le stockage ou un rôle de lecteur pour la surveillance. 
+---
+= Rôles d'accès au stockage pour le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez attribuer les rôles suivants aux utilisateurs afin de leur donner accès aux fonctionnalités de gestion du stockage dans le déploiement local de NetApp Console. Vous pouvez attribuer aux utilisateurs un rôle d’administrateur pour gérer le stockage ou un rôle de lecteur pour la surveillance.
+
+Les administrateurs peuvent attribuer des rôles de stockage aux utilisateurs pour les ressources et fonctionnalités de stockage suivantes :
+
+Ressources de stockage :
+
+* Clusters ONTAP sur site
+
+
+Services et fonctionnalités de la console :
+
+* Fonctions de santé du stockage
+
+
+.Exemple de rôles de stockage dans NetApp Console lors d’un déploiement local
+La société multinationale XYZ Corporation dispose d'une importante équipe d'ingénieurs et d'administrateurs de stockage. Elle permet à cette équipe de gérer les ressources de stockage de leurs régions tout en limitant l'accès aux tâches principales de déploiement local de la Console, telles que la gestion des utilisateurs et des licences.
+
+Au sein d'une équipe de 12 personnes, deux utilisateurs se voient attribuer le rôle de *Storage viewer*, ce qui leur permet de surveiller les ressources de stockage associées aux parcs de déploiement locaux de la NetApp Console qui leur sont attribués. Les neuf autres se voient attribuer le rôle de *Storage admin*, qui inclut la possibilité de gérer les mises à jour logicielles, d'accéder à ONTAP System Manager via le déploiement local de la NetApp Console, ainsi que de découvrir des ressources de stockage (ajouter des systèmes). Un membre de l'équipe se voit attribuer le rôle de *System health specialist* afin qu'il puisse gérer l'intégrité des ressources de stockage de sa région, sans toutefois pouvoir modifier ni supprimer de systèmes. Cette personne peut également effectuer des mises à jour logicielles sur les ressources de stockage des parcs qui lui sont attribués.
+
+L'organisation compte deux utilisateurs supplémentaires ayant le rôle d'*Organization admin* qui peuvent gérer tous les aspects du déploiement local de la NetApp Console, y compris la gestion des utilisateurs et la gestion des licences, ainsi que plusieurs utilisateurs ayant le rôle d'*Folder or fleet admin* qui peuvent effectuer des tâches d'administration du déploiement local de la NetApp Console pour les dossiers et les flottes qui leur sont attribués.
+
+Le tableau suivant présente les actions effectuées par chaque rôle de stockage.
+
+[cols="40,20a,20a,20a"]
+|===
+| Fonctionnalité et action | Administrateur de stockage | Spécialiste de la santé du système | Visionneuse de stockage 
+
+
+4+| *Gestion du stockage*: 
+
+
+| Découvrez de nouvelles ressources (ajoutez des systèmes)  a| 
+Oui
+ a| 
+Oui
+ a| 
+Non
+
+
+
+| Afficher les systèmes ajoutés  a| 
+Oui
+ a| 
+Oui
+ a| 
+Non
+
+
+
+| Supprimer des systèmes de la NetApp Console  a| 
+Oui
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Modifier les systèmes  a| 
+Oui
+ a| 
+Non
+ a| 
+Non
+
+
+
+4+| *Accès au gestionnaire système* 
+
+
+| Peut saisir les identifiants  a| 
+Oui
+ a| 
+Oui
+ a| 
+Non
+
+|===

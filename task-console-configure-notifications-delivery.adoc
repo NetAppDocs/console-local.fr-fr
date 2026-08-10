@@ -1,0 +1,128 @@
+---
+sidebar: sidebar 
+permalink: task-console-configure-notifications-delivery.html 
+keywords: console local, SMTP, email server, webhook,  notifications delivery, alert routing, incident response, operational awareness, third-party integration, SIEM 
+summary: Configurez les canaux de diffusion des notifications pour le déploiement local de la NetApp Console. 
+---
+= Configurez les canaux de distribution des notifications dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, vous pouvez configurer plusieurs canaux pour les notifications d'alerte, notamment par e-mail et par webhooks.
+
+.Rôles d'accès requis
+Super administrateur ou administrateur de l'organisation. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Par défaut, le déploiement local de la Console affiche les notifications via son système de notifications intégré. La configuration de canaux de diffusion supplémentaires vous permet de recevoir les notifications de la manière la plus adaptée à votre flux de travail.
+
+Vous pouvez envoyer toutes les notifications par les mêmes canaux ou utiliser des canaux différents pour différents types de notifications. Par exemple, vous pouvez envoyer des alertes de stockage urgentes par e-mail tout en acheminant d'autres alertes vers un outil de surveillance tiers via un webhook.
+
+Une fois les canaux de diffusion des notifications configurés, vous pouvez configurer les règles de notification et les affecter à différents canaux. link:task-alert-rules-manage.html["Apprenez à configurer les règles de notification"].
+
+
+
+[[configure-an-email-server]]
+== Configurer un serveur de messagerie
+
+Lorsque vous configurez un serveur de messagerie, le déploiement local de Console envoie des notifications, des alertes et des invitations d'utilisateurs via ce serveur. Le déploiement local de Console prend en charge les serveurs de messagerie SMTP, qu'il s'agisse de votre serveur de messagerie d'entreprise existant ou d'un service de messagerie tiers.
+
+.Étapes
+. Sélectionnez *Administration > Console*.
+. Sélectionnez *Configuration* pour ouvrir la page des configurations système.
+. Dans la section *Serveur de messagerie*, sélectionnez *Configurer*.
+. Saisissez les informations de connexion de votre serveur de messagerie :
++
+** Ajoutez un nom d'expéditeur et une adresse e-mail d'expéditeur.
+** Le *serveur SMTP* : nom d’hôte ou adresse IP de votre serveur SMTP. Pour plusieurs serveurs, indiquez le serveur principal.
+** Sélectionnez le protocole de connexion dans la liste déroulante *Sécurité de la connexion*. Le port est configuré pour vous et est en lecture seule : 25 pour SMTP avec STARTTLS, ou 465 pour SMTPS.
++
+Le protocole SMTPS (port 465) établit immédiatement une connexion chiffrée et est recommandé pour les environnements sensibles à la sécurité. Le protocole STARTTLS (port 25) permet de passer d'une connexion non chiffrée à une connexion chiffrée, mais peut revenir à une transmission non chiffrée si la négociation du chiffrement échoue.
+
+
+
+. Sélectionnez *E-mail de test* pour envoyer un e-mail de test à un destinataire que vous spécifiez.
+. Après la réussite du test, sélectionnez *Enregistrer* pour enregistrer la configuration.
++
+Si le test échoue, revérifiez les paramètres que vous avez saisis et vérifiez que le déploiement local de NetApp Console dispose d'un accès réseau au serveur de messagerie.
+
+
+
+
+
+[[update-an-email-server-configuration]]
+=== Mettre à jour la configuration d'un serveur de messagerie
+
+Vous pouvez mettre à jour la configuration d'un serveur de messagerie existant si vous souhaitez utiliser un serveur de messagerie différent.
+
+.Étapes
+. Sélectionnez *Administration > Console*.
+. Sélectionnez *Configuration* pour ouvrir la page des configurations système.
+. Dans la section *Serveur de messagerie*, sélectionnez *Configurer*.
+. Sélectionnez *Effacer les champs* pour effacer la configuration existante.
+. Saisissez les nouvelles informations de connexion pour votre serveur de messagerie.
+. Sélectionnez *E-mail de test* pour envoyer un e-mail de test à un destinataire que vous spécifiez.
+. Après la réussite du test, sélectionnez *Enregistrer* pour enregistrer la nouvelle configuration.
++
+Si le test échoue, revérifiez les paramètres que vous avez saisis et vérifiez que le déploiement local de NetApp Console dispose d'un accès réseau au serveur de messagerie.
+
+
+
+
+
+[[remove-an-email-server-configuration]]
+=== Supprimer une configuration de serveur de messagerie
+
+Vous pouvez supprimer la configuration du serveur de messagerie si vous ne souhaitez plus que le déploiement local de Console envoie des e-mails.
+
+.Étapes
+. Sélectionnez *Administration > Console*.
+. Sélectionnez *Configuration* pour ouvrir la page de configuration des systèmes.
+. Dans la section *Serveur de messagerie*, sélectionnez *Configurer*.
+. Sélectionnez *Effacer les champs* pour effacer la configuration existante.
+. Sélectionnez *Enregistrer* pour sauvegarder la configuration effacée, ce qui supprime la configuration du serveur de messagerie du déploiement local de NetApp Console.
+
+
+
+
+[[configure-a-webhook]]
+== Configurer un webhook
+
+Configurez des webhooks pour envoyer des notifications depuis le déploiement local de la Console vers d'autres outils ou services. Vous pouvez configurer plusieurs webhooks, chacun pointant vers un point de terminaison différent. Par exemple, un pour un SIEM et un autre pour un service de notification d'astreinte.
+
+Une fois que vous avez créé un webhook, les utilisateurs disposant du rôle Storage admin peuvent l’assigner à des règles d’alerte spécifiques. Par exemple, ils peuvent envoyer les alertes critiques par e-mail tout en envoyant toutes les alertes à un outil de surveillance tiers via un webhook.
+
+
+NOTE: Le déploiement local de la Console n'applique aucun contrôle d'accès aux points de terminaison webhook. Tout utilisateur ou système pouvant accéder à l'URL du point de terminaison reçoit les données d'alerte. Assurez-vous que l'accès à l'application de réception est limité aux utilisateurs autorisés via les contrôles d'accès propres à cette application.
+
+.Avant de commencer
+Vérifiez que le déploiement local de la Console peut atteindre l'application de réception via le réseau et recueillez l'URL du point de terminaison, la méthode HTTP et tous les paramètres d'authentification ou détails de certificat requis par cette application.
+
+.Étapes
+. Sélectionnez *Administration > Console*.
+. Sélectionnez *Configuration* pour ouvrir la page des configurations système.
+. Dans la section *Intégration Webhook*, sélectionnez *Configurer*.
+. Saisissez les informations requises pour le webhook :
++
+** Un nom descriptif pour le webhook.
+** L'URL du point de terminaison fournie par l'application réceptrice.
+** méthode HTTP
+** Facultatif : un certificat auto-signé au format PEM.
+** Tous les en-têtes ou secrets requis (paramètres d'authentification).
+** Format à utiliser pour l'envoi du webhook. Les formats JSON et OTEL (OpenTelemetry) sont pris en charge.
++
+Utilisez JSON pour les webhooks génériques et les points de terminaison REST personnalisés. Utilisez OTEL pour les plateformes d'observabilité qui consomment nativement des signaux OpenTelemetry, telles que Grafana ou d'autres collecteurs compatibles OpenTelemetry.
+
+
+
+. Sélectionnez *Tester le webhook* pour tester la connexion webhook et vous assurer que le déploiement local de Console peut envoyer des messages avec succès à l'application de réception.
+. Une fois le test réussi, sélectionnez *Enregistrer* pour créer le webhook.
++
+Une fois le webhook enregistré, il est disponible pour que les utilisateurs puissent le sélectionner là où les webhooks sont pris en charge, comme les options de diffusion des alertes. link:task-alert-rules-manage.html["Apprenez à créer des règles d'alerte et à assigner des webhooks pour la diffusion des alertes."]
+
+

@@ -1,0 +1,100 @@
+---
+sidebar: sidebar 
+permalink: task-storage-dashboard.html 
+keywords: storage dashboard, home page, fleet health, capacity monitoring, IOPS, performance metrics, alerts, storage KPIs, monitoring, netapp console local 
+summary: 'Dans le déploiement local de la NetApp Console, vous pouvez consulter les indicateurs sur la page d"accueil.' 
+---
+= Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez le tableau de bord de la page d'accueil dans le déploiement local de NetApp Console comme point de départ par défaut pour surveiller l'état et les performances du stockage. Il fournit des indicateurs de haut niveau sur l'état du parc, les alertes, la sécurité, l'utilisation de la capacité, la latence, le débit et les IOPS.
+
+Le tableau de bord de la page d'accueil est automatiquement limité aux flottes et systèmes que vous êtes autorisé à consulter. Vous pouvez également ajouter un tableau de bord personnalisé à la page d'accueil pour une surveillance adaptée à un rôle spécifique.
+
+Utilisez les fiches comme un processus de triage par étapes. Commencez par *Fleet health* et *Alerts* pour identifier les zones à risque. Utilisez *System health status* et *Recommended remediations* pour identifier les ressources impactées. Utilisez *Capacity usage*, *Latency*, *Throughput* et *IOPS* pour analyser les causes profondes.
+
+
+
+[[fleet-health]]
+== Santé de la flotte
+
+La fiche « Fleet health » présente un résumé de l'état des cinq principales flottes, incluant le nombre de systèmes, la capacité utilisée, la conformité aux normes de sécurité et les alertes critiques. Utilisez cette fiche pour identifier les flottes nécessitant une attention immédiate. Sélectionnez le nom de la flotte pour afficher un tableau de bord réservé à la flotte sélectionnée.
+
+
+
+[[recommended-remediations]]
+== Mesures correctives recommandées
+
+La fiche *Mesures correctives recommandées* répertorie les problèmes actifs et les actions suggérées. La fiche hiérarchise les mesures correctives en fonction de la pression sur les capacités, des ressources hors ligne et des risques liés à la protection.
+
+
+
+[[alerts]]
+== Alertes
+
+La fiche *Alertes* récapitule le volume d'alertes sur la période sélectionnée et les regroupe par niveau de gravité. Utilisez cette fiche pour comprendre la charge d'incidents actuelle et repérer les changements récents concernant les alertes critiques, d'avertissement ou d'information.
+
+
+
+[[security]]
+== Sécurité
+
+La fiche *Sécurité* récapitule les indicateurs de conformité et de protection, tels que la conformité du système et les contrôles liés aux ransomwares. Utilisez cette vue pour suivre les tendances en matière de sécurité de vos ressources.
+
+
+
+[[capacity-usage]]
+== Utilisation de la capacité
+
+La carte *Utilisation des capacités* affiche les tendances d'utilisation prévisionnelles et historiques des flottes ou systèmes sélectionnés. Utilisez cette carte pour identifier les tendances de croissance et planifier une capacité supplémentaire.
+
+
+
+[[latency]]
+== Latence
+
+La carte *Latence* permet de suivre l'évolution du temps de réponse des systèmes sélectionnés. Utilisez cette tendance pour détecter les retards de performance émergents et comparer la latence relative entre les ressources.
+
+
+
+[[throughput]]
+== Débit
+
+La carte *Débit* affiche les débits de transfert de données au fil du temps pour les systèmes sélectionnés. Utilisez cette carte pour comprendre l’intensité de la charge de travail et surveiller les variations de la demande de débit.
+
+
+
+[[iops]]
+== Op E/S par sec
+
+La carte *IOPS* affiche les débits d'entrée/sortie au fil du temps. Utilisez cette carte pour comparer les niveaux d'activité entre les systèmes et identifier une demande d'E/S soutenue ou intermittente.
+
+
+
+[[dashboard-card-example-metric-card]]
+== Carte du tableau de bord (exemple de carte de métrique)
+
+La zone inférieure du *Tableau de bord* peut contenir un tableau de bord personnalisé sélectionné par l'utilisateur, tel que la latence moyenne pour un périmètre de production sélectionné. Utilisez ces cartes pour une surveillance ciblée par équipe, charge de travail ou objectif.
+
+
+
+[[system-health-status]]
+== État de santé du système
+
+La fiche *État de santé du système* répertorie chaque système et son état de santé actuel. Utilisez cette fiche pour identifier rapidement les systèmes défaillants et corréler les changements d'état avec les alertes et les indicateurs de performance.
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:concept-custom-dashboards.html["Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console"]
+* link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"]
+

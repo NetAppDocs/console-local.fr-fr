@@ -1,0 +1,15 @@
+= 
+:allow-uri-read: 
+
+
+. Sélectionnez *Administration > Identifiants*.
+. Sélectionnez *identifiants de l'organisation*.
+. Sélectionnez *Add Credentials* et suivez les étapes de l'assistant.
++
+.. *Emplacement des identifiants* : Sélectionnez *Amazon Web Services > Agent*.
+.. *Définir les identifiants* : Saisissez une clé d'accès AWS et une clé secrète.
+.. *Abonnement Marketplace* : Associez un abonnement Marketplace à ces identifiants cloud en vous abonnant maintenant ou en sélectionnant un abonnement existant.
+.. *Vérification* : Confirmez les détails concernant les nouveaux identifiants cloud et sélectionnez *Ajouter*.
+
+
+

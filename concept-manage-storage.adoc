@@ -1,0 +1,116 @@
+---
+sidebar: sidebar 
+permalink: concept-manage-storage.html 
+keywords: fleet management, folders, fleets, storage management, storage classes, provisioning, netapp console local 
+summary: 'Découvrez comment fonctionnent la gestion de flotte et la gestion du stockage dans le déploiement local de NetApp Console, y compris la hiérarchie, le contrôle d"accès, les normes et les méthodes de provisionnement.' 
+---
+= Découvrez la gestion de flotte dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La gestion de flotte dans NetApp Console lors d’un déploiement local consiste à organiser les systèmes de stockage en groupes logiques afin d’appliquer des politiques cohérentes, de contrôler l’accès et de surveiller l’état des clusters associés. Au lieu de gérer chaque cluster indépendamment, la gestion de flotte vous permet de considérer votre flotte comme un pool de ressources commun pour soutenir vos objectifs de stockage des données.
+
+À mesure que votre environnement de stockage s'étend, la gestion de clusters individuels devient difficile. La gestion de flotte résout ce problème en vous offrant une méthode structurée pour regrouper les systèmes apparentés, déléguer les responsabilités et garantir que chaque cluster fonctionne selon les mêmes normes.
+
+
+
+[[why-fleet-management-matters]]
+== Pourquoi la gestion de flotte est importante
+
+La gestion de flotte répond à trois défis fondamentaux :
+
+* *Simplification par l'abstraction* - La gestion de flotte masque la complexité de la gestion de l'infrastructure de stockage individuelle. Au lieu de configurer chaque cluster individuellement, vous gérez votre parc de stockage comme un tout unifié, réduisant ainsi la charge opérationnelle et la fatigue décisionnelle.
+* *Cohérence et évolutivité* - Sans une organisation claire, différentes équipes prennent des décisions différentes pour des charges de travail similaires, ce qui entraîne une fragmentation des configurations. La gestion de flotte vous permet d'appliquer des standards à des dizaines de systèmes simultanément, garantissant que les nouvelles charges de travail partent d'une base commune pour toutes les équipes et tous les parcs de systèmes.
+* *Gouvernance et contrôle* - À mesure que les équipes s'agrandissent, il est essentiel de définir clairement les responsabilités de chacun. La gestion de flotte permet d'établir ces limites grâce à une structure organisationnelle et à un contrôle d'accès, garantissant que les décisions relatives au stockage restent gouvernées et auditables.
+
+
+
+
+[[how-fleets-organize-your-resources]]
+== Comment les flottes organisent vos ressources
+
+La hiérarchie des ressources de votre organisation se compose de dossiers et de flottes :
+
+Pour une présentation détaillée de la hiérarchie et du modèle d'accès, voir link:concept-folders-fleets-overview.html["Découvrez les dossiers et les flottes dans le déploiement local de la NetApp Console"].
+
+* *Organisation* - Le niveau supérieur représentant votre entreprise.
+* *Dossiers* - Vous aident à organiser les flottes associées. Par exemple, vous pouvez créer un dossier pour chaque région ou unité commerciale, puis créer des flottes dans chaque dossier. Les dossiers peuvent contenir d'autres dossiers ou flottes. Lorsque vous attribuez un rôle au niveau du dossier, les membres héritent de ce rôle pour toutes les flottes dans le dossier.
+* *Flottes* - Regroupez les systèmes de stockage que vous gérez. Vous associez les systèmes de stockage à des flottes et affectez des membres à ces flottes pour leur accorder l'accès.
+
+
+
+NOTE: Les dossiers sont un outil d'organisation et ne sont pas visibles par les membres ne disposant pas des autorisations IAM, telles que les rôles d'administrateur d'organisation, d'administrateur de dossier ou d'administrateur de flotte. Les membres accèdent aux flottes, pas aux dossiers.
+
+
+
+[[common-fleet-organization-patterns]]
+== Modèles courants d'organisation de flotte
+
+La manière dont vous organisez vos flottes dépend de votre modèle opérationnel :
+
+* *Par environnement* : créez des parcs distincts pour les charges de travail de production, de développement et de test. Cela permet de maintenir des politiques plus strictes pour le stockage en production tout en offrant une plus grande flexibilité dans les environnements inférieurs.
+* *Par unité opérationnelle* : regroupez les clusters desservant un service spécifique, comme la finance, l’ingénierie ou les RH, au sein d’une flotte dédiée. Vous pouvez ensuite attribuer des responsabilités de gestion du stockage aux membres de l’équipe de cette unité opérationnelle sans exposer les autres flottes.
+* *Par emplacement ou centre de données* - Lorsque les clusters sont répartis sur plusieurs sites, l'organisation par emplacement vous permet de surveiller l'état de santé au niveau du site, d'appliquer des politiques spécifiques à la région et de suivre la consommation de capacité par site.
+* *Par tier applicatif* - Regroupez les clusters hébergeant une classe spécifique de charge de travail, comme les bases de données, les partages de fichiers ou les machines virtuelles, afin d'appliquer des normes cohérentes adaptées à ce type de charge de travail sur l'ensemble du parc.
+
+
+
+TIP: Utilisez des dossiers pour ajouter un niveau d'organisation supplémentaire. Par exemple, créez un dossier pour chaque région, puis créez des flottes en fonction de l'environnement au sein de chaque dossier régional.
+
+
+
+[[how-fleet-management-enables-access-control]]
+== Comment la gestion de flotte permet le contrôle d'accès
+
+Les flottes et les dossiers servent de limites à l'accès des utilisateurs et à la responsabilité administrative :
+
+* *Accès au niveau du dossier* - Lorsque vous attribuez un rôle au niveau du dossier, le membre hérite de ce rôle pour toutes les flottes et ressources du dossier. Cela vous permet de déléguer des responsabilités administratives sans accorder l'accès à l'ensemble de l'organisation.
+* *Accès au niveau de la flotte* - Lorsqu'un rôle est attribué au niveau de la flotte, le membre concerné a accès uniquement aux systèmes de stockage de cette flotte. Cela vous permet de déléguer la gestion du stockage aux membres de l'équipe ou aux responsables d'applications sans exposer les parties non pertinentes de votre infrastructure.
+
+
+Le déploiement local sur NetApp Console assure une surveillance de l'état et des performances au niveau de la flotte, vous permettant ainsi de visualiser l'état de tous les clusters d'une flotte à partir d'une vue unique, d'identifier rapidement les problèmes et d'agir avant qu'ils n'affectent les charges de travail.
+
+
+
+[[how-storage-management-works]]
+== Comment fonctionne la gestion du stockage
+
+La gestion du stockage consiste à définir des normes de stockage, à les appliquer de manière cohérente et à gérer les charges de travail de façon à ce qu'elles restent alignées dans le temps. Dans un déploiement local NetApp Console, ces normes sont exprimées sous forme de politiques de classes de stockage et de classes de stockage, limitées aux fleets, et appliquées via des workflows de provisionnement régis par le RBAC et la journalisation d'audit.
+
+Le déploiement local sur console relie quatre concepts en un seul flux de travail :
+
+* Les *flottes* définissent le périmètre de gestion du stockage. Une flotte regroupe des systèmes afin que vous puissiez contrôler l'accès, appliquer des normes de manière cohérente et gérer les ressources comme une unité.
+* Les *politiques de classe de stockage* définissent des normes comme des éléments de base réutilisables (performance, capacité, sécurité, protection des données).
+* Les *classes de stockage* expriment l'intention de charge de travail. Une classe de stockage est un modèle nommé assemblé à partir d'une ou plusieurs stratégies.
+* Les flux de travail de provisionnement créent du stockage dans un cadre sécurisé. Différents flux de travail prennent des décisions de configuration différemment, mais tous peuvent appliquer des classes de stockage et restent soumis au contrôle d'accès basé sur les rôles (RBAC) et à la journalisation d'audit.
+
+
+
+
+[[provisioning-approaches]]
+== Approches de provisionnement
+
+Le déploiement local sur console prend en charge trois approches de provisionnement, toutes régies par le RBAC, la journalisation d'audit et les normes de classe de stockage :
+
+* *Provisionnement manuel* - Vous sélectionnez le système cible et spécifiez directement les détails de configuration. Utilisez cette option lorsque vous avez besoin d'un contrôle explicite sur la sélection et la configuration du système.
+* *Provisionnement automatisé* : vous fournissez les entrées de charge de travail et, si vous le souhaitez, sélectionnez une classe de stockage. Le déploiement local via NetApp Console recommande l’emplacement le plus adapté et applique des paramètres basés sur la classe afin de réduire les interventions manuelles.
+* *Provisionnement assisté par IA (agent)* - Vous décrivez vos besoins en langage naturel. Le déploiement local via NetApp Console propose un plan contraint par le contrôle d'accès basé sur les rôles (RBAC) et les classes de stockage, puis effectue le provisionnement uniquement après votre validation et approbation.
+
+
+
+
+[[where-to-go-next]]
+== Où aller ensuite
+
+* Pour comprendre les normes de stockage, voir link:concept-storage-classes.html["Découvrez les classes de stockage et les stratégies dans le déploiement local de la NetApp Console"].
+* Pour créer et gérer des flottes, consultez link:task-iam-manage-folders-fleets.html["Gérer les dossiers et les flottes"].
+* link:task-provisioning-manual.html["Provisionner manuellement le stockage"]
+* link:task-provisioning-automated.html["Provisionner automatiquement le stockage"]
+* link:task-provisioning-agentic.html["Provisionnez le stockage avec l'aide de l'IA"]
+

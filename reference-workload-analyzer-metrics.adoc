@@ -1,0 +1,228 @@
+---
+sidebar: sidebar 
+permalink: reference-workload-analyzer-metrics.html 
+keywords: workload analyzer, latency, delay center, throughput, IOPS, resource utilization, capacity, capacity forecast, QoS, storage efficiency, snapshot, performance troubleshooting, metrics reference, netapp console local 
+summary: 'Référence pour toutes les métriques disponibles dans le Workload Analyzer, organisées par section d"analyse.' 
+---
+= Métriques de Workload Analyzer dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, l'analyseur de charge de travail affiche les métriques réparties en six sections. La description de chaque métrique explique comment l'analyseur la représente sur le graphique et ce qu'elle indique concernant le comportement du volume.
+
+
+
+[[qos-reference-lines-in-latency-charts]]
+=== Lignes de référence QoS dans les graphiques de latence
+
+Si le volume sélectionné utilise une politique QoS, vous pouvez utiliser deux lignes de référence supplémentaires dans le sélecteur de métriques :
+
+[cols="20,80"]
+|===
+| Ligne de référence | Description 
+
+
+| Limite maximale de QoS | Le plafond de latence maximal défini par la politique QoS. Lorsque la ligne de latence approche ou atteint ce seuil, ONTAP limite la charge de travail et la limite QoS, plutôt qu'une ressource physique, devient la principale source de latence. 
+
+
+| Limite QoS min | Le seuil minimal de latence garanti défini par la politique QoS. Cette ligne indique le seuil de temps de réponse imposé à la charge de travail. Lorsque d'autres charges de travail utilisent des minimums QoS pour garantir leur débit, ONTAP peut limiter cette charge de travail, ce qui entraîne alors une latence plus élevée. 
+|===
+Ces lignes horizontales n'apparaissent pas dans le détail du centre de délai au survol de la souris. Elles servent de seuils de référence, pas de contributeurs à la latence.
+
+
+
+[[latency-breakdown-by-io-type]]
+=== Répartition de la latence par type d'E/S
+
+Utilisez la ventilation par type d'E/S dans la section *Analyse de la latence* après avoir sélectionné *Ventilation par centre de délai* dans le menu déroulant Affichage. Le graphique répartit la latence totale en trois catégories selon le sens de l'opération d'E/S. Utilisez ces indicateurs pour déterminer si un problème de performance affecte les opérations de lecture, d'écriture ou de métadonnées.
+
+[cols="20,40,40"]
+|===
+| Type de latence | Description | Causes fréquentes de valeurs élevées 
+
+
+| latence de lecture | Temps moyen de traitement d'une requête de lecture client sur le volume, depuis la réception de la requête jusqu'au retour des données. Les requêtes de lecture doivent parcourir l'intégralité du chemin d'E/S, de la couche protocolaire réseau à la pile de traitement des données jusqu'à l'agrégat où résident les données. | Contention d’agrégats ou de disques ; défauts de cache qui favorisent les lectures sur disque physique ; données froides récupérées d’un niveau de capacité cloud via FabricPool ; lectures inter-nœuds lorsque les données résident sur un nœud différent de celui qui traite la requête. 
+
+
+| latence d'écriture | Temps moyen de réponse à une requête d'écriture client sur le volume. ONTAP confirme une écriture une fois qu'elle est enregistrée dans le journal d'écriture NVRAM ; les données sont ensuite transférées vers l'agrégat. | Saturation de la carte réseau ou latence aller-retour élevée entre le client et le nœud de stockage ; SnapMirror synchrone en attente de la confirmation de réception par le cluster de destination avant que l’écriture puisse être acquittée ; pression sur la NVRAM en cas de charges d’écriture importantes ; surcharge du processeur due à la déduplication, à la compression ou au compactage en ligne exécutés dans le chemin d’E/S d’écriture. 
+
+
+| Autre latence | Temps moyen d'exécution des opérations autres que la lecture et l'écriture sur le volume, incluant l'ouverture de fichiers, la recherche d'attributs, le parcours de répertoires, la création de fichiers et le verrouillage. Une latence élevée des autres opérations peut affecter la réactivité des applications, même si les latences de lecture et d'écriture semblent normales. | Pression sur le processeur due aux opérations d'efficacité en ligne concurrentes avec le traitement des métadonnées ; activité élevée de l'espace de noms due aux charges de travail qui génèrent un grand nombre de créations, de suppressions ou d'analyses de répertoires de fichiers ; limitation de la QoS qui restreint le nombre total d'IOPS, laissant moins d'IOPS disponibles pour les opérations de métadonnées ; surcharge d'activation des volumes lorsque de nombreux volumes sont actifs simultanément. 
+|===
+
+
+[[throughput-components]]
+== Composants de débit
+
+Utilisez les composantes de débit dans la section *Analyse du débit* après avoir sélectionné *Décomposition (RWO)* dans le menu déroulant View. L'analyseur affiche simultanément les IOPS et les Mo/s.
+
+[cols="20,40,40"]
+|===
+| Composant | Description | Rendu comme 
+
+
+| IOPS de lecture | Opérations de lecture par seconde. | Zone empilée sur le graphique IOPS. 
+
+
+| IOPS d'écriture | Opérations d'écriture par seconde. | Zone empilée sur le graphique IOPS. 
+
+
+| Autres IOPS | Métadonnées et autres opérations non liées aux données par seconde. | Zone empilée sur le graphique IOPS. 
+
+
+| Lecture Mo/s | Débit de lecture en mégaoctets par seconde. | Zone empilée sur le graphique MB/s. 
+
+
+| Écriture Mo/s | Débit d'écriture en mégaoctets par seconde. | Zone empilée sur le graphique MB/s. 
+
+
+| Débit du cloud | Débit en mégaoctets par seconde entre le volume et le niveau de capacité cloud. Cette métrique apparaît uniquement pour les charges de travail qui transfèrent de la capacité vers le cloud via FabricPool. | Zone empilée sur le graphique MB/s. 
+|===
+La somme des composantes Lecture, Écriture et Autres correspond à la valeur totale d'IOPS ou de Mo/s. Survolez le graphique pour afficher la valeur de chaque composante, son pourcentage du total et la taille moyenne des E/S (Mo/s ÷ IOPS) par catégorie.
+
+
+
+[[resource-utilization-metrics]]
+== Indicateurs d'utilisation des ressources
+
+Utilisez la section *Utilisation des ressources* pour consulter les indicateurs d'utilisation des ressources. L'analyseur affiche chaque ressource traitant le volume sur une ligne indépendante. Les ressources ne sont pas cumulées.
+
+
+
+[[node-metrics]]
+=== Métriques des nœuds
+
+[cols="25,75"]
+|===
+| Métrique | Description 
+
+
+| Utilisation des nœuds | Pourcentage d'utilisation composite du nœud. Placez le curseur pour afficher le taux d'utilisation du processeur, l'utilisation du réseau et la marge disponible pour chaque nœud. 
+
+
+| taux d'utilisation du processeur | Pourcentage de capacité du processeur du nœud utilisée. Cette valeur s'affiche dans l'infobulle. 
+
+
+| Utilisation du réseau | Pourcentage de capacité du réseau de nœud utilisée. Cette valeur s'affiche dans l'infobulle. 
+
+
+| Marge | Capacité restante du nœud disponible pour une charge de travail supplémentaire. Cette valeur s'affiche dans l'infobulle. 
+|===
+
+
+[[aggregate-metrics]]
+=== Métriques agrégées
+
+[cols="25,75"]
+|===
+| Métrique | Description 
+
+
+| Utilisation de l'agrégat | Pourcentage d'utilisation du disque pour l'agrégat. Placez le pointeur pour afficher la valeur d'utilisation du disque, le nombre de volumes sur l'agrégat et la marge disponible. 
+
+
+| Disque occupé | Pourcentage de temps pendant lequel les disques de l'agrégat assurent activement le service d'E/S. Cette valeur s'affiche dans l'infobulle. 
+
+
+| Nombre de volumes | Nombre de volumes actuellement hébergés sur l'agrégat. Cette valeur s'affiche dans l'infobulle. 
+
+
+| Marge | Capacité agrégée restante disponible pour une charge de travail supplémentaire. Cette valeur s'affiche dans l'infobulle. 
+|===
+Lorsqu'une ligne d'utilisation d'un nœud ou d'un agrégat dépasse le seuil d'alerte de forte utilisation, que le graphique marque d'une ligne de référence en pointillés, d'autres charges de travail sur cette ressource peuvent être en concurrence avec le volume sélectionné pour la capacité d'E/S.
+
+
+
+[[capacity-metrics]]
+== Indicateurs de capacité
+
+
+
+[[capacity-view]]
+=== Vue de capacité
+
+Utilisez la section *Analyse de capacité* pour consulter les indicateurs de la vue de capacité après avoir sélectionné *Vue de capacité* dans le menu déroulant View.
+
+[cols="25,75"]
+|===
+| Métrique | Description 
+
+
+| Capacité physique | Espace consommé sur le disque après les opérations d'efficacité du stockage. Il s'agit de la zone inférieure empilée dans le graphique. Physique + Disponible est toujours égal à la taille totale du volume. 
+
+
+| Capacité disponible | Espace libre restant dans le volume. Il s'agit de la zone supérieure empilée sur le graphique. Il diminue à mesure que la capacité physique augmente. 
+
+
+| Rapport d'efficacité de stockage | Taux d'efficacité global (données logiques ÷ données physiques). Cette valeur s'affiche dans l'infobulle. Elle reflète les économies combinées réalisées grâce à la déduplication, la compression et le compactage. 
+
+
+| Économies liées à la déduplication | Espace économisé grâce à la suppression des blocs de données dupliqués. L'infobulle affiche cette valeur. 
+
+
+| Économies de compression | Espace économisé grâce à la compression des données en temps réel. L'infobulle affiche cette valeur. 
+
+
+| Économies de compactage | Gain de place obtenu en regroupant plusieurs petits blocs dans un seul bloc physique. L'infobulle affiche cette valeur. 
+|===
+
+
+[[snapshot-view]]
+=== Vue instantanée
+
+Utilisez la vue Snapshot lorsque vous souhaitez consulter des indicateurs spécifiques à un snapshot.
+
+[cols="25,40,35"]
+|===
+| Métrique | Description | Rendu comme 
+
+
+| Instantané disponible | Espace pré-alloué réservé aux instantanés, configuré en pourcentage de la taille du volume. | Ligne de référence horizontale. 
+
+
+| Instantané utilisé | Espace réellement consommé par les copies instantanées. | Graphique de la zone sous la ligne de réserve. 
+|===
+Survolez le graphique pour afficher la taille de la réserve d'instantanés, l'espace utilisé par les instantanés et son pourcentage par rapport à la réserve, le nombre total d'instantanés et l'âge de l'instantané le plus ancien. Lorsque la consommation d'instantanés dépasse la réserve, les instantanés commencent à utiliser l'espace de la zone de données du volume.
+
+
+
+[[forecast-behavior]]
+== Comportement prévisionnel
+
+Utilisez le bouton *Afficher les prévisions* dans n'importe quelle section d'analyse lorsque vous souhaitez projeter les valeurs futures au-delà de la date actuelle en fonction de la tendance observée. Les comportements suivants s'appliquent à toutes les sections :
+
+[cols="25,75"]
+|===
+| Aspect | Comportement 
+
+
+| Fenêtre de projection | Les projections s'effectuent en fonction de la plage horaire sélectionnée. Pour une vue de 2 heures, la fenêtre de projection est d'environ 1 heure. Pour une vue de 7 jours, la fenêtre de projection s'étend sur plusieurs jours. 
+
+
+| Style visuel | L'analyseur affiche les valeurs prévisionnelles sous forme de ligne pointillée. Un séparateur vertical marque la limite entre les données réelles et les valeurs projetées. 
+
+
+| Alertes de seuil | L'analyseur affiche un message d'information lorsque les prévisions indiquent que le volume dépassera un seuil d'alerte ou critique, ainsi qu'une estimation du temps restant avant ce dépassement. 
+
+
+| Base de tendance | La projection utilise le taux de variation de la portion la plus récente de la période sélectionnée. Une forte volatilité des données récentes réduit la fiabilité des prévisions. 
+
+
+| Données minimales requises | La prévision de capacité nécessite au moins 10 jours de données historiques. Lorsque la capacité restante avant saturation est inférieure à 30 jours, l'analyseur considère le stockage comme presque plein. 
+|===
+
+
+[[related-information]]
+== Informations connexes
+
+* link:concept-workload-analyzer.html["Découvrez l'analyseur de charge de travail Workload Analyzer pour le déploiement local de NetApp Console"]
+* link:task-analyzer-volume-latency-investigate.html["Enquêter sur la latence élevée sur un volume"]
+* link:task-analyzer-volume-throughput-investigate.html["Étudier la demande de débit élevé sur un volume"]
+* link:task-analyzer-volume-capacity-investigate.html["Étudier la croissance de la capacité sur un volume"]
+

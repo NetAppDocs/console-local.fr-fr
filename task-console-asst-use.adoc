@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: task-console-asst-use.html 
+keywords: console assistant, ai assistant, ask questions, provision storage, natural language, agentic, netapp console local 
+summary: 'Utilisez l"assistant de la Console pour provisionner du stockage, examiner les alertes et obtenir des réponses en langage naturel dans le déploiement local de la NetApp Console.' 
+---
+= Utilisez l’assistant NetApp Console dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez l’assistant NetApp Console dans le déploiement local de NetApp Console pour gérer le stockage et obtenir des réponses en langage naturel. Décrivez ce dont vous avez besoin en langage simple, et le déploiement local de NetApp Console agit en fonction de vos stratégies de stockage et de la gestion des accès basée sur les rôles.
+
+
+NOTE: Cette documentation relative à la connexion d'un LLM à l'assistant Console pour activer les fonctionnalités d'IA est fournie à titre d'aperçu technologique. Dans le cadre de cette offre d'aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+
+Les actions de l'assistant sont limitées par votre accès basé sur les rôles qui vous a été attribué. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+
+
+[[see-what-you-can-do-with-the-console-assistant]]
+== Découvrez ce que vous pouvez faire avec l'assistant Console
+
+L'assistant de la console est une interface en langage naturel pour le déploiement local de NetApp Console. Posez une question ou décrivez une tâche, et il vous fournit une réponse ou une action proposée. L'assistant offre les fonctionnalités suivantes :
+
+* *Provisionnement du stockage* Décrivez une charge de travail en langage clair. L’assistant vous recommande une classe de stockage et un emplacement, puis crée le volume ou le LUN après que vous avez confirmé les détails. Par exemple, demandez-lui de créer un volume CIFS d’une capacité spécifique. L’assistant identifie le cluster et la machine virtuelle de stockage (SVM), renseigne les paramètres requis et provisionne le stockage.
+* *Recherchez et obtenez des conseils* Posez des questions sur votre environnement de stockage, découvrez les fonctionnalités de déploiement local de la Console, et obtenez des réponses contextuelles à partir de la documentation NetApp et de l'état actuel de votre parc.
+* *Analyser les alertes* Demandez à l'assistant d'examiner une alerte active. Il analyse le problème et propose une solution ou, avec votre confirmation, effectue une action corrective.
+
+
+L'assistant envoie des requêtes uniquement au point de terminaison LLM configuré par votre administrateur dans le déploiement local de Console. Il demande une confirmation avant d'effectuer toute modification du stockage, et toutes les actions respectent les contrôles d'accès basés sur les rôles attribués à votre compte.
+
+
+
+[[confirm-that-you-can-use-the-console-assistant]]
+== Confirmez que vous pouvez utiliser l'assistant de la Console
+
+* Un administrateur ou un super administrateur de l'organisation doit activer l'assistant Console en connectant un grand modèle de langage (LLM) au déploiement local de Console. Si le bouton *Console assistant* n'apparaît pas sur le tableau de bord, demandez à votre administrateur de l'activer. Pour plus d'informations, voir link:task-llm-connect.html["Connectez votre LLM et activez l’assistant NetApp Console"].
+* Assurez-vous de disposer des contrôles d'accès basés sur les rôles requis pour les actions que vous souhaitez que l'assistant effectue.
+
+
+
+
+[[ask-the-console-assistant-a-question-or-request-an-action]]
+== Posez une question à l'assistant de la console ou demandez une action
+
+Ouvrez l'assistant de la Console, choisissez un mode d'accès et saisissez une invite décrivant votre demande.
+
+.Étapes
+. Depuis le tableau de bord de déploiement local de la NetApp Console, sélectionnez le bouton *Console assistant*.
+. Sélectionnez un mode d'accès :
++
+** Sélectionnez *Lecture seule* pour poser des questions et obtenir des conseils sans apporter de modifications.
+** Sélectionnez *Lecture/écriture* pour permettre à l'assistant d'agir sur votre infrastructure de stockage.
+
+
+. Saisissez une invite qui décrit votre question ou votre tâche, puis sélectionnez *Envoyer*.
++
+Par exemple : `Create a 10GiB volume for home directories named home, and share it with Everyone set to FULL_CONTROL.`
+
+. Examinez la réponse de l'assistant :
++
+** Pour une question, l'assistant renvoie une réponse sur laquelle vous pouvez agir.
+** Pour une action, l'assistant affiche l'action suggérée, demande les informations manquantes telles que le niveau d'autorisation, puis demande une confirmation avant de poursuivre.
+
+
+. Confirmez l'action. Pour les opérations asynchrones, telles que la création d'un volume, l'assistant crée une tâche pour exécuter la requête.
+. Pour vérifier l'état d'une requête, interrogez l'assistant. Par exemple, saisissez  `Let me know when the job completes`, et l'assistant retourne l'état actuel.
+

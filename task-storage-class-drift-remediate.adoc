@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: task-storage-class-drift-remediate.html 
+keywords: storage class drift, drift remediation, compliance, fix-it, guided remediation, automated remediation, drift detection, storage governance, storage standards, netapp console local 
+summary: Détectez, analysez et corrigez les dérives de classe de stockage dans le déploiement local de NetApp Console. 
+---
+= Corriger la dérive des classes de stockage dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de la NetApp Console, recherchez les alertes liées aux dérives, analysez les résultats de ces dérives et corrigez les charges de travail qui ne correspondent plus à leur classe de stockage prévue.
+
+.Rôles requis
+Administrateur de stockage
+
+
+NOTE: Vous pouvez uniquement consulter et corriger les charges de travail dans les flottes pour lesquelles vous avez l'autorisation.
+
+
+
+[[remediate-drift]]
+== Remédier à la dérive
+
+Lorsqu'une charge de travail ne correspond plus à son intention de classe de stockage, le déploiement local de la NetApp Console génère une alerte. Utilisez cette alerte pour analyser l'écart et appliquer la correction recommandée.
+
+Vous pouvez appliquer certaines corrections directement depuis l'alerte. Pour d'autres problèmes, mettez à jour la configuration de la charge de travail ou attribuez une autre classe de stockage pour rétablir la conformité. Le processus de correction affiche l'impact prévu avant que vous n'appliquiez les modifications.
+
+.Étapes
+. Sélectionnez *Stockage > Classes de stockage*.
++
+Un résumé des variations de classe de stockage figure dans la section *Variations par classe de stockage*. La liste complète figure dans le tableau.
+
+. Dans la colonne *Drifts*, sélectionnez *View* pour la classe de stockage concernée.
++
+La page *Alertes > Vue d'ensemble* s'ouvre avec les filtres appliqués.
+
+. Sélectionnez une alerte pour ouvrir la page de détails de l'alerte.
+. Sélectionnez *Analyze*.
+. Examinez les résultats dans *Workload analyzer*.
++
+Pour les dérives de configuration, comparez les paramètres prévus et réels afin de déterminer ce qui a changé.
+
+. Sélectionnez l'action corrective recommandée, telle que *Fix it*.
+. Examinez les modifications proposées et appliquez les mesures correctives.
+. Retournez dans *Stockage > Classes de stockage* et vérifiez que la charge de travail n'apparaît plus comme ayant dérivé.
++
+L'évaluation de la conformité peut prendre plusieurs minutes pour prendre en compte les modifications de configuration récentes. Si la charge de travail est toujours signalée comme ayant dérivé, retournez à la page des détails de l'alerte et sélectionnez *Analyser* pour examiner les résultats restants.
+
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:concept-storage-classes.html#storage-class-drift-and-compliance["Découvrez la dérive des classes de stockage et la conformité dans le déploiement local de la NetApp Console"]
+* link:concept-console-alerts.html["Découvrez les alertes de stockage"]
+* link:task-alerts-monitor.html["Afficher les alertes"]
+

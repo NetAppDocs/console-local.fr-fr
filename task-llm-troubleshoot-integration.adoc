@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: task-llm-troubleshoot-integration.html 
+keywords: LLM, AI, troubleshooting, openai, openai-compatible, proxy, endpoint, api key, netapp console 
+summary: 'Dépannez l"intégration LLM dans le déploiement local de NetApp Console grâce à un flux de triage rapide pour la configuration, la disponibilité de l"assistant, les erreurs d"exécution et les problèmes d"identifiants.' 
+---
+= Résoudre les problèmes d'intégration LLM dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez ce flux de triage rapide pour diagnostiquer et résoudre les problèmes d'intégration LLM courants dans le déploiement local de la NetApp Console.
+
+
+NOTE: Cette documentation relative à la connexion d'un LLM à l'assistant Console pour activer les fonctionnalités d'IA est fournie à titre d'aperçu technologique. Dans le cadre de cette offre d'aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+
+Si vous n'avez pas terminé la configuration, consultez link:task-llm-connect.html["Connectez votre LLM et activez l’assistant NetApp Console"].
+
+
+
+[[triage-llm-integration-issues-quickly]]
+== Résolvez rapidement les problèmes d'intégration LLM
+
+. Validez la configuration des outils d'IA dans *Administration > Outils d'IA*.
++
+Confirmez le type de fournisseur, l'URL du point de terminaison, la clé API, le modèle sélectionné et l'accès au réseau sortant.
+
+. Vérifiez la disponibilité de l'assistant sur le tableau de bord.
++
+Confirmez que le bouton *Console assistant* apparaît pour les utilisateurs et organisations attendus.
+
+. Validez le comportement lors de l'exécution.
++
+Exécutez une simple requête en lecture seule et confirmez l'accessibilité du point de terminaison du fournisseur, la disponibilité du modèle et l'état du service du fournisseur.
+
+
+
+
+
+[[troubleshoot-by-symptom]]
+== Dépanner par symptôme
+
+[cols="1,1,2,2"]
+|===
+| Symptôme | Cause probable | Que vérifier | Prochaine action 
+
+
+| Échec de l'enregistrement ou du test dans AI Tools | Incompatibilité de configuration ou de connectivité | Type de fournisseur, URL du point de terminaison, format de clé API, modèle sélectionné et accès sortant | Corrigez la valeur qui n'est pas validée et enregistrez à nouveau 
+
+
+| Le bouton *Console assistant* est manquant | État d'intégration défaillant, incompatibilité d'organisation ou incompatibilité RBAC | Enregistrement réussi des outils d'IA, état d'intégration, organisation actuelle et rôle d'accès attendu | Actualisez la session et vérifiez avec un compte administrateur valide 
+
+
+| L'assistant s'ouvre mais la requête échoue | Problème de chemin d'accès au fournisseur ou à l'exécution | Accessibilité du point de terminaison, disponibilité du modèle sur ce point de terminaison, limites du fournisseur et statut temporaire du fournisseur | Réessayez après avoir corrigé les problèmes de correspondance entre l’endpoint/le modèle ou les problèmes de limite côté fournisseur 
+
+
+| La réponse de l'assistant est lente ou incohérente | Taille de l'invite, performances du point de terminaison ou instabilité du réseau/proxy | Test rapide, état du service du fournisseur et stabilité du réseau/proxy | Utilisez une invite plus courte, essayez un autre modèle pris en charge et stabilisez le routage réseau ou proxy 
+|===
+
+
+[[respond-to-llm-credential-exposure-or-misuse]]
+== Répondez à l'exposition ou à l'utilisation abusive d'un identifiant LLM
+
+Si vous soupçonnez une exposition ou une utilisation non autorisée de la clé API :
+
+. Révoquez la clé API existante dans votre système fournisseur.
+. Créez une nouvelle clé API.
+. Mettez à jour la clé dans *Administration > Outils d'IA*.
+. Vérifiez la réussite de la reconnexion avec un test d'assistant en lecture seule.
+

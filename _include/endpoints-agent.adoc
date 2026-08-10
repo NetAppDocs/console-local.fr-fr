@@ -1,0 +1,82 @@
+= 
+:allow-uri-read: 
+
+
+Points de terminaison contactés depuis l'agent de la console:: L'agent Console nécessite un accès Internet sortant pour contacter les points de terminaison suivants afin de gérer les ressources et les processus au sein de votre environnement cloud pour les opérations quotidiennes.
++
+--
+Les points de terminaison répertoriés ci-dessous sont tous des entrées CNAME.
+
+--
+
+
+| Services AWS (amazonaws.com) :
+
+* CloudFormation
+* Elastic Compute Cloud (EC2)
+* Gestion des identités et des accès (IAM)
+* Service de gestion des clés (KMS)
+* Service de jetons de sécurité (STS)
+* Simple Storage Service (S3)
+
+
+| Pour gérer les ressources AWS. Le point de terminaison dépend de votre région AWS. https://docs.aws.amazon.com/general/latest/gr/rande.html["Consultez la documentation AWS pour plus de détails"^]
+
+| \https://management.azure.com \https://login.microsoftonline.com \https://blob.core.windows.net \https://core.windows.net
+
+| Pour gérer les ressources dans les régions publiques Azure.
+
+| \https://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud \https://blob.core.microsoft.scloud \https://core.microsoft.scloud
+
+| Pour gérer les ressources dans la région Azure IL6.
+
+| \https://management.usgovcloudapi.net \https://login.microsoftonline.us \https://blob.core.usgovcloudapi.net \https://core.usgovcloudapi.net
+
+| Pour gérer les ressources dans les régions Azure Government.
+
+| \https://management.chinacloudapi.cn \https://login.chinacloudapi.cn \https://blob.core.chinacloudapi.cn \https://core.chinacloudapi.cn
+
+| Pour gérer les ressources dans les régions Azure China.
+
+| \https://www.googleapis.com/compute/v1/ \https://compute.googleapis.com/compute/v1 \https://cloudresourcemanager.googleapis.com/v1/projects \https://www.googleapis.com/compute/beta \https://storage.googleapis.com/storage/v1 \https://www.googleapis.com/storage/v1 \https://iam.googleapis.com/v1 \https://cloudkms.googleapis.com/v1 \https://www.googleapis.com/deploymentmanager/v2/projects
+
+| Pour gérer les ressources dans Google Cloud.
+
+| https://mysupport.netapp.com | Pour obtenir des informations sur les licences et envoyer des messages AutoSupport au support NetApp. | https://signin.b2c.netapp.com | Pour mettre à jour les informations d'identification du NetApp Support Site (NSS) ou ajouter de nouvelles informations d'identification NSS à la NetApp Console. | https://support.netapp.com | Pour obtenir des informations sur les licences et envoyer des messages AutoSupport au support NetApp, ainsi que pour recevoir les mises à jour logicielles pour Cloud Volumes ONTAP.
+
+| https://api.bluexp.netapp.com https://netapp-cloud-account.auth0.com https://netapp-cloud-account.us.auth0.com https://console.netapp.com https://components.console.bluexp.netapp.com https://cdn.auth0.com | Fournir des fonctionnalités et des services au sein de la NetApp Console.
+
+a| https://bluexpinfraprod.eastus2.data.azurecr.io https://bluexpinfraprod.azurecr.io a| Pour obtenir des images pour les mises à niveau de l’agent Console.
+
+* Lors du déploiement d'un nouvel agent, la vérification de validation teste la connectivité aux points de terminaison actuels. Si vous utilisez link:reference-networking-saas-console-previous.html["points de terminaison précédents"], la vérification de validation échoue. Pour éviter cet échec, ignorez la vérification de validation.
++
+Bien que les anciens points de terminaison soient toujours pris en charge, NetApp recommande de mettre à jour vos règles de pare-feu vers les points de terminaison actuels dès que possible. link:reference-networking-saas-console-previous.html#update-endpoint-list["Découvrez comment mettre à jour votre liste de points de terminaison"].
+
+* Lorsque vous mettez à jour les points de terminaison actuels dans votre pare-feu, vos agents existants continueront de fonctionner.
+
+
+^1^ NetApp recommande d'autoriser les points de terminaison de l'option 1 dans votre pare-feu, car ils sont plus sécurisés, et de bloquer les points de terminaison de l'option 2. Notez les points suivants concernant ces points de terminaison :
+
++ * À partir de la version 3.9.47 de l'agent Console, le système prend en charge les points de terminaison listés dans l'option 1. Les versions antérieures de l'agent Console ne prennent pas en charge la rétrocompatibilité. * L'agent Console contacte d'abord les points de terminaison de l'option 2. Si ces points de terminaison sont inaccessibles, il contacte automatiquement ceux de l'option 1. * Si vous utilisez l'agent Console avec NetApp Backup and Recovery ou Ransomware Resilience, le système ne prend pas en charge les points de terminaison de l'option 1. Autorisez les points de terminaison de l'option 2 et désactivez ceux de l'option 1.
+
+| Si l’agent de la Console se trouve dans une région gouvernementale AWS : \https://*.blob.core.windows.net https://cloudmanagerinfraprod.azurecr.io
+
+| Pour obtenir les images nécessaires aux mises à niveau de l'agent Console lorsque celui-ci est installé dans une région AWS Government.
+
+| Si l'agent de la Console se trouve dans une région Azure Government : \https://*.blob.core.windows.net https://occmclientinfragov.azurecr.us
+
+| Pour obtenir des images pour les mises à niveau de l'agent Console lorsque celui-ci est installé dans une région Azure Government.
+
+a| Si l'agent Console se trouve dans une région commerciale ou une région souveraine, vous pouvez choisir entre deux ensembles de points de terminaison :
+
+* Option 1 (recommandée) ^1^
++
+\https://bluexpinfraprod.eastus2.data.azurecr.io \https://bluexpinfraprod.azurecr.io
+
+* Option 2
++
+\https://*.blob.core.windows.net \https://cloudmanagerinfraprod.azurecr.io
+
+
+
+| Pour obtenir les images nécessaires aux mises à niveau de l'agent Console lorsque celui-ci est installé dans une région commerciale ou une région souveraine.

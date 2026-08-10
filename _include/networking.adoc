@@ -1,0 +1,74 @@
+= 
+:allow-uri-read: 
+
+
+Hôte dédié:: L'agent n'est pas pris en charge sur un hôte partagé avec d'autres applications. L'hôte doit être un hôte dédié.
+
+
+VPC et sous-réseau:: Lorsque vous créez l'agent NetApp Console, vous devez spécifier le VPC et le sous-réseau où il doit résider.
+
+
+Réseau virtuel et sous-réseau:: Lorsque vous créez l'agent Console, vous devez spécifier le VNet et le sous-réseau où il doit résider.
+
+
+Connexions aux réseaux cibles:: L'agent Console nécessite une connexion réseau à l'emplacement où vous prévoyez de créer et de gérer des systèmes. Par exemple, le réseau où vous prévoyez de créer des systèmes Cloud Volumes ONTAP ou un système de stockage dans votre environnement sur site.
+
+
+Accès Internet sortant:: L'emplacement réseau sur lequel vous déployez l'agent Console doit disposer d'une connexion Internet sortante pour contacter des points de terminaison spécifiques.
+
+
+Points de terminaison contactés depuis la NetApp Console:: Lorsque vous utilisez la NetApp Console basée sur le web fournie par la couche SaaS, celle-ci contacte plusieurs points de terminaison pour effectuer des tâches de gestion des données. Cela inclut des points de terminaison qui sont contactés pour déployer l'agent Console depuis la Console.
++
+--
+link:reference-networking-saas-console.html["Consultez la liste des points de terminaison contactés depuis la NetApp console"].
+
+--
+
+
+Région Azure:: Si vous utilisez Cloud Volumes ONTAP, l’agent de la Console doit être déployé dans la même région Azure que les systèmes Cloud Volumes ONTAP qu’il gère, ou dans le  https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["paire de régions Azure"^] des systèmes Cloud Volumes ONTAP. Cette exigence garantit qu’une connexion Azure Private Link est utilisée entre Cloud Volumes ONTAP et ses comptes de stockage associés.
++
+--
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-enabling-private-link.html["Découvrez comment Cloud Volumes ONTAP utilise un Azure Private Link"^]
+
+--
+
+
+Ports:: Aucun trafic entrant n'est reçu par l'agent Console, sauf si vous l'initiez ou s'il est utilisé comme proxy pour envoyer des messages AutoSupport de Cloud Volumes ONTAP au support NetApp.
++
+--
+* HTTP (80) et HTTPS (443) permettent d'accéder à l'interface utilisateur locale, que vous utiliserez dans de rares circonstances.
+* SSH (22) n'est nécessaire que si vous devez vous connecter à l'hôte pour le dépannage.
+* Les connexions entrantes via le port 3128 sont nécessaires si vous déployez des systèmes Cloud Volumes ONTAP dans un sous-réseau où une connexion Internet sortante n'est pas disponible.
++
+Si les systèmes Cloud Volumes ONTAP ne disposent pas d'une connexion Internet sortante pour envoyer des messages AutoSupport, la Console configure automatiquement ces systèmes pour utiliser un serveur proxy inclus avec l'agent Console. La seule exigence est de vous assurer que le groupe de sécurité de l'agent Console autorise les connexions entrantes sur le port 3128. Vous devrez ouvrir ce port après avoir déployé l'agent Console.
+
+
+
+--
+
+
+Serveur proxy:: NetApp prend en charge les configurations de proxy explicites et transparentes. Si vous utilisez un proxy transparent, vous devez uniquement fournir le certificat du serveur proxy. Si vous utilisez un proxy explicite, vous aurez également besoin de l'adresse IP et des identifiants.
++
+--
+* Adresse IP
+* Informations d'identification
+* certificat HTTPS
+
+
+--
+
+
+Adresse IP publique dans Azure:: Si vous souhaitez utiliser une adresse IP publique avec la machine virtuelle de l’agent Console dans Azure, cette adresse IP doit utiliser une SKU Basic pour garantir que la Console utilise cette adresse IP publique.
++
+--
+image:screenshot-azure-sku.png["Capture d'écran de la création d'une nouvelle adresse IP dans Azure qui vous permet de choisir Basique dans le champ SKU."]
+
+Si vous utilisez plutôt une adresse IP de SKU Standard, la Console utilise alors l'adresse IP _privée_ de l'agent de la Console, au lieu de l'adresse IP publique. Si la machine que vous utilisez pour accéder à la Console n'a pas accès à cette adresse IP privée, les actions depuis la Console échoueront.
+
+https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses#sku["Documentation Azure : Référence SKU d’adresse IP publique"^]
+
+--
+
+
+Activer NTP:: Si vous prévoyez d'utiliser NetApp Data Classification pour analyser vos sources de données d'entreprise, vous devez activer un service Network Time Protocol (NTP) à la fois sur l'agent de la Console et sur le système NetApp Data Classification afin que l'heure soit synchronisée entre les systèmes. https://docs.netapp.com/us-en/data-services-data-classification/concept-cloud-compliance.html["En savoir plus sur la classification des données NetApp"^]
+

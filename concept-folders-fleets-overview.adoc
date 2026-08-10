@@ -1,0 +1,183 @@
+---
+sidebar: sidebar 
+permalink: concept-folders-fleets-overview.html 
+keywords: folders, fleets, organization, resource hierarchy, access control, IAM, roles, members, netapp console local 
+summary: 'Découvrez comment utiliser les dossiers et les parcs de stockage pour organiser les ressources et contrôler l"accès dans le déploiement local de la NetApp Console.' 
+---
+= Découvrez les dossiers et les flottes dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, utilisez des dossiers et des parcs de stockage pour organiser vos ressources NetApp et contrôler l'accès en fonction de la structure de votre entreprise—par emplacement, département ou type de charge de travail.
+
+Utilisez cette page pour la stratégie hiérarchique et les modèles de conception de flotte. Pour un modèle IAM complet des membres, des rôles et de la portée des ressources, link:concept-identity-and-access-management.html["Découvrez la gestion de l'identité et des accès dans le déploiement local de NetApp Console"].
+
+Vous organisez les ressources de manière hiérarchique : l’organisation est au sommet, puis les dossiers (qui peuvent contenir d’autres dossiers ou des parcs), et enfin les parcs, qui contiennent les systèmes de stockage. Attribuez des rôles de gestion des accès au niveau de l’organisation, du dossier ou du parc afin que les utilisateurs disposent des droits d’accès appropriés aux ressources.
+
+
+NOTE: Vous devez disposer du rôle d'administrateur d'organisation, de dossier ou de flotte pour gérer les dossiers et les flottes dans le déploiement local de la NetApp Console.
+
+
+
+[[organizational-components]]
+== Composantes organisationnelles
+
+Les composantes organisationnelles — organisation, dossiers et flottes — forment une hiérarchie qui détermine comment les ressources sont regroupées et comment l'accès est délégué.
+
+Organisation:: Une organisation constitue le niveau supérieur de la hiérarchie de déploiement local de la NetApp Console et représente généralement votre entreprise. Votre organisation se compose de dossiers, de flottes, de membres, de rôles et de ressources. Les ressources sont associées à des flottes, et les membres se voient attribuer des rôles au niveau de l'organisation, du dossier ou de la flotte.
+Dossiers:: Les dossiers regroupent les flottes associées afin de les organiser par emplacement, site ou unité commerciale. Vous ne pouvez pas associer directement des systèmes de stockage aux dossiers, mais l'attribution d'un rôle à un membre au niveau du dossier lui donne accès à toutes les flottes de ce dossier.
++
+--
+
+NOTE: Les administrateurs de l'organisation peuvent ajouter une ressource à un dossier pour déléguer la tâche d'associer la ressource aux flottes à un administrateur de dossier ou de flotte. link:task-iam-manage-resources.html["Associer les ressources aux dossiers et aux flottes"].
+
+--
+Flottes:: Les systèmes de stockage par flottes. Attribuez des ressources à des flottes et accordez aux membres un accès au niveau de la flotte. Les ressources peuvent appartenir à plusieurs flottes. Les membres disposant d'un accès à une flotte peuvent gérer les ressources de cette flotte.
++
+--
+Par exemple, vous pouvez associer un système ONTAP sur site à une seule flotte ou à toutes les flottes de votre organisation, selon vos besoins.
+
+link:task-iam-manage-folders-fleets.html["Découvrez comment créer des dossiers et des parcs de stockage"].
+
+--
+
+
+
+
+[[resources]]
+== Ressources
+
+Une ressource est un système de stockage reconnu par le déploiement local de la Console et pouvant être affecté à une flotte. Associez une ressource à une flotte afin que les utilisateurs ayant accès à la flotte puissent gérer la ressource.
+
+Par exemple, vous pouvez associer un cluster ONTAP à une seule flotte ou à toutes les flottes de votre organisation. La façon dont vous associez une ressource dépend des besoins de votre organisation.
+
+link:task-iam-manage-resources.html["Découvrez comment associer des ressources à des flottes"].
+
+
+
+[[members-and-roles]]
+== Membres et rôles
+
+Les membres sont les utilisateurs et les comptes de service de votre organisation. Les rôles définissent les actions qu'ils peuvent effectuer et à quel niveau de la hiérarchie : organisation, dossier ou parc informatique.
+
+Membres:: Les membres de votre organisation sont des comptes d'utilisateur ou des comptes de service. Un compte de service est généralement utilisé par une application pour exécuter des tâches spécifiques sans intervention humaine.
++
+--
+Les utilisateurs disposant du rôle d'administrateur de l'organisation peuvent ajouter de nouveaux membres à votre organisation. Tous les utilisateurs (y compris les comptes de service et les utilisateurs Active Directory) doivent être ajoutés explicitement et se voir attribuer au moins un rôle pour pouvoir accéder au déploiement local de Console.
+
+--
+
+
+link:task-iam-manage-members-permissions.html["Découvrez comment ajouter des membres à votre organisation"].
+
+Rôles d'accès:: Le déploiement local de la Console fournit des rôles d'accès que vous pouvez attribuer aux membres de votre organisation.
++
+--
+Lorsque vous associez un membre à un rôle, vous pouvez lui attribuer ce rôle pour l'ensemble de l'organisation, un dossier spécifique ou une flotte spécifique. Le rôle que vous sélectionnez donne au membre l'autorisation d'accéder aux ressources dans la partie sélectionnée de la hiérarchie.
+
+Le déploiement local de la NetApp Console propose des rôles granulaires qui respectent le principe du moindre privilège, ce qui signifie que les rôles d'accès sont conçus pour donner aux membres l'accès uniquement à ce dont ils ont besoin.
+
+Les utilisateurs peuvent cumuler plusieurs rôles à mesure que leurs responsabilités s'étendent.
+
+--
+
+
+
+
+[[role-inheritance]]
+=== Héritage des rôles
+
+Lorsque vous attribuez un rôle au niveau de l'organisation ou du dossier, les sous-dossiers, les flottes et les ressources qui en dépendent héritent de ce rôle, ainsi, la conception de vos dossiers et flottes détermine l'étendue de chaque attribution.
+
+link:concept-iam-rbac.html#role-inheritance["Découvrez l'héritage des rôles dans le déploiement local de NetApp Console"].
+
+
+
+[[organization-design-examples]]
+== Exemples de conception organisationnelle
+
+La structure organisationnelle appropriée dépend de la taille de votre organisation et de la façon dont vos équipes sont organisées. Les exemples suivants illustrent comment différentes organisations peuvent utiliser la hiérarchie des dossiers et des flottes pour gérer efficacement les accès.
+
+
+
+[[small-organization-strategy]]
+=== Stratégie des petites organisations
+
+Pour les organisations comptant moins de 50 utilisateurs et disposant d'une gestion centralisée du stockage, envisagez une approche simplifiée utilisant les rôles Super admin et Super viewer.
+
+*Exemple : ABC Corporation (équipe de 5 personnes)*
+
+* *Structure* : Une seule organisation avec 3 flottes (Production, Développement, Sauvegarde)
+* *Rôles*:
++
+** 2 membres seniors : rôle de super administrateur pour un accès administratif complet
+** 3 membres de l'équipe : rôle de super-observateur pour la surveillance sans droits de modification
+
+
+* *Avantages* : Administration simplifiée, complexité des rôles réduite, adapté aux équipes nécessitant un accès étendu
+
+
+
+
+[[multi-regional-enterprise-strategy]]
+=== Stratégie d'entreprise multirégionale
+
+Pour les grandes organisations ayant des activités régionales et des équipes spécialisées, mettez en œuvre une approche hiérarchique avec des dossiers représentant les limites géographiques ou les unités commerciales.
+
+*Exemple : XYZ Corporation (multinational company)*
+
+* *Structure* : Organisation > Dossiers régionaux (Amérique du Nord, Europe, Asie-Pacifique) > Flottes par région
+* *Rôles de la plateforme*:
++
+** 1 Administration de l'organisation : Supervision globale et gestion des politiques
+** 3 administrateurs de dossiers ou de flottes : contrôle régional (un par région)
+** 1 Administrateur de la fédération : intégration du service d’annuaire d’entreprise
+
+
+* *Rôles de stockage par région* :
++
+** Administrateur du stockage : découvrir et gérer les systèmes de stockage dans les régions attribuées
+** Visualiseur de stockage : Surveillez les ressources de stockage dans différentes régions
+** Spécialiste de la santé des systèmes : gérez la santé du stockage sans modification du système
+
+
+* *Avantages* : Sécurité renforcée grâce à la séparation des rôles, à l’autonomie régionale et à la conformité aux réglementations locales
+
+
+
+
+[[departmental-specialization-strategy]]
+=== Stratégie de spécialisation départementale
+
+Pour les organisations disposant d'équipes spécialisées nécessitant un accès spécifique, utilisez des attributions de rôles ciblées basées sur les responsabilités fonctionnelles.
+
+*Exemple : TechCorp (entreprise technologique de taille moyenne)*
+
+* *Structure* : Organisation > Dossiers de département (IT, Security, Development) > Ressources spécifiques à la flotte
+* *Rôles spécialisés* :
++
+** Équipe de sécurité : rôles d’administrateur de la résilience aux ransomwares et de consultant en classification
+** Équipe de sauvegarde : super administrateur de sauvegarde et de restauration pour des opérations de sauvegarde complètes
+** Équipe de développement : Administrateur de stockage pour la gestion de l’environnement de test
+** Équipe de conformité : Analyste de soutien opérationnel pour le suivi et la gestion des dossiers de support
+
+
+* *Avantages* : contrôle d'accès personnalisé, efficacité opérationnelle accrue et responsabilisation claire pour les tâches spécialisées
+
+
+
+
+[[next-steps]]
+== Prochaines étapes
+
+* link:task-iam-manage-folders-fleets.html["Créer des dossiers et des fleets de stockage"]
+* link:task-iam-manage-resources.html["Associer les ressources aux dossiers et aux flottes"]
+* link:task-iam-users-fleets-assign.html["Gérer les affectations d'accès à la flotte"]
+* link:task-audit-console-activity.html["Surveiller ou auditer les actions de déploiement local de la Console"]
+

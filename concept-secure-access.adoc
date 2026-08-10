@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: concept-secure-access.html 
+keywords: security, access control, MFA, multi-factor authentication, AD, Active Directory, LDAP, LDAPS, directory services, authentication, zero trust, secure access governance, reduce attack surface, netapp console local 
+summary: 'Découvrez les options de sécurité disponibles dans le déploiement local de la NetApp Console, notamment l"intégration Active Directory et l"authentification multifacteur.' 
+---
+= Découvrez l'accès sécurisé au déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console local deployment offre plusieurs niveaux de sécurité pour protéger votre environnement de gestion du stockage et contrôler qui peut y accéder.
+
+
+
+[[active-directory-integration]]
+== Intégration Active Directory
+
+Connectez le déploiement local de NetApp Console à votre Active Directory afin que les utilisateurs puissent se connecter avec leurs identifiants d'entreprise existants. Cela élimine le besoin de mots de passe distincts pour le déploiement local de Console et prend en charge la connexion via l'annuaire pour les utilisateurs que vous ajoutez à votre organisation.
+
+link:task-iam-active-directory-integrate.html["Intégrez Active Directory au déploiement local de NetApp Console"].
+
+
+
+[[multi-factor-authentication]]
+== Authentification multifactorielle
+
+Les utilisateurs peuvent activer l'authentification multifacteur (MFA) pour une couche de vérification supplémentaire afin d'empêcher tout accès non autorisé, même si les identifiants sont compromis.
+
+link:task-user-settings.html["Activez l'authentification multifacteur pour le déploiement local de la NetApp Console"].
+
+
+
+[[identity-and-access-management]]
+== gestion des accès et des identités
+
+Après avoir authentifié les utilisateurs, contrôlez et surveillez ce qu'ils peuvent faire dans le déploiement local de NetApp Console.
+
+Utilisez le contrôle d'accès basé sur les rôles pour définir ce que chaque membre peut voir et gérer. Attribuez les membres à des flottes spécifiques afin qu'ils n'accèdent qu'aux ressources de stockage pertinentes à leurs responsabilités.
+
+* link:concept-identity-and-access-management.html["Découvrez la gestion des identités et des accès pour le déploiement local de NetApp Console"]
+* link:concept-iam-rbac.html["Découvrez le contrôle d'accès basé sur les rôles pour le déploiement local de NetApp Console"]
+* link:task-iam-manage-members-permissions.html["Ajouter des membres et attribuer des rôles dans le déploiement local de la NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Gérer les attributions d'accès à la flotte dans le déploiement local de la NetApp Console"]
+
+
+
+
+[[audit-logging]]
+== Journalisation des audits
+
+Suivez toute l'activité des utilisateurs (y compris les utilisateurs d'API et de comptes de service) dans le déploiement local de NetApp Console à des fins de conformité et d'enquêtes de sécurité.
+
+link:task-audit-console-activity.html["Consultez les journaux d'audit pour le déploiement local de la NetApp Console"].

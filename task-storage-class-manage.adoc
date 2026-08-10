@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: task-storage-class-manage.html 
+keywords: create storage class, storage class, define, policy, netapp console 
+summary: 'Créez une classe de stockage dans le déploiement local de la NetApp Console afin de standardiser l"approvisionnement du stockage.' 
+---
+= Créer des classes de stockage dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Créez une classe de stockage dans le déploiement local de la NetApp Console afin de standardiser la manière dont le stockage est provisionné et géré au sein de vos parcs. Une classe de stockage est un modèle réutilisable qui regroupe les politiques de classe de stockage—telles que les objectifs de performance, le comportement de la capacité, les exigences de sécurité et les calendriers de protection des données—dans une seule définition nommée.
+
+Lorsqu’un utilisateur (ou un système automatisé) provisionne un volume ou un LUN à l’aide d’une classe de stockage, le déploiement local de NetApp Console applique automatiquement les stratégies de cette classe. Après le provisionnement, le déploiement local de Console surveille en continu les charges de travail par rapport à la classe de stockage afin de détecter les écarts et peut guider ou automatiser les corrections pour rétablir la conformité.
+
+
+
+[[before-you-begin]]
+== Avant de commencer
+
+* Découvrez au moins un cluster ONTAP afin que le déploiement local de NetApp Console dispose de cibles pour les recommandations de placement.
+* Assurez-vous de disposer du rôle d'administrateur de l'organisation (ou d'un rôle qui accorde des autorisations de gestion des classes de stockage dans votre environnement).
+* Créez (ou identifiez) les politiques de classe de stockage que vous prévoyez d'utiliser — performance, capacité, sécurité et protection des données — car les classes de stockage sont assemblées à partir de politiques.
+
+
+
+
+[[create-a-storage-class]]
+=== Créer une classe de stockage
+
+Vous devez disposer du rôle d'administrateur d'organisation, de dossier ou de flotte pour ajouter une classe de stockage.
+
+.Étapes
+. Sélectionnez *Stockage > Gestion*.
+. Sélectionnez *Classes de stockage*.
+. Sélectionnez *Add*.
+. Sous *Informations de base*, saisissez les informations suivantes :
++
+** *Nom de la classe de stockage* : Saisissez un nom unique pour la classe de stockage.
+** *Description* : (Facultatif) Saisissez une description de la classe de stockage.
+** *Applications recommandées* : (Facultatif) Saisissez une liste d’applications recommandées pour la classe de stockage.
+
+
+. Sous *Stratégies de stockage*, sélectionnez une ou plusieurs stratégies à associer à la classe de stockage.
+. Sélectionnez *Add*.
+
+
+
+
+[[customize-an-existing-storage-class]]
+=== Personnalisez une classe de stockage existante
+
+Vous devez disposer du rôle d'administrateur d'organisation, de dossier ou de flotte pour personnaliser une classe de stockage existante.
+
+.Étapes
+. Sélectionnez *Stockage > Gestion*.
+. Sélectionnez *Classes de stockage*.
+. Pour la classe de stockage que vous souhaitez personnaliser, sélectionnez *…*, puis sélectionnez *Dupliquer*.
+. Sous la section *Informations de base*, mettez à jour les éléments suivants selon les besoins :
++
+** *Nom de la classe de stockage* : Saisissez un nom unique pour la classe de stockage.
+** *Description* : (Facultatif) Saisissez une description de la classe de stockage.
+** *Applications recommandées* : (Facultatif) Saisissez une liste d’applications recommandées pour la classe de stockage.
+
+
+. Sous *Stratégies de stockage*, sélectionnez une ou plusieurs stratégies à associer à la classe de stockage.
+. Sélectionnez *Add*.
+
+
+
+
+[[edit-a-user-defined-storage-class]]
+=== Modifier une classe de stockage définie par l'utilisateur
+
+Vous devez disposer du rôle d'administrateur de l'organisation, de dossier ou de flotte pour modifier une classe de stockage définie par l'utilisateur.
+
+.Étapes
+. Sélectionnez *Stockage > Gestion*.
+. Sélectionnez *Classes de stockage*.
+. Pour la classe de stockage que vous souhaitez modifier, sélectionnez *…*, puis sélectionnez *Modifier*.
+. Sous la section *Informations de base*, modifiez les éléments suivants selon vos besoins :
++
+** *Nom de la classe de stockage* : Saisissez un nom unique pour la classe de stockage.
+** *Description* : (Facultatif) Saisissez une description de la classe de stockage.
+** *Applications recommandées* : (Facultatif) Saisissez une liste d’applications recommandées pour la classe de stockage.
+
+
+. Sous *Stratégies de stockage*, sélectionnez une ou plusieurs stratégies à associer à la classe de stockage.
+. Sélectionnez *Modifier*.
+
+
+
+
+[[delete-a-user-defined-storage-class]]
+=== Supprimer une classe de stockage définie par l'utilisateur
+
+Vous devez disposer du rôle d'administrateur de l'organisation, de dossier ou de flotte pour supprimer une classe de stockage définie par l'utilisateur.
+
+.Étapes
+. Sélectionnez *Stockage > Gestion*.
+. Sélectionnez *Classes de stockage*.
+. Pour la classe de stockage que vous souhaitez supprimer, sélectionnez *…*, puis sélectionnez *Supprimer*.
+. Sélectionnez *Delete*.
++
+Notez que cette action est irréversible. Si vous supprimez une classe de stockage en cours d'utilisation, les volumes ou LUN provisionnés avec cette classe continueront de fonctionner mais ne seront plus associés à la classe supprimée.
+
+

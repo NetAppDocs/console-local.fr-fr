@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: task-storage-class-fleet-associate.html 
+keywords: associate, storage class, fleet, assign, netapp console 
+summary: Associez une classe de stockage à une flotte dans le déploiement local de NetApp Console pour appliquer des politiques de stockage cohérent. 
+---
+= Associez les classes de stockage aux flottes dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Associez des classes de stockage aux flottes dans le déploiement local de NetApp Console pour appliquer des normes spécifiques à l’environnement, contrôler les options que les opérateurs peuvent utiliser et simplifier les contrôles de conformité par rapport aux classes attribuées.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, administrateur de dossier ou de flotte, ou administrateur de stockage. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+
+
+[[associate-a-storage-class-with-a-fleet]]
+== Associer une classe de stockage à une flotte
+
+Associez une classe de stockage à une flotte afin qu'elle soit disponible pour le provisionnement et le suivi continu de la conformité au sein de cette flotte.
+
+.Étapes
+. Ouvrez la flotte que vous souhaitez gérer.
+. Localisez la zone de configuration de la flotte pour les classes de stockage.
+. Sélectionnez une ou plusieurs classes de stockage à associer à la flotte.
+. Sélectionnez *Enregistrer*.
+
+
+.Vérifier
+. Démarrez un flux de travail de provisionnement dans la flotte et confirmez que la classe de stockage est disponible pour la sélection.
+

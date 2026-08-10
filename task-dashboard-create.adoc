@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: task-dashboard-create.html 
+keywords: create dashboard, custom dashboard, add dashboard, metrics, cards, card templates, fleet monitoring, storage visibility, performance monitoring, capacity monitoring, netapp console local 
+summary: Créez un tableau de bord personnalisé dans le déploiement local de NetApp Console, ajoutez des cartes et enregistrez une vue de surveillance utilisable. 
+---
+= Créez des tableaux de bord pour le suivi des objectifs dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Créez un tableau de bord personnalisé dans le déploiement local de NetApp Console, ajoutez des cartes et enregistrez une vue de surveillance pour les opérations quotidiennes.
+
+Si vous avez uniquement besoin d'une supervision à l'échelle de l'organisation prête à l'emploi, commencez par les tableaux de bord prédéfinis de la page d'accueil. Créez un tableau de bord personnalisé lorsque vous avez besoin d'une vue spécifique à un rôle, d'un ciblage au niveau des ressources ou d'une mise en page sur mesure.
+
+.Directives pour le tableau de bord de déploiement local de la console
+* Seul l'utilisateur qui crée le tableau de bord peut le consulter. Vous ne pouvez pas partager des tableaux de bord avec d'autres utilisateurs, même lorsque vous les ajoutez à la page d'accueil de la Console.
+* Vous ne pouvez consulter que les ressources pour lesquelles vous avez l'autorisation de les consulter. Si une ressource n'apparaît pas dans la liste des ressources disponibles, vous n'avez pas l'autorisation de la consulter.
+* Avant de commencer, identifiez les types de mesures et les ressources que vous souhaitez que le tableau de bord suive. link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"]
+
+
+
+
+[[build-a-dashboard-for-your-monitoring-goals]]
+== Créez un tableau de bord pour vos objectifs de suivi
+
+Créez un tableau de bord lorsque vous avez besoin d'un endroit unique pour surveiller les indicateurs importants pour votre rôle, tels que l'état de la flotte, les points chauds de performance et les tendances des alertes.
+
+.Étapes
+. Sélectionnez *Storage > Dashboards*.
+. Sélectionnez *Ajouter un tableau de bord*.
++
+Le déploiement local de la Console crée un nouveau tableau de bord avec un nom par défaut et sans description.
+
+. Sélectionnez *Ajouter une carte*.
+. Sélectionnez le *type de ressource* pour la carte, tel que flotte, système ou volume, puis choisissez des ressources dans la liste des ressources disponibles.
+. Sélectionnez *Suivant* pour continuer à choisir une métrique et un type de carte.
+. Choisissez une métrique à afficher. Vous pouvez filtrer les métriques disponibles par type : le *Type de métrique* : *Performance*, *Capacity*, *Health* ou *Alerts*, ou rechercher une métrique spécifique par nom. Les métriques disponibles dépendent du type de ressource que vous avez sélectionné.
++
+link:reference-dashboard-card-templates.html#metrics-list["Découvrez les indicateurs disponibles."]
+
+. Sélectionnez une carte à inclure dans le tableau de bord et sélectionnez *Suivant*.
++
+Vous ne pouvez sélectionner qu'une seule carte à la fois. L'aperçu de la carte affiche les données en temps réel pour la métrique et le type de ressource sélectionnés.
+
+. Nommez votre carte. Ce nom doit être unique dans le tableau de bord.
+. Vérifiez l'aperçu de la carte, saisissez un nom et une description de carte, puis sélectionnez *Ajouter*.
+. Répétez ces étapes pour les autres cartes.
+. Sélectionnez l'icône en forme de crayon pour modifier le nom et la description du tableau de bord et décrire son objectif.
+. Sélectionnez le menu d'actions à droite du bouton Ajouter une carte et sélectionnez *Enregistrer le tableau de bord*.
++
+Le tableau de bord enregistré est disponible sous *Stockage > Tableaux de bord*.
+
+. Vous pouvez ajouter ce tableau de bord à votre page d'accueil en sélectionnant *Ajouter à la page d'accueil* dans le menu Actions. Le tableau de bord est ajouté à la page d'accueil. Seul vous pouvez consulter les tableaux de bord personnalisés que vous créez. Il n'est pas partagé avec d'autres.
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+* link:concept-custom-dashboards.html["Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console"]
+* link:task-customize-dashboard-cards.html["Personnalisez les cartes du tableau de bord dans le déploiement local de la NetApp Console"]
+* link:task-dashboard-manage.html["Gérez les tableaux de bord dans le déploiement local de NetApp Console"]
+

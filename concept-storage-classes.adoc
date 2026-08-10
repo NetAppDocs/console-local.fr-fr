@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: concept-storage-classes.html 
+keywords: storage classes, storage class policies, standardize, fleet management, provisioning, netapp console local 
+summary: Découvrez comment les classes de stockage et les politiques de classes de stockage dans le déploiement local de NetApp Console définissent les normes, régissent le provisionnement et prennent en charge la surveillance des dérives. 
+---
+= Découvrez les classes de stockage et les stratégies dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Une classe de stockage est un modèle réutilisable qui définit le comportement du stockage. Lorsque vous provisionnez du stockage à l'aide d'une classe de stockage, le déploiement local de NetApp Console applique automatiquement les normes définies dans cette classe, sans que les administrateurs aient à effectuer de configurations individuelles pour chaque charge de travail.
+
+Les classes de stockage sont construites à partir de politiques de classes de stockage, qui définissent les différentes dimensions du comportement du stockage. Ensemble, elles vous permettent de définir une seule fois les normes de stockage de votre organisation et de les appliquer de manière cohérente à l'ensemble de vos parcs.
+
+
+
+[[what-storage-class-policies-are]]
+== Que sont les politiques de classe de stockage
+
+Une stratégie de classe de stockage définit une dimension du comportement du stockage. Les stratégies sont des éléments de base réutilisables que vous combinez pour créer des classes de stockage.
+
+Les types de stratégies courants comprennent :
+
+* *Politiques de performance* - Définissez les objectifs de latence, les IOPS ou les exigences de débit.
+* *Politiques de capacité* - Définissez le mode de provisionnement, les alertes de seuil ou les limites de croissance.
+* *Politiques de sécurité* - Définissez les exigences en matière de chiffrement, de conformité ou de contrôle d'accès.
+* *Politiques de protection des données* - Définissez les calendriers de snapshots, les cibles de réplication ou les périodes de conservation.
+
+
+Vous définissez les politiques indépendamment, puis vous les combinez lors de la création d'une classe de stockage. Cela vous permet de réutiliser la même politique de performance pour plusieurs classes, ou de mettre à jour une politique de capacité à un seul endroit et d'appliquer cette modification à toutes les classes qui l'utilisent.
+
+
+
+[[what-storage-classes-are]]
+== Que sont les classes de stockage
+
+Une classe de stockage est un modèle nommé, composé d'une ou plusieurs stratégies. Elle définit les normes de stockage de votre organisation pour un type de charge de travail spécifique.
+
+Par exemple, vous pouvez créer une classe de stockage *Production Database* qui combine hautes performances, haute disponibilité et politiques strictes de protection des données, ou une classe de stockage *Development File Share* qui combine performances modérées, capacité flexible et politiques de protection des données de base.
+
+Les administrateurs de stockage définissent les classes de stockage pour formaliser les exigences des entreprises. Toute activité de provisionnement, qu’elle soit effectuée manuellement, via des flux de travail guidés ou de manière automatisée, s’appuie sur la bibliothèque de classes approuvées par ces administrateurs.
+
+
+
+[[how-storage-classes-enforce-standards]]
+== Comment les classes de stockage appliquent les normes
+
+Lors du provisionnement du stockage, vous sélectionnez une classe de stockage plutôt que de configurer des paramètres individuels. Le déploiement local via la console utilise les stratégies de cette classe pour identifier les clusters de votre parc disposant de la capacité et des performances nécessaires pour supporter la charge de travail, recommander la meilleure option de placement et appliquer automatiquement les paramètres de classe lors du provisionnement.
+
+Après la mise en service, le déploiement local de NetApp Console évalue en permanence chaque charge de travail par rapport à ses normes de classe de stockage.
+
+
+
+[[storage-class-drift-and-compliance]]
+== Dérive et conformité des classes de stockage
+
+Lorsqu'une charge de travail ne correspond plus à son intention de classe de stockage, le déploiement local de NetApp Console la signale pour investigation et remédiation.
+
+Les problèmes se répartissent en deux catégories :
+
+* *Dérive de configuration* : Les paramètres de stockage gérés par la stratégie de classe de stockage ne correspondent plus à la configuration prévue. Cela peut se produire lorsque des modifications sont apportées directement sur le cluster ONTAP ou en dehors des flux de travail de provisionnement standard.
+* *Non-conformité des performances* : Le comportement d’exécution de la charge de travail ne répond plus à l’intention de performance de la classe de stockage (par exemple, une pression soutenue près d’une limite QoS ou une latence de queue élevée).
+
+
+Une vue d'analyse explique les modifications apportées et leurs causes. Des actions correctives guidées (par exemple, *Corriger le problème*) peuvent être proposées pour rétablir la conformité. Certaines corrections peuvent être appliquées directement, tandis que d'autres peuvent nécessiter l'alignement de la charge de travail sur une classe de stockage différente afin de rétablir le comportement attendu.
+
+.Où enquêter
+Vous pouvez généralement examiner les dérives et les cas de non-conformité à partir de l'un de ces emplacements (la disponibilité dépend de votre déploiement et de vos autorisations) :
+
+* *Classes de stockage :* Drift / Compliance
+* *Alertes :* Analyser
+
+
+Pour des instructions étape par étape, voir xref:task-storage-class-drift-remediate.adoc[Corriger la dérive de la classe de stockage].
+
+
+
+[[end-to-end-workflow]]
+== Flux de travail de bout en bout
+
+Les étapes suivantes décrivent le processus d'utilisation des classes de stockage pour standardiser et gouverner le stockage dans votre environnement :
+
+. *Créer des stratégies de classe de stockage* - Les stratégies définissent les différentes dimensions du comportement du stockage (objectifs de performance, paramètres de capacité, exigences de sécurité, calendriers de protection des données). Créez les stratégies avant de créer une classe de stockage.
+. *Créer une classe de stockage* : Assemblez une classe de stockage en combinant une stratégie de chaque catégorie applicable. Vous pouvez utiliser une classe de stockage prédéfinie ou en créer une personnalisée conforme aux normes de votre organisation.
+. *Associer la classe de stockage à une flotte* - Après avoir créé une classe de stockage, associez-la à la flotte où elle sera utilisée pour le provisionnement et le contrôle de la conformité.
+. *Provisionnez le stockage à l'aide de la classe de stockage* - Lors du provisionnement d'un volume ou d'un LUN, sélectionnez une classe de stockage plutôt que de configurer des paramètres individuels. Le déploiement local via NetApp Console utilise la classe pour recommander l'emplacement optimal du cluster, puis provisionne avec les paramètres définis dans la classe.
+. *Surveillez les charges de travail pour détecter les écarts* - Le déploiement local de la NetApp Console évalue en continu chaque charge de travail par rapport aux normes définies dans sa classe de stockage. En cas d'écart de configuration ou de non-conformité des performances, le problème est signalé et une alerte peut être générée.
+. *Corriger la dérive pour rétablir la conformité* - Lorsqu'une dérive ou une non-conformité des performances est détectée, vous pouvez suivre les étapes guidées pour corriger le problème manuellement, laisser le déploiement local de NetApp Console résoudre automatiquement les conditions de dérive courantes ou dissocier une charge de travail de sa classe de stockage si vous devez modifier ses paramètres.
+
+
+
+
+[[how-storage-classes-work-with-fleets]]
+== Comment les classes de stockage fonctionnent avec les flottes
+
+Les classes de stockage sont associées à des flottes. Lorsque vous associez une classe de stockage à une flotte, cette classe devient disponible pour tous les provisionnements au sein de la flotte. Cela garantit que chaque charge de travail provisionnée dans la flotte respecte les mêmes normes, faisant des flottes le principal moyen d'assurer un comportement de stockage cohérent entre les clusters associés.
+
+Pour plus de détails sur la manière d'organiser les flottes, voir link:concept-manage-storage.html["Découvrez la gestion de flotte dans le déploiement local de NetApp Console"].
+
+
+
+[[where-to-go-next]]
+== Où aller ensuite
+
+* Pour comprendre l'organisation de la flotte, voir link:concept-manage-storage.html["Découvrez la gestion de flotte dans le déploiement local de NetApp Console"].
+* Pour créer des politiques et des classes de stockage, voir link:task-storage-class-manage.html["Gérer les classes de stockage et les politiques"].
+* link:task-provisioning-manual.html["Provisionner manuellement le stockage"]
+* link:task-provisioning-automated.html["Provisionner automatiquement le stockage"]
+* link:task-provisioning-agentic.html["Provisionnez le stockage avec l'aide de l'IA"]
+* Pour analyser et corriger la dérive, voir link:task-storage-class-drift-remediate.html["Corriger la dérive de la classe de stockage"]
+

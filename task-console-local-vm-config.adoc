@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: task-console-local-vm-config.html 
+keywords: Console local VM, vcenter, esxi, increase cpu, increase ram, vm maintenance, Console local maintenance, Console local operating system, Console local host 
+summary: 'Vous pouvez modifier votre hôte VCenter ou ESXi existant après avoir déployé le déploiement local de Console. Par exemple, vous pouvez augmenter le CPU ou la RAM de l"instance de machine virtuelle qui héberge le déploiement local de Console.' 
+---
+= Maintenez votre vCenter ou hôte ESXi pour le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, vous pouvez apporter des modifications à votre VCenter ou hôte ESXi existant après avoir déployé le déploiement local de la Console. Par exemple, vous pouvez augmenter le CPU ou la RAM de l’instance de machine virtuelle qui héberge le déploiement local de la Console.
+
+Effectuez ces tâches de maintenance à l'aide de la console Web de la machine virtuelle :
+
+* Augmenter la taille du disque
+* Redémarrez le déploiement local de la NetApp Console
+* Mettre à jour les routes statiques
+* Mettre à jour les domaines de recherche
+
+
+.Limitations
+Vous pouvez uniquement consulter (et non modifier) les informations relatives à l'adresse IP, au DNS et aux passerelles via la console de maintenance.
+
+
+
+[[access-the-vm-maintenance-console]]
+== Accédez à la console de maintenance de la machine virtuelle
+
+Vous pouvez accéder à la console de maintenance depuis le client vSphere.
+
+.Étapes
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+
+
+
+
+[[change-the-maint-user-password]]
+=== Modifier le mot de passe de l'utilisateur maint
+
+Vous pouvez modifier le mot de passe de l' `maint` utilisateur.
+
+.Étapes
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+. Saisissez  `1` pour afficher le  `System Configuration` menu.
+. Saisissez  `1` pour modifier le mot de passe de l'utilisateur de maintenance et suivez les instructions à l'écran.
+
+
+
+
+[[increase-the-cpu-or-ram-of-the-vm-instance]]
+=== Augmentez le CPU ou la RAM de l'instance de machine virtuelle
+
+Vous pouvez augmenter le CPU ou la RAM de l'instance de machine virtuelle qui héberge le déploiement local de Console.
+
+Modifiez les paramètres de l'instance de machine virtuelle dans votre VCenter ou hôte ESXi, puis utilisez la NetApp Console de maintenance pour appliquer les modifications.
+
+.Étapes dans le client vSphere
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Cliquez avec le bouton droit sur l'instance de machine virtuelle et sélectionnez *Modifier les paramètres*.
+. Augmentez l'espace disque utilisé pour /opt ou la partition /var.
++
+.. Sélectionnez *Disque dur 2* pour augmenter l'espace disque utilisé pour /opt.
+.. Sélectionnez *Disque dur 3* pour augmenter l'espace disque utilisé pour /var.
+
+
+. Enregistrez vos modifications.
+
+
+.Étapes dans la console de maintenance
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de NetApp Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+. Accédez au  `1 to view the `System Configuration` menu.
+. Saisissez  `2` et suivez les instructions à l'écran. La console recherche de nouveaux paramètres et augmente la taille des partitions.
+
+
+
+
+[[view-network-settings-for-the-console-local-deployment-vm]]
+=== Afficher les paramètres réseau de la machine virtuelle de déploiement local de la Console
+
+Consultez les paramètres réseau de la machine virtuelle de déploiement local de la Console dans le client vSphere pour confirmer ou résoudre les problèmes réseau. Vous pouvez uniquement consulter (et non mettre à jour) les paramètres réseau suivants : adresse IP et détails DNS.
+
+.Étapes
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+. Saisissez  `2` pour afficher le  `Network Configuration` menu.
+. Saisissez un nombre entre 1 et 6 pour afficher les paramètres réseau correspondants.
+
+
+
+
+[[update-the-static-routes-for-the-console-local-deployment-vm]]
+=== Mettez à jour les routes statiques pour la machine virtuelle de déploiement local de la Console
+
+Ajoutez, mettez à jour ou supprimez les routes statiques de la machine virtuelle de déploiement local de la NetApp Console selon les besoins.
+
+.Étapes
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+. Saisissez  `2` pour afficher le  `Network Configuration` menu.
+. Saisissez  `7` pour mettre à jour les itinéraires statiques et suivez les instructions à l'écran.
+. Appuyez sur Entrée.
+. Vous pouvez éventuellement apporter des modifications supplémentaires.
+. Saisissez  `9` pour valider vos modifications.
+
+
+
+
+[[update-domain-search-settings-for-the-console-local-deployment-vm]]
+=== Mettre à jour les paramètres de recherche de domaine pour la machine virtuelle de déploiement local de la Console
+
+Vous pouvez mettre à jour les paramètres du domaine de recherche pour la machine virtuelle de déploiement local de la Console.
+
+.Étapes
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+. Saisissez  `2`` pour afficher le  `Network Configuration` menu.
+. Saisissez  `8` pour mettre à jour les paramètres de recherche de domaine et suivez les instructions à l'écran.
+. Appuyez sur Entrée.
+. Vous pouvez éventuellement apporter des modifications supplémentaires.
+. Saisissez  `9` pour valider vos modifications.
+
+
+
+
+[[access-the-console-local-deployment-diagnostic-tools]]
+[[connect-vcenter-host]]
+=== Accédez aux outils de diagnostic de déploiement local de la Console
+
+Accédez aux outils de diagnostic pour résoudre les problèmes liés au déploiement local de la Console. NetApp Support pourra vous demander de faire cela lors du dépannage de problèmes.
+
+.Étapes
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+. Saisissez  `3` pour afficher le menu Support and Diagnostics.
+. Saisissez  `1` pour accéder aux outils de diagnostic et suivez les instructions à l'écran.
+
+
+
+
+[[access-the-console-local-deployment-diagnostic-tools-remotely]]
+=== Accédez à distance aux outils de diagnostic de déploiement local de la Console
+
+Vous pouvez accéder aux outils de diagnostic à distance à l'aide d'un outil tel que Putty. Activez l'accès SSH à la machine virtuelle de déploiement local de la NetApp Console en attribuant un mot de passe à usage unique.
+
+L'accès SSH permet d'activer des fonctionnalités avancées du terminal telles que le copier-coller.
+
+.Étapes
+. Ouvrez le client vSphere et connectez-vous à votre vCenter.
+. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
+. Sélectionnez *Lancer la console Web*.
+. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
+. Saisissez  `3` pour afficher le  `Support and Diagnostics` menu.
+. Saisissez  `2` pour accéder aux outils de diagnostic et suivez les instructions à l'écran pour configurer un mot de passe à usage unique qui expire au bout de 24 heures.
+. Utilisez un outil SSH tel que Putty pour vous connecter à la machine virtuelle de déploiement local de la Console en utilisant le nom d'utilisateur `diag` et le mot de passe à usage unique que vous avez configuré.
+

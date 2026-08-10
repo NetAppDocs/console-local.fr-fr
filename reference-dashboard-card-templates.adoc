@@ -1,0 +1,265 @@
+---
+sidebar: sidebar 
+permalink: reference-dashboard-card-templates.html 
+keywords: card templates, dashboard cards, metric types, chart types, performance, capacity, health, alerts, netapp console local 
+summary: Référence pour les tableaux de bord prédéfinis et les cartes de tableau de bord personnalisées ainsi que les indicateurs dans le déploiement local de la NetApp Console. 
+---
+= Référence des tableaux de bord prédéfinis et des cartes de tableau de bord personnalisées dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, des tableaux de bord prédéfinis et des modèles de cartes de tableau de bord personnalisés assurent la surveillance des performances, de la capacité, de l’état et des opérations d’alerte d’ONTAP.
+
+
+
+[[predefined-dashboards]]
+== Tableaux de bord prédéfinis
+
+Les tableaux de bord prédéfinis suivants sont disponibles immédiatement.
+
+[cols="35,65"]
+|===
+| Nom | Description 
+
+
+| Volumes | Performance du volume, capacité, QoS, FabricPool, taux de croissance et mesures de prévision. 
+
+
+| Temps restant avant le plein | Prédictions ONTAP du temps nécessaire pour remplir les clusters, les volumes et les agrégats. 
+
+
+| Sécurité | Aperçu de la conformité en matière de sécurité, du chiffrement, de la protection autonome contre les ransomwares et de l'authentification. 
+
+
+| SVM | Surveillance des performances, de la capacité, du volume, du LIF, du protocole (CIFS, FCP, iSCSI, NFS, NVMe/FC), de la QoS et de la latence par carte thermique pour ONTAP SVM. 
+
+
+| Alimentation | Surveillance de la consommation électrique, de la température et de la vitesse des ventilateurs des nœuds, des étagères et des agrégats du cluster ONTAP. 
+
+
+| Nœuds | Surveillance des performances du nœud ONTAP, du processeur, du réseau et du backend. 
+
+
+| Réseau | Métriques de performance réseau, notamment Ethernet, FibreChannel, NVMe/FC, groupes d'agrégation de liens et routes. 
+
+
+| LUN | Surveillance des performances, de la capacité et de l'efficacité des LUN ONTAP. 
+
+
+| Santé | Surveillance de l'état du cluster ONTAP, y compris les erreurs, les avertissements, les alertes EMS, les problèmes de haute disponibilité, l'état des nœuds/disques/étagères, les volumes, les licences et les ports réseau. 
+
+
+| Agrégats | Surveillance de la capacité agrégée, des ratios d'efficacité et du taux de croissance dans ONTAP. 
+|===
+
+
+[[dashboard-level-time-windows-and-aggregation]]
+== Fenêtres temporelles et agrégation au niveau du tableau de bord
+
+Les fenêtres temporelles disponibles sont de 30 minutes, 1 heure, 24 heures, 48 heures, 7 jours et 30 jours. Les options d'agrégation varient selon le modèle et incluent des vues telles que le cumul pour l'ensemble de la flotte ou des résultats de type top-N. La fenêtre temporelle et l'agrégation sont configurées au niveau du tableau de bord et s'appliquent à toutes les cartes du tableau de bord.
+
+
+
+[[dashboard-card-templates-and-metrics]]
+== Modèles de cartes de tableau de bord et indicateurs
+
+Les cartes constituent les éléments de base des tableaux de bord personnalisés. Chaque carte utilise un modèle prédéfini avec une métrique et un type de graphique, puis associe cette vue à des objets ONTAP spécifiques et à des objectifs de surveillance.
+
+
+NOTE: Les modèles de cartes sont prédéfinis et ne sont pas créés par l'utilisateur.
+
+
+
+[[storage-operations-metric-index-at-a-glance]]
+[[metrics-list]]
+=== Index des indicateurs des opérations de stockage (en un coup d'œil)
+
+Les types de mesures correspondent aux résultats courants de l'administration du stockage, notamment les goulots d'étranglement des performances, la pression sur la capacité, les risques pour la santé et le volume d'alertes.
+
+[cols="18,37,30,15"]
+|===
+| Type de métrique | Métriques prises en charge | Cas d'utilisation de l'administrateur de stockage | Modèles détaillés 
+
+
+| Performances | Latence moyenne, latence de pointe, IOPS, débit (Mo/s), utilisation, capacité de performance | Identifiez les goulets d'étranglement, la pression soutenue et la marge de performance | <<performance-templates,Accéder aux modèles>> 
+
+
+| Capacité | Capacité utilisée, capacité libre, capacité utilisée (%), capacité de snapshot utilisée | Suivez la croissance, identifiez les zones à faible capacité disponible et surveillez l'impact des snapshots | <<capacity-templates,Accéder aux modèles>> 
+
+
+| Santé | État de santé, objets dégradés/critiques, disques défaillants, erreurs d'interface réseau, objets chauds (par latence) | Détectez les régressions de santé et priorisez le triage opérationnel | <<health-templates,Accéder aux modèles>> 
+
+
+| Alertes | Alertes (critiques), alertes par niveau de gravité, alertes par zone d'impact, alertes récentes, tendance des alertes | Surveillez les incidents actifs et l’évolution du volume des alertes au fil du temps | <<alerts-templates,Accéder aux modèles>> 
+|===
+
+
+[[supported-ontap-object-hierarchy-resource-types]]
+=== Hiérarchie des objets ONTAP prise en charge (types de ressources)
+
+Les données de carte peuvent être représentées à plusieurs niveaux d'objets ONTAP, de la visibilité au niveau de la flotte au dépannage au niveau de l'objet.
+
+Les paramètres *Type de ressource* correspondent à un ou plusieurs des niveaux de ressources suivants :
+
+* Flotte
+* Cluster
+* Système (nœud)
+* SVM
+* Volume
+* LUN
+* Niveau local (agrégat)
+
+
+Les niveaux de ressources disponibles dépendent du modèle et de la métrique que vous sélectionnez.
+
+
+
+[[chart-types-for-operational-analysis]]
+=== Types de graphiques pour l'analyse opérationnelle
+
+Le type de graphique influe sur la rapidité avec laquelle vous pouvez interpréter les tendances, les comparaisons, les distributions et les valeurs à un instant donné.
+
+[cols="25,75"]
+|===
+| Type de graphique | Idéal pour 
+
+
+| Graphique linéaire | Tendances des séries temporelles, telles que la latence, les IOPS, le débit, l'utilisation et les tendances d'alerte au fil du temps. 
+
+
+| graphique à barres | Comparaison et répartition catégorielles, telles que les alertes par gravité ou zone d'impact. 
+
+
+| Secteur ou anneau | Répartition proportionnelle, comme le pourcentage de capacité utilisée. 
+
+
+| Tableau | Données détaillées à plusieurs colonnes, telles que la capacité utilisée, l’état de santé et les alertes récentes. 
+
+
+| Nombre unique (stat) | Une seule valeur clé en un coup d'œil, comme le nombre d'alertes critiques ou de disques défaillants. 
+|===
+
+
+[[performance-templates-for-workload-triage]]
+[[performance-templates]]
+=== Modèles de performance pour le triage des charges de travail
+
+Les modèles de performance se concentrent sur la latence, le débit et les signaux d'utilisation qui indiquent la pression exercée sur la charge de travail.
+
+[cols="25,20,55"]
+|===
+| Modèle | Type de graphique | Description 
+
+
+| Latence moyenne | Ligne | Latence moyenne sur les cibles sélectionnées pendant la période choisie. 
+
+
+| Latence maximale | Ligne | Latence maximale observée sur les cibles sélectionnées pendant la fenêtre temporelle choisie. 
+
+
+| Op E/S par sec | Ligne | Somme des opérations d'E/S par seconde sur les cibles sélectionnées. 
+
+
+| Débit (Mo/s) | Ligne | Somme des débits de données sur les cibles sélectionnées. 
+
+
+| Utilisation | Ligne | Utilisation moyenne du processeur ou du disque sur les cibles sélectionnées. 
+
+
+| Capacité de performance | Tableau | Analyse de la marge de manœuvre comparant l'utilisation actuelle au point optimal. 
+|===
+
+
+[[capacity-templates-for-growth-and-headroom]]
+[[capacity-templates]]
+=== Modèles de capacité pour la croissance et la marge de manœuvre
+
+Les modèles de capacité se concentrent sur l'espace consommé et disponible afin de faciliter la planification de la croissance et la détection des risques.
+
+[cols="25,20,55"]
+|===
+| Modèle | Type de graphique | Description 
+
+
+| Capacité utilisée | Tableau | Somme de la capacité utilisée sur l'ensemble des cibles sélectionnées. 
+
+
+| Capacité libre | Tableau | Somme des capacités libres ou disponibles sur les cibles sélectionnées. 
+
+
+| Capacité utilisée (%) | Secteur ou anneau | Ratio moyen utilisé/total pour l'ensemble des cibles sélectionnées. 
+
+
+| Capacité Snapshot utilisée | Tableau | Somme de l'espace d'instantané consommé sur les cibles sélectionnées. 
+|===
+
+
+[[health-templates-for-risk-detection]]
+[[health-templates]]
+=== Modèles de santé pour la détection des risques
+
+Les modèles de santé se concentrent sur l'état des objets et les indicateurs de défaillance pour faciliter le triage opérationnel.
+
+[cols="25,20,55"]
+|===
+| Modèle | Type de graphique | Description 
+
+
+| État de santé | Tableau | Dernier état de santé de chaque objet cible sélectionné. 
+
+
+| Objets dégradés/critiques | Numéro unique | Nombre d'objets dont l'état de santé n'est pas OK. 
+
+
+| Disques défectueux | Numéro unique | Somme des disques défaillants sur l'ensemble des systèmes sélectionnés. 
+
+
+| Erreurs d'interface réseau | Secteur ou anneau | Somme des compteurs d'erreurs d'interface réseau sur les cibles sélectionnées. 
+
+
+| Objets actifs (par latence) | Tableau | Ressources classées par latence maximale, en ordre décroissant. 
+|===
+
+
+[[alerts-templates-for-incident-prioritization]]
+[[alerts-templates]]
+=== Modèles d'alertes pour la priorisation des incidents
+
+Les modèles d'alertes mettent l'accent sur le volume des incidents, leur gravité et leur zone d'impact afin de faciliter la surveillance et la priorisation.
+
+[cols="25,20,55"]
+|===
+| Modèle | Type de graphique | Description 
+
+
+| Alertes (critiques) | Numéro unique | Nombre d'alertes de gravité critique dans l'intervalle de temps. 
+
+
+| Alertes par niveau de gravité | Barre | Alertes regroupées par niveau de gravité. 
+
+
+| Alertes par zone d'impact | Barre | Alertes regroupées par domaine d'impact, comme la capacité, les performances ou la sécurité. 
+
+
+| Alertes récentes | Tableau | Alertes les plus récentes, triées par heure dans l'ordre décroissant. 
+
+
+| Tendance des alertes | Ligne | Nombre d'alertes par intervalle de temps sur la période choisie. 
+|===
+
+
+[[related-information]]
+== Informations connexes
+
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+* link:concept-custom-dashboards.html["Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console"]
+* link:task-dashboard-create.html["Créer un tableau de bord personnalisé"]
+* link:task-customize-dashboard-cards.html["Personnalisez les cartes du tableau de bord dans le déploiement local de la NetApp Console"]
+* link:task-dashboard-manage.html["Gérer les tableaux de bord personnalisés"]
+

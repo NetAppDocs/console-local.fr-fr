@@ -1,0 +1,107 @@
+---
+sidebar: sidebar 
+permalink: task-dashboard-manage.html 
+keywords: manage dashboard, view dashboards, edit dashboard, clone dashboard, delete dashboard, netapp console local 
+summary: Consultez et gérez les tableaux de bord dans le déploiement local de NetApp Console en ouvrant, modifiant, clonant et supprimant des tableaux de bord personnalisés. 
+---
+= Gérez les tableaux de bord dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gérez les tableaux de bord personnalisés dans le déploiement local de NetApp Console pour que les vues restent alignées sur les opérations. Vous pouvez modifier, dupliquer et supprimer les tableaux de bord en fonction de l'évolution des équipes, des flottes et des priorités.
+
+Cette tâche s'applique uniquement aux tableaux de bord personnalisés sous *Storage > Dashboards*. Les tableaux de bord prédéfinis de la page d'accueil ne peuvent pas être modifiés de la même manière.
+
+
+
+[[view-dashboards]]
+== Afficher les tableaux de bord
+
+Consultez les tableaux de bord personnalisés et prédéfinis pour trouver celui que vous souhaitez ouvrir, modifier, dupliquer ou supprimer.
+
+
+TIP: Vous pouvez dupliquer un tableau de bord prédéfini pour créer une version personnalisée que vous pouvez modifier.
+
+.Étapes
+. Sélectionnez *Storage > Dashboards*.
+. Examinez le tableau de bord pour trouver celui que vous souhaitez ouvrir.
+. Sélectionnez le nom du tableau de bord pour l'ouvrir et afficher ses métriques.
+. Si nécessaire, utilisez les actions disponibles pour modifier, dupliquer ou supprimer les tableaux de bord personnalisés.
+
+
+
+
+[[update-a-dashboard-as-priorities-change]]
+== Mettez à jour un tableau de bord à mesure que les priorités changent
+
+Modifiez un tableau de bord lorsque vos priorités opérationnelles changent et que vous devez ajuster les cartes et les indicateurs visibles.
+
+.Étapes
+. Sélectionnez *Storage > Dashboards*.
+. Ouvrez le tableau de bord que vous souhaitez modifier.
+. Modifiez une carte existante sur le tableau de bord en sélectionnant Modifier dans le menu Actions de la carte.
+. Ajoutez une nouvelle carte au tableau de bord en sélectionnant *Add Card*.
++
+link:task-customize-dashboard-cards.html["Personnalisez les cartes dans le déploiement local de la NetApp Console"].
+
+. Sélectionnez *Enregistrer les modifications* pour enregistrer le tableau de bord.
++
+** Vous pouvez également enregistrer vos modifications en tant que nouveau tableau de bord en sélectionnant *Enregistrer comme nouveau tableau de bord* dans le menu Actions. Cette option est utile lorsque vous souhaitez conserver le tableau de bord d'origine pour d'autres équipes ou flottes tout en créant une nouvelle version pour vos besoins actuels de surveillance.
+** Vous pouvez également annuler vos modifications en sélectionnant *Annuler les modifications* dans le menu Actions. Cette option est utile lorsque vous souhaitez revenir à la dernière version enregistrée du tableau de bord.
+
+
+
+
+
+
+[[reuse-a-custom-dashboard-for-another-resource-or-fleet]]
+== Réutiliser un tableau de bord personnalisé pour une autre ressource ou flotte
+
+Dupliquez un tableau de bord lorsque vous souhaitez réutiliser une mise en page éprouvée pour une autre équipe, flotte ou scénario de surveillance sans avoir à le reconstruire à partir de zéro.
+
+
+TIP: Vous pouvez dupliquer un tableau de bord prédéfini pour créer une version personnalisée que vous pouvez modifier.
+
+.Étapes
+. Sélectionnez *Storage > Dashboards*.
+. Pour le tableau de bord que vous souhaitez dupliquer, sélectionnez *Dupliquer* dans le menu Actions.
++
+Le déploiement local de la Console crée une copie qui inclut toutes les cartes du tableau de bord d'origine.
+
+. Fournissez un nom et une description pour le tableau de bord dupliqué.
+. Sélectionnez le tableau de bord dupliqué que vous venez de créer. Modifiez les indicateurs, les ressources et les types de cartes pour les adapter à votre nouveau scénario de surveillance.
++
+link:task-customize-dashboard-cards.html["Personnalisez les cartes dans le déploiement local de la NetApp Console"].
+
+
+
+
+
+[[remove-dashboards-you-no-longer-use]]
+== Supprimez les tableaux de bord que vous n'utilisez plus
+
+Supprimez un tableau de bord lorsqu'il ne prend plus en charge les opérations actuelles et que vous souhaitez que votre liste de tableaux de bord reste axée sur les cas d'utilisation actifs.
+
+.Étapes
+. Sélectionnez *Storage > Dashboards*.
+. Pour le tableau de bord que vous souhaitez supprimer, sélectionnez *Supprimer*.
+. Confirmez la suppression.
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+* link:task-dashboard-get-started.html["Commencez à utiliser les tableaux de bord dans le déploiement local de la NetApp Console"]
+* link:concept-custom-dashboards.html["Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console"]
+* link:task-dashboard-create.html["Créer un tableau de bord personnalisé"]
+* link:task-customize-dashboard-cards.html["Personnalisez les cartes du tableau de bord dans le déploiement local de la NetApp Console"]
+

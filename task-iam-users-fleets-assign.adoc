@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: task-iam-users-fleets-assign.html 
+keywords: assign members, fleet, folder, access control, roles, storage management, netapp console 
+summary: 'Vérifiez ou modifiez les attributions d"accès des membres pour les dossiers et les parcs de stockage dans le déploiement local de la NetApp Console.' 
+---
+= Afficher ou modifier les affectations d'accès à la flotte dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Auditez ou modifiez les attributions d'accès des membres pour les dossiers et les parcs de stockage dans le déploiement local de la NetApp Console. Les administrateurs de dossiers et de parcs travaillent généralement à partir de cette vue, car elle n'affiche que les étendues qu'ils administrent.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, ou administrateur de dossier ou de flotte. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Vous pouvez également gérer tous les rôles d'un membre en particulier dans plusieurs dossiers ou flottes. link:task-iam-manage-roles.html["Gérer l'accès des membres"].
+
+
+
+[[how-folder-and-fleet-access-works]]
+== Comment fonctionne l'accès aux dossiers et aux flottes
+
+Le déploiement local de la Console utilise le contrôle d'accès basé sur les rôles (RBAC). Un rôle que vous attribuez au niveau du dossier s'applique à toutes les flottes et sous-dossiers de ce dossier ; un rôle que vous attribuez au niveau de la flotte s'applique uniquement aux ressources de cette flotte. link:concept-iam-rbac.html#role-inheritance["Découvrez l'héritage des rôles dans le déploiement local de NetApp Console"].
+
+
+NOTE: Il est impossible de modifier un rôle au niveau de la flotte si un membre l'hérite d'un dossier ou de l'organisation. Pour modifier un accès hérité, modifiez le rôle au niveau supérieur.
+
+
+
+[[view-members-assigned-to-a-folder-or-fleet]]
+== Afficher les membres affectés à un dossier ou à une flotte
+
+Vérifiez précisément qui peut gérer un dossier ou un parc. Par exemple, avant d'associer un nouveau cluster ONTAP de production à la  `Production-US-East` flotte, ouvrez l'onglet Accès de la flotte pour confirmer qui a accès.
+
+.Étapes
+. Sélectionnez *Administration* > *Identité et accès*.
+. Sélectionnez *Organization*.
+. Depuis la page Organisation, accédez à un dossier ou une flotte dans le tableau, sélectionnez image:icon-action.png["Une icône avec trois points"] puis sélectionnez *Modifier le dossier* ou *Modifier la flotte*.
+. Sélectionnez *Accès* pour afficher les membres qui ont accès au dossier ou à la flotte.
+
+
+
+
+[[modify-member-access-from-a-folder-or-fleet]]
+== Modifier l'accès des membres à partir d'un dossier ou d'une flotte
+
+Ajustez les rôles des membres qui appartiennent déjà à votre organisation, limités à un seul dossier ou parc. Par exemple, lorsqu’un membre de l’équipe passe d’un parc de développement à un parc de production, promouvez-le du rôle de Storage viewer à celui de Storage admin sur le parc de production sans affecter ses accès ailleurs.
+
+Pour ajouter un nouveau membre et lui attribuer son premier rôle, utilisez plutôt la tâche d'intégration. link:task-iam-manage-members-permissions.html["Ajouter des membres et attribuer des rôles"].
+
+.Étapes
+. Depuis la page Organisation, accédez à un dossier ou une flotte dans le tableau, sélectionnez image:icon-action.png["Une icône avec trois points"] puis sélectionnez *Modifier le dossier* ou *Modifier la flotte*.
+. Sélectionnez *Accès* pour afficher la liste des membres qui ont accès.
+. Modifier l'accès des membres :
++
+** *Modifier le rôle d'un membre* : Pour tout membre dont le rôle est autre qu'Organization admin, sélectionnez son rôle actuel et choisissez un nouveau rôle. La modification s'applique uniquement à ce niveau ; les rôles hérités d'un niveau supérieur n'apparaissent pas ici.
+** *Supprimer l'accès d'un membre à ce niveau* : Pour un membre ayant un rôle défini directement dans ce dossier ou cette flotte, supprimez le rôle afin de révoquer son accès à ce niveau. Cela ne supprime pas le membre de votre organisation et n'affecte pas les rôles qu'il détient à d'autres niveaux.
++
+link:task-iam-manage-roles.html#remove-a-member-from-your-organization["Retirer un membre de votre organisation"].
+
+
+
+. Sélectionnez *Appliquer*.
+

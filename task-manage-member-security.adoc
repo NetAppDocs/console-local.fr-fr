@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: task-manage-member-security.html 
+keywords: member security, password reset, MFA, multi-factor authentication, service account, credentials, netapp console local, AD, Active Directory, directory services 
+summary: 'Gérez les paramètres de sécurité des membres dans le déploiement local de NetApp Console, notamment la réinitialisation des mots de passe, la gestion de l"authentification multifacteur et les identifiants des comptes de service.' 
+---
+= Gérer la sécurité des membres dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sécurisez l'accès des utilisateurs à votre organisation de déploiement local NetApp Console en gérant les paramètres de sécurité des membres. Vous pouvez demander aux utilisateurs locaux de modifier eux-mêmes leurs mots de passe, gérer l'authentification multifacteur (MFA) des utilisateurs locaux et recréer les identifiants des comptes de service.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, ou administrateur de dossier ou de flotte. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+
+
+[[reset-user-passwords-local-users-only]]
+== Réinitialiser les mots de passe des utilisateurs (utilisateurs locaux uniquement)
+
+Les administrateurs ne peuvent pas réinitialiser directement les mots de passe des utilisateurs locaux.
+
+Invitez les utilisateurs locaux à réinitialiser leur mot de passe depuis la page de connexion du déploiement local de NetApp Console en sélectionnant *Mot de passe oublié ?*.
+
+
+NOTE: Cette option n'est pas disponible pour les utilisateurs de l'annuaire.
+
+
+
+[[manage-a-local-users-multi-factor-authentication-mfa]]
+== Gérer l'authentification multifacteur (MFA) d'un utilisateur local
+
+Si un utilisateur local perd l'accès à son dispositif MFA, vous pouvez soit supprimer, soit désactiver sa configuration MFA.
+
+
+NOTE: L'authentification multifacteur est uniquement disponible pour les utilisateurs locaux. Les utilisateurs de l'annuaire ne peuvent pas activer l'authentification multifacteur via le déploiement local de NetApp Console.
+
+Utilisez ces lignes directrices pour choisir la bonne action :
+
+* Sélectionnez *Désactiver* lorsque l'utilisateur perd temporairement l'accès à son dispositif MFA. La désactivation de MFA autorise une connexion sans MFA pendant huit heures, puis réactive automatiquement MFA.
+* Sélectionnez *Supprimer* lorsque l'utilisateur doit réinitialiser complètement l'authentification multifacteur (MFA). Après avoir supprimé la MFA, l'utilisateur se connecte sans MFA jusqu'à ce qu'il la configure à nouveau.
+
+
+Si un utilisateur possède un code de récupération enregistré, il peut se connecter avec celui-ci. Si un utilisateur ne possède pas de code de récupération, désactivez l’authentification multifacteur afin que l’utilisateur puisse se connecter et retrouver l’accès.
+
+
+NOTE: Pour gérer l'authentification multifacteur d'un utilisateur local, vous devez disposer d'une adresse e-mail dans le même domaine que l'utilisateur concerné.
+
+.Étapes
+. Sélectionnez *Administration* > *Identité et accès*.
+. Sélectionnez *Members*.
+. Depuis la page Membres, accédez à un membre dans le tableau, sélectionnez image:icon-action.png["Une icône avec trois points"] puis sélectionnez *Gérer l'authentification multifacteur*.
+. Choisissez si vous souhaitez supprimer ou désactiver la configuration MFA de l'utilisateur.
+
+
+.Après avoir terminé
+Consultez le journal des audits pour confirmer qui a modifié l'accès MFA, quand il l'a modifié et si l'action a réussi. link:task-audit-console-activity.html["Découvrez comment auditer l'activité de déploiement local de NetApp Console"].
+
+
+
+[[recreate-the-credentials-for-a-service-account]]
+== Recréez les identifiants d'un compte de service
+
+Vous pouvez créer de nouveaux identifiants pour un compte de service si vous les perdez ou si vous devez les mettre à jour.
+
+La création de nouveaux identifiants supprime les anciens. Vous ne pouvez pas utiliser les anciens identifiants.
+
+.Étapes
+. Sélectionnez *Administration* > *Identité et accès*.
+. Sélectionnez *Members*.
+. Dans le tableau Membres, accédez à un compte de service, sélectionnez image:icon-action.png["Une icône avec trois points"] puis sélectionnez *Recréer les secrets*.
+. Sélectionnez *Recréer*.
+. Téléchargez ou copiez l'identifiant client et le secret client.
++
+Le déploiement local de la NetApp Console n'affiche le secret client qu'une seule fois. Veillez à le copier ou à le télécharger et à le conserver en lieu sûr.
+
+

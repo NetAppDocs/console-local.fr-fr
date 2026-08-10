@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-resources.html 
+keywords: resource, hierarchy, association, access, resource permissions, resource hierarchy, iam, identity and access management 
+summary: 'Contrôlez l"accès des utilisateurs aux ressources en les ajoutant aux flottes et aux dossiers de votre organisation de déploiement local NetApp Console. Accordez l"accès aux utilisateurs au niveau de la flotte.' 
+---
+= Gérez les ressources dans les dossiers et les flottes dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gérez l'accès aux ressources dans le déploiement local de la NetApp Console en associant les ressources au dossier ou à la flotte appropriés, ce qui contrôle quelles équipes peuvent y accéder et les gérer.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, ou administrateur de dossier ou de flotte. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Placez les ressources là où les équipes compétentes peuvent les gérer, déplacez-les en cas de changement de propriétaire et supprimez les associations lorsqu'elles ne sont plus nécessaires.
+
+Une _ressource_ est une entité que le déploiement local de NetApp Console reconnaît, telle qu'une ressource de stockage ou une charge de travail de sauvegarde et de restauration.
+
+
+
+[[console-resource-types]]
+== Types de ressources de la console
+
+Le déploiement local de la Console prend en charge à la fois les ressources de stockage et les charges de travail Backup and Recovery. Associez l’un ou l’autre type de ressource à une flotte pour contrôler l’accès et la gestion.
+
+Ressources de stockage:: Les ressources de stockage sont le type de ressource le plus courant au sein de votre organisation. Lorsque vous ajoutez un système de stockage à un déploiement local de Console, associez-le à une flotte afin que les équipes concernées puissent y accéder et le gérer. Par exemple, après avoir ajouté un cluster ONTAP, associez-le à la  `Production-US-East` flotte.
+Charges de travail de sauvegarde et de restauration:: Les charges de travail Backup and Recovery sont également considérées comme des ressources. Vous pouvez attribuer des autorisations aux membres pour accéder aux charges de travail Backup and Recovery en associant ces charges de travail à des flottes. Par exemple, attribuez à un membre l'accès à une charge de travail Backup and Recovery en l'associant à une flotte à laquelle ce membre a accès et en lui accordant le rôle Backup and Recovery approprié.
+
+
+
+
+[[view-the-resources-in-your-organization]]
+== Consultez les ressources de votre organisation
+
+Consultez les ressources de votre organisation pour trouver une ressource spécifique et voir à quelles flottes ou dossiers elle est associée. Si vous n'avez créé aucun dossier ni flotte, toutes les ressources sont associées à la flotte par défaut située directement sous l'organisation.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Ressources*.
+. Sélectionnez *Recherche avancée et filtrage*.
+. Utilisez les options disponibles pour trouver une ressource :
++
+** *Recherche par nom de ressource* : Saisissez une chaîne de texte et sélectionnez *Add*.
+** *Plateforme* : Sélectionnez une ou plusieurs plateformes, telles qu’Amazon Web Services.
+** *Ressources* : Sélectionnez une ou plusieurs ressources, telles que Cloud Volumes ONTAP.
+** *Organisation, dossier ou flotte* : Sélectionnez l’organisation entière, un dossier spécifique ou une flotte spécifique.
+
+
+. Sélectionnez *Rechercher*.
+
+
+
+
+[[associate-a-resource-with-a-folder-or-fleet]]
+[[associate-resource]]
+== Associez une ressource à un dossier ou à une flotte
+
+Associez une ressource à un parc ou à un dossier afin que les équipes concernées puissent la gérer. Par exemple, après avoir ajouté un cluster ONTAP, associez-le à la flotte  `Production-US-East` afin que les administrateurs de stockage régionaux de cette flotte puissent le gérer.
+
+
+NOTE: Les utilisateurs disposant du rôle d'administrateur de l'organisation peuvent ajouter des ressources à un dossier afin de déléguer les tâches d'association de flotte à l'administrateur du dossier ou de la flotte pour ce dossier. link:task-iam-manage-folders-fleets.html#associate-resource-folder["Associer une ressource à un dossier"].
+
+.Étapes
+. Depuis la page *Ressources*, accédez à une ressource dans le tableau, sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] puis sélectionnez *Associer à un dossier ou à une flotte*.
+. Sélectionnez un dossier ou une flotte, puis sélectionnez *Accepter*.
+. Pour associer un dossier ou une flotte supplémentaire, sélectionnez *Ajouter un dossier ou une flotte* puis sélectionnez le dossier ou la flotte.
++
+Notez que vous ne pouvez sélectionner que les dossiers et les flottes pour lesquels vous disposez des autorisations d'administrateur.
+
+. Sélectionnez *Associer des ressources*.
++
+** Si vous avez associé la ressource à des flottes, les membres disposant des autorisations pour ces flottes peuvent désormais accéder à la ressource depuis la Console.
+** Si vous avez associé la ressource à un dossier, un administrateur de dossier ou de flotte peut désormais accéder à la ressource et l'associer à une flotte au sein du dossier. link:task-iam-manage-folders-fleets.html#associate-resource-folder["Associer une ressource à un dossier"].
+
+
+
+
+
+
+[[view-the-folders-and-fleets-associated-with-a-resource]]
+[[view-folders-and-fleets]]
+== Afficher les dossiers et les flottes associés à une ressource
+
+Vérifiez à quels parcs ou dossiers une ressource est associée.
+
+
+NOTE: Pour voir quels membres ont accès à la ressource, consultez les membres affectés au dossier ou à la flotte associée. link:task-iam-users-fleets-assign.html["Gérer les affectations d'accès à la flotte"].
+
+.Étapes
+. Depuis la page *Ressources*, accédez à une ressource dans le tableau, sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] puis sélectionnez *Afficher les détails*.
+
+
+L'exemple suivant montre une ressource associée à une flotte.
+
+image:screenshot-iam-resource-details.png["Capture d'écran de la page de détails de la ressource montrant une ressource associée à une flotte située directement sous l'organisation."]
+
+
+NOTE: Pour voir quels membres ont accès à la ressource, consultez le dossier ou la flotte associée.
+
+link:task-iam-users-fleets-assign.html["Gérer les affectations d'accès à la flotte"]. link:task-iam-manage-roles.html["Gérer l'accès des membres"].
+
+
+
+[[remove-a-resource-from-a-folder-or-fleet]]
+[[remove-resource]]
+== Supprimer une ressource d'un dossier ou d'une flotte
+
+Supprimez l'association d'une ressource avec un dossier ou un parc pour empêcher les membres de la gérer à cet endroit.
+
+
+NOTE: Pour supprimer un système de stockage de l'ensemble de l'organisation, accédez à la page *Systèmes* et supprimez le système.
+
+.Étapes
+. Depuis la page *Ressources*, accédez à une ressource dans le tableau, sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] puis sélectionnez *Afficher les détails*.
+. Pour supprimer une ressource d'un dossier ou d'une flotte, sélectionnez image:icon-delete.png["Icône d'une poubelle"] à côté du dossier ou de la flotte.
+. Sélectionnez *Supprimer* pour supprimer l'association.
+
+
+
+
+[[move-a-resource-between-fleets]]
+== Déplacer une ressource entre les flottes
+
+Déplacez une ressource d'une flotte à une autre en supprimant son association avec la flotte actuelle, puis en l'associant à la flotte cible.
+
+
+NOTE: L'accès à la ressource change dès que l'association est modifiée. Si possible, effectuez les deux étapes au cours d'une même fenêtre de maintenance.
+
+.Étapes
+. Depuis la page *Ressources*, accédez à une ressource dans le tableau, sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] puis sélectionnez *Afficher les détails*.
+. Sélectionnez image:icon-delete.png["Icône d'une poubelle"] à côté de la flotte actuelle et sélectionnez *Supprimer*.
+. Sélectionnez *Ajouter un dossier ou une flotte*.
+. Sélectionnez la flotte cible et cliquez sur *Accepter*.
+. Sélectionnez *Associer des ressources*.
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:concept-identity-and-access-management.html["Découvrez les notions d'identité et d'accès dans la NetApp Console"]
+* link:task-iam-fleet-mgmt-get-started.html["Commencez à utiliser la gestion des identités et des accès dans la NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Gérez les attributions d'accès à la flotte après le déplacement des ressources"]
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Découvrez l'API pour l'identité et l'accès"^]
+

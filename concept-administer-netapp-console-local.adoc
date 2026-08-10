@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: concept-administer-netapp-console-local.html 
+keywords: administer Console local deployment, audit, audit log, compliance, SIEM, webhook, VM maintenance, access management, demonstrate compliance, operational visibility, netapp console local 
+summary: 'Découvrez comment administrer et surveiller le déploiement local de la NetApp Console, notamment l"activité d"audit, les abonnements, la maintenance, le dépannage et l"accès des membres.' 
+---
+= Découvrez l'administration et la surveillance dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir déployé le déploiement local de NetApp Console, utilisez les outils d'administration et de surveillance pour examiner l'activité, maintenir la machine virtuelle et gérer l'accès des membres.
+
+
+
+[[audit-activity]]
+== Activité d'audit
+
+Examinez l'activité des utilisateurs et des API, suivez l'état des opérations de la Console, téléchargez les journaux d'audit et exportez-les vers des outils externes lorsque vous avez besoin d'une conservation plus longue ou d'une analyse supplémentaire.
+
+* link:task-audit-console-activity.html["Audit de l'activité de déploiement local de la NetApp Console"]
+* link:task-console-configure-notifications-delivery.html["Configurez les canaux de diffusion des notifications dans le déploiement local de la NetApp Console"]
+
+
+
+
+[[licenses-and-subscriptions]]
+== Licenses and subscriptions
+
+Utilisez les informations relatives aux Licenses and subscriptions pour comprendre les droits de service et l'état de l'abonnement de votre environnement NetApp Console.
+
+link:https://docs.netapp.com/us-en/console-licenses-subscriptions/index.html["Découvrez les Licenses and subscriptions"^].
+
+
+
+[[maintain-and-troubleshoot-the-console-local-deployment-vm]]
+== Assurer la maintenance et le dépannage de la machine virtuelle de déploiement local de la NetApp Console
+
+Maintenez la machine virtuelle hébergeant le déploiement local de NetApp Console, vérifiez les paramètres réseau et système, accédez aux outils de diagnostic et résolvez les problèmes lorsque le service ou l’agent ne se comporte pas comme prévu.
+
+link:task-console-local-vm-config.html["Maintenez votre vCenter ou hôte ESXi pour le déploiement local de la Console"].
+
+
+
+[[manage-users-and-access]]
+== Gérer les utilisateurs et les accès
+
+Examinez les accès des membres au sein de votre organisation, ajustez les accès au niveau de la flotte et gérez les paramètres de sécurité tels que la récupération de l’authentification multifacteur et les informations d’identification des comptes de service.
+
+* link:task-iam-manage-roles.html["Gérer l'accès des membres dans la NetApp Console"]
+* link:task-iam-users-fleets-assign.html["Afficher ou modifier les affectations d'accès à la flotte dans le déploiement local de la NetApp Console"]
+* link:task-manage-member-security.html["Gérer la sécurité des membres dans le déploiement local de la NetApp Console"]
+

@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: task-analyzer-volume-throughput-investigate.html 
+keywords: throughput, IOPS, MB per second, read write, workload demand, QoS, resource utilization, workload analyzer, performance troubleshooting, netapp console local 
+summary: 'Analysez la demande de débit élevé sur un volume à l"aide du Workload Analyzer pour comprendre les modèles d"IOPS et de Mo par seconde et identifier les déséquilibres de lecture/écriture.' 
+---
+= Analyser le débit élevé sur un volume dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez Workload Analyzer dans le déploiement local de NetApp Console pour examiner la demande d'IOPS et de débit d'un volume au fil du temps.
+
+Lorsqu'un volume de travail consomme plus d'IOPS ou de débit que prévu, identifiez la cause de cette demande. La section d'analyse du débit affiche les IOPS et les Mo/s, avec une ventilation optionnelle des lectures, écritures et autres opérations, ce qui vous permet de déterminer quel type d'E/S génère une forte demande et si celle-ci approche une limite de QoS.
+
+Si vous ouvrez l'analyseur à partir d'une alerte ou d'un inventaire de volumes, le volume est déjà sélectionné et vous pouvez vous concentrer sur la plage horaire et les graphiques de débit.
+
+.Étapes
+. Ouvrez Workload Analyzer en utilisant l'une des méthodes suivantes :
++
+** Dans le menu *Santé*, sélectionnez *Analyseur de charge de travail*, puis recherchez et sélectionnez le volume que vous souhaitez analyser dans le champ *Volume*.
+** Depuis la page *Stockage > Flottes > Inventaire*, accédez à un volume que vous souhaitez analyser et sélectionnez *Analyser* dans le menu d’actions.
+** Depuis la page *Alertes > Vue d'ensemble*, sélectionnez une alerte pour le volume que vous souhaitez examiner, puis sélectionnez *Analyser* dans les détails de l'alerte.
+
+
+. Définissez la *Plage de temps* pour couvrir la période de forte demande, puis sélectionnez *Analyser*.
+. Faites défiler jusqu'à la section *Analyse du débit*.
+. Ouvrez le menu déroulant *Affichage* et sélectionnez *Décomposition (RWO)*.
++
+Les graphiques présentent une ventilation par composantes (lecture, écriture et autres) pour les IOPS et les Mo/s. Cela vous permet de déterminer si la demande est principalement due à des accès en lecture, en écriture ou à une combinaison des deux.
+
+. Utilisez le sélecteur de composants pour activer ou désactiver les indicateurs que vous souhaitez examiner :
++
+** *IOPS de lecture* et *IOPS d'écriture* — opérations par seconde selon le sens d'E/S
+** *Lecture Mo/s* et *Écriture Mo/s* — débit en mégaoctets par seconde selon le sens d'E/S
+** *Autres IOPS* et *Autres MB/s* — métadonnées et autres opérations hors données
+** *Limite d'IOPS QoS* et *Limite de Mo/s QoS* — plafonds de stratégie qui apparaissent uniquement lorsque le volume utilise une stratégie QoS
+** *Débit du cloud* — Mo/s écrits vers et lus depuis le cloud, affiché uniquement pour les charges de travail qui répartissent la capacité vers le cloud via FabricPool
+
+
+. Passez votre souris sur un pic du graphique pour voir la valeur exacte et la répartition en pourcentage de chaque composant à ce moment précis.
++
+L'infobulle qui s'affiche au survol indique également la taille moyenne des E/S (débit divisé par les IOPS) pour chaque catégorie, ce qui peut indiquer si la charge de travail effectue de grandes E/S séquentielles ou de petites E/S aléatoires.
+
+. Activez *Afficher les prévisions* pour projeter si les tendances actuelles du débit atteindront la limite QoS IOPS ou MB/s.
++
+Si la ligne de prévision approche une limite de QoS, ONTAP pourrait bientôt limiter la charge de travail.
+
+. Si vous souhaitez voir la demande globale sans le détail, ouvrez le menu déroulant *Affichage* et sélectionnez *Totaux*.
++
+La vue des totaux affiche une seule ligne IOPS et une seule ligne MB/s, ce qui est utile pour un résumé rapide de la demande globale.
+
+
+
+.Après avoir terminé
+Utilisez les modèles de débit que vous observez pour décider de la suite des opérations :
+
+* Si les IOPS en lecture sont très élevées par rapport aux IOPS en écriture, examinez si les paramètres de lecture anticipée ou la mise en cache peuvent réduire la charge sur le volume.
+* Si la charge de travail approche ou a atteint la limite QoS IOPS ou MB/s, utilisez les lignes de limite QoS et les définitions de métriques associées pour confirmer la limitation et décider si vous devez ajuster la limite.
+* Si le débit est élevé et que la latence l'est aussi, consultez la section *Utilisation des ressources* pour déterminer si le nœud ou l'agrégat sous-jacent est soumis à une contention. Comparez les pics de débit, les pics de latence et l'utilisation des ressources sur la même période.
+* Si l'analyseur affiche une croissance rapide de la capacité ou des instantanés alors que la demande augmente, examinez les indicateurs de capacité et d'instantané pour comprendre comment cette croissance pourrait affecter le volume.
+
+
+link:task-analyzer-volume-latency-investigate.html["Enquêter sur la latence élevée sur un volume"]. link:reference-workload-analyzer-metrics.html["Découvrez les métriques de Workload Analyzer dans le déploiement local de NetApp Console"].

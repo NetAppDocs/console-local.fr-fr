@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-roles.html 
+keywords: fleets, access, resources, user roles, iam, identity and access management, folder, organization, permissions, roles, members, access roles, directory users, AD, Active Directory, directory services 
+summary: 'Gérez les accès des membres de votre organisation Console. Attribuez des rôles pour définir les autorisations. Supprimez les membres lorsqu"ils quittent.' 
+---
+= Gérer l'accès des membres dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, examinez ou modifiez les rôles d'un utilisateur sur plusieurs dossiers ou flottes, par exemple en vérifiant tout ce à quoi un ingénieur de stockage peut accéder, en ajoutant un nouveau rôle dans une autre région ou en supprimant l'accès de cet utilisateur lorsque ses responsabilités changent.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation ou administrateur de dossier ou de flotte (pour les dossiers et les flottes qu'ils administrent). link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Vous pouvez consulter et gérer les accès de deux manières, selon vos besoins. Si vous souhaitez consulter les rôles qu’un utilisateur particulier possède sur l’ensemble de la flotte de votre organisation, utilisez la page *Membres*.
+
+Si vous souhaitez confirmer qui peut accéder à une flotte spécifique, consultez plutôt les membres affectés à cette flotte. link:task-iam-users-fleets-assign.html["Gérer les affectations d'accès à la flotte"].
+
+Pour ajouter un nouveau membre, un compte de service ou un utilisateur d'annuaire et lui attribuer son premier rôle, utilisez plutôt la tâche d'intégration. link:task-iam-manage-members-permissions.html["Ajouter des membres et attribuer des rôles"].
+
+
+
+[[understand-how-access-is-granted-in-netapp-console]]
+== Comprendre comment l'accès est accordé dans la NetApp Console
+
+NetApp Console utilise le contrôle d'accès basé sur les rôles (RBAC) pour gérer les autorisations des membres. Vous pouvez attribuer des rôles prédéfinis au niveau de l'organisation, du dossier ou de la flotte, selon l'étendue de l'accès dont un membre a besoin.
+
+
+
+[[using-role-inheritance]]
+[[role-inheritance]]
+=== Utilisation de l'héritage de rôles
+
+Un rôle que vous attribuez au niveau de l'organisation ou du dossier est hérité par les périmètres enfants situés en dessous, donc modifiez une attribution héritée au niveau du périmètre supérieur où vous l'avez initialement accordée.
+
+link:concept-iam-rbac.html#role-inheritance["Découvrez l'héritage des rôles dans le déploiement local de NetApp Console"].
+
+
+
+[[view-roles-assigned-to-a-member]]
+[[manage-permissions]]
+== Afficher les rôles attribués à un membre
+
+Confirmez exactement quels rôles un membre détient et à quelle étendue avant d’effectuer une modification. Par exemple, vérifiez si un collègue possède déjà le rôle Storage admin sur la  `Production-EU-West` flotte.
+
+Si vous possédez le rôle d’administrateur de dossier ou de flotte, la page affiche tous les membres de l’organisation. Cependant, vous ne pouvez consulter et gérer les autorisations que pour les dossiers et les flottes que vous administrez. link:reference-iam-predefined-roles.html["Découvrez les actions d'administration de dossiers ou de flottes dans le déploiement local de la NetApp Console"].
+
+. Depuis la page *Membres*, accédez à un membre dans le tableau, sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] puis sélectionnez *Voir les détails*.
+. Dans le tableau, développez la ligne correspondante à l'organisation, au dossier ou à la flotte où vous souhaitez afficher le rôle attribué au membre et sélectionnez *Afficher* dans la colonne *Rôle*.
+
+
+
+
+[[assign-or-modify-member-access]]
+== Attribuer ou modifier l'accès des membres
+
+Vous pouvez modifier les droits d'accès d'un membre en fonction de l'évolution de ses responsabilités. Par exemple, lorsqu'un collègue prend en charge les sauvegardes pour une deuxième région, ajoutez le rôle Backup and Recovery admin à la flotte de cette région sans toucher à ses rôles de stockage existants.
+
+Si vous devez ajouter un nouveau membre et lui attribuer son premier rôle, consultez link:task-iam-manage-members-permissions.html#add-members["Ajouter des membres et attribuer des rôles"].
+
+
+
+[[add-an-access-role-to-an-existing-member]]
+=== Ajouter un rôle d'accès à un membre existant
+
+Attribuez un rôle supplémentaire à un membre au niveau de l'organisation, du dossier ou de la flotte lorsque ses responsabilités s'étendent. Par exemple, attribuez à un Storage admin le rôle de Backup and recovery admin au niveau de l'organisation afin qu'il puisse gérer les tâches de sauvegarde et de restauration sur l'ensemble de la flotte sans perdre ses autorisations de stockage existantes.
+
+Vous pouvez attribuer à un membre un rôle d'accès pour votre organisation, votre dossier ou votre flotte.
+
+Les membres peuvent cumuler plusieurs rôles au sein d'une même flotte et dans différentes flottes. Par exemple, les petites organisations peuvent attribuer tous les rôles d'accès disponibles à un même utilisateur, tandis que les grandes organisations peuvent confier des tâches plus spécialisées à certains utilisateurs. Vous pouvez également attribuer à un utilisateur le rôle d'administrateur de la résilience aux ransomwares au niveau de l'organisation. Dans cet exemple, l'utilisateur pourra effectuer des tâches de résilience aux ransomwares sur toutes les flottes de votre organisation.
+
+Votre stratégie de gestion des rôles d'accès doit être cohérente avec la manière dont vous avez organisé vos ressources NetApp.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Members*.
+. Sélectionnez l'un des onglets membres : *Utilisateurs*, *Utilisateurs de l'annuaire* ou *Comptes de service*.
+. Sélectionnez le menu Actions image:icon-action.png["une icône avec trois points verticaux"] à côté du membre auquel vous souhaitez attribuer un rôle et sélectionnez *Ajouter un rôle*.
+. Pour ajouter un rôle, complétez les étapes dans la boîte de dialogue :
++
+** *Sélectionnez une organisation, un dossier ou une flotte* : Choisissez le niveau de votre hiérarchie de ressources pour lequel le membre doit disposer d’autorisations.
++
+Si vous sélectionnez l'organisation ou un dossier, le membre aura des autorisations sur tout ce qui se trouve dans l'organisation ou le dossier.
+
+** *Sélectionnez une catégorie* : Choisissez une catégorie de rôle. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"^].
+** Sélectionnez un *rôle* : Choisissez un rôle qui confère au membre les autorisations nécessaires pour accéder aux ressources associées à l’organisation, au dossier ou à la flotte que vous avez sélectionnés.
+** *Ajouter un rôle* : Si vous souhaitez donner accès à des dossiers ou des flottes supplémentaires au sein de votre organisation, sélectionnez *Ajouter un rôle*, spécifiez un autre dossier, une autre flotte ou une autre catégorie de rôle, puis sélectionnez une catégorie de rôle et un rôle correspondant.
+
+
+. Sélectionnez *Ajouter de nouveaux rôles*.
+
+
+
+
+[[change-a-members-assigned-role]]
+=== Modifier le rôle attribué à un membre
+
+Remplacez le rôle actuel d'un membre par un autre lorsque ses responsabilités évoluent. Par exemple, lorsqu'un Storage viewer sur la  `Production-US-East` fleet a besoin du rôle Storage admin à la place.
+
+
+NOTE: Chaque utilisateur doit posséder au moins un rôle. Il est impossible de supprimer tous les rôles d'un utilisateur. Si vous devez supprimer tous les rôles, supprimez l'utilisateur de votre organisation.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Members*.
+. Sélectionnez l'un des onglets membres : *Utilisateurs*, *Utilisateurs de l'annuaire* ou *Comptes de service*.
+. Depuis la page *Membres*, accédez à un membre dans le tableau, sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] puis sélectionnez *Voir les détails*.
+. Dans le tableau, développez la ligne correspondante à l'organisation, au dossier ou à la flotte où vous souhaitez modifier le rôle attribué au membre et sélectionnez *Afficher* dans la colonne *Rôle* pour afficher les rôles attribués à ce membre.
+. Vous pouvez modifier un rôle existant pour un membre ou supprimer un rôle.
++
+.. Pour modifier le rôle d'un membre, sélectionnez *Modifier* à côté du rôle que vous souhaitez modifier. Vous ne pouvez changer un rôle que pour un rôle appartenant à la même catégorie de rôles. Par exemple, vous pouvez passer d'un rôle de service de données à un autre. Confirmez la modification.
+.. Pour retirer un rôle à un membre, sélectionnez image:icon-delete.png["Une icône qui ressemble à une poubelle"] à côté du rôle pour retirer le rôle correspondant au membre. Une confirmation vous sera demandée.
+
+
+
+
+
+
+[[remove-a-member-from-your-organization]]
+=== Retirer un membre de votre organisation
+
+Supprimez un membre lorsqu'il quitte l'organisation ou change de rôle de manière à ne plus avoir besoin d'accéder à la Console. Par exemple, lorsqu'un prestataire termine sa mission ou qu'un employé est muté dans une équipe extérieure à votre organisation Console.
+
+[NOTE]
+====
+.Utilisateurs de l'annuaire
+Supprimer un utilisateur de votre annuaire l'empêche de s'authentifier. Vous devez également supprimer l'utilisateur de votre organisation Console afin de garantir l'exactitude de la liste des membres et de supprimer les rôles qui lui ont été attribués lors du déploiement local de Console.
+
+====
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Members*.
+. Sélectionnez l'un des onglets membres : *Utilisateurs*, *Utilisateurs de l'annuaire* ou *Comptes de service*.
+. Depuis la page *Membres*, accédez à un membre dans le tableau, sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] puis sélectionnez *Supprimer l'utilisateur*.
+. Confirmez que vous souhaitez retirer le membre de votre organisation.
+

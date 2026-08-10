@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: task-audit-console-activity.html 
+keywords: administer, monitor, timeline, notifications, alerts, events, notification center, email, audit page, audit action 
+summary: 'Vous pouvez auditer l"activité des utilisateurs (initiée depuis l"interface utilisateur et l"API) depuis la page Audit, et vous pouvez surveiller l"état des opérations que la Console effectue afin de vérifier s"il existe des problèmes que vous devez résoudre. Vous pouvez consulter l"état depuis la page Audit ou configurer l"envoi du journal des audits vers votre propre serveur syslog.' 
+---
+= Audit de l'activité de déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez auditer l'activité des utilisateurs initiée à la fois depuis l'interface utilisateur et l'API depuis la page Audit, et vous pouvez surveiller l'état des opérations dans le déploiement local de NetApp Console ainsi que l'utilisateur qui les a initiées.
+
+.Rôles requis
+Super administrateur, administrateur d'organisation, administrateur de dossiers et de flottes, analyste de support opérationnel, super visionneur, visionneur d'organisation ou visionneur de dossiers et de flottes. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Vous pouvez consulter l'activité d'audit dans le déploiement local de la Console, télécharger un fichier CSV des journaux des audits ou configurer l'envoi des journaux des audits à votre propre serveur syslog à l'aide d'un webhook.
+
+
+
+[[audit-user-activity-from-the-audit-page]]
+== Audit de l'activité des utilisateurs depuis la page d'audit
+
+Utilisez la page Audit pour identifier qui a effectué une action ou connaître son statut.
+
+La page Audit affiche les actions effectuées par les utilisateurs au sein de votre organisation. Par exemple, vous pouvez vérifier qui a ajouté un membre à une organisation ou qu'une flotte a été supprimée avec succès, ainsi que consulter d'autres actions de gestion du stockage effectuées par les utilisateurs de votre organisation.
+
+Les journaux des audits indiquent une activité pour les services suivants :
+
+* Tenancy : actions liées à la gestion de votre organisation, telles que l’ajout d’utilisateurs, la création de flottes et l’association de ressources.
+* Gestion du stockage : actions liées à la gestion de vos ressources de stockage.
+* Fédération : actions liées à la gestion des fédérations, telles que la création de fédérations et l'ajout ou la suppression d'organisations fédérées.
+
+
+.Étapes
+. Sélectionnez *Administration > Audit*.
+. Utilisez les filtres situés au-dessus du tableau pour modifier les actions affichées dans le tableau.
++
+Par exemple, vous pouvez utiliser le filtre *Service* pour afficher les actions liées à un service spécifique, ou vous pouvez utiliser le filtre *Utilisateur* pour afficher les actions liées à un compte utilisateur spécifique.
+
+
+
+
+
+[[filter-audit-logs-for-identity-and-access-management-actions]]
+=== Filtrer les journaux des audits pour les actions de gestion des identités et de gestion des accès
+
+Pour afficher uniquement les actions liées à la gestion de votre organisation, telles que l'ajout de membres, la création de flottes ou la suppression de ressources, filtrez le journal des audits par le service Tenancy.
+
+.Étapes
+. Sélectionnez *Administration > Audit*.
+. Utilisez les filtres pour affiner les résultats. Sélectionnez *Service* puis *Tenancy*.
+. Utilisez les autres filtres pour affiner davantage les résultats.
++
+Par exemple, utilisez le filtre *Utilisateur* pour afficher les actions IAM effectuées par un compte utilisateur spécifique.
+
+
+
+
+
+[[download-audit-logs-from-the-audit-page]]
+=== Téléchargez les journaux des audits depuis la page Audit
+
+Vous pouvez télécharger les journaux des audits depuis la page Audit vers un fichier CSV. Cela vous permet de conserver une trace des actions que les utilisateurs effectuent au sein de votre organisation. Le fichier CSV téléchargé inclut toutes les colonnes du journal des audits, quels que soient les filtres ou les colonnes affichées sur la page Audit.
+
+.Étapes
+. Sur la page *Audit*, sélectionnez l'icône de téléchargement dans le coin supérieur droit du tableau.
+

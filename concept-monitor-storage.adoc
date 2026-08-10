@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: concept-monitor-storage.html 
+keywords: monitor, health, performance, alerts, workload analyzer, remediation, netapp console local, console local 
+summary: NetApp Console local deployment fournit des tableaux de bord de santé à l’échelle de la flotte, une analyse approfondie des volumes, des alertes configurables et une correction guidée ou automatisée afin que vous puissiez identifier et résoudre les problèmes de stockage avant qu’ils n’affectent les charges de travail. 
+---
+= Surveillance du stockage dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console local deployment vous aide à surveiller le stockage sur l'ensemble des parcs grâce à des tableaux de bord, des alertes, une analyse approfondie et des outils de correction, ce qui vous permet de repérer et de résoudre les problèmes avant qu'ils n'affectent les charges de travail.
+
+
+
+[[monitor-fleet-wide-health-with-dashboards]]
+== Surveillez l'état de santé de l'ensemble de votre flotte grâce à des tableaux de bord
+
+Commencez par les tableaux de bord pour un aperçu rapide de l'état et des performances du stockage. Utilisez la page d'accueil pour consulter les indicateurs clés en un coup d'œil, ouvrez le tableau des tableaux de bord pour accéder aux tableaux de bord prédéfinis et personnalisés, puis passez aux alertes, à l'investigation et à la remédiation lorsque vous avez besoin de plus de détails.
+
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+* link:task-dashboard-manage.html["Maintenez les tableaux de bord à jour dans le déploiement local de NetApp Console"]
+* link:concept-custom-dashboards.html["Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console"]
+
+
+
+
+[[investigate-performance-issues]]
+== Examiner les problèmes de performance
+
+Utilisez l'Analyseur de charge de travail pour examiner les problèmes de performance sur des volumes individuels. Il met en corrélation la latence, le débit, les IOPS et les modifications de configuration afin que vous puissiez identifier les causes profondes.
+
+* link:concept-workload-analyzer.html["Découvrez l'analyseur de charge de travail pour le déploiement local de la NetApp Console"]
+* link:task-analyzer-volume-latency-investigate.html["Examiner la latence élevée sur un volume dans le déploiement local de NetApp Console"]
+* link:task-analyzer-volume-throughput-investigate.html["Analyser la demande de débit élevé sur un volume dans le déploiement local de NetApp Console"]
+* link:reference-workload-analyzer-metrics.html["Découvrez les métriques de Workload Analyzer dans le déploiement local de NetApp Console"]
+
+
+
+
+[[configure-alerts-and-notifications]]
+== Configurer les alertes et les notifications
+
+Configurez les politiques d'alerte et les canaux de notification afin que les personnes concernées soient informées des conditions de stockage nécessitant une attention particulière. Par exemple, acheminez un avertissement de capacité vers l'équipe de stockage et une alerte de protection vers l'administrateur des sauvegardes qui peut agir en conséquence.
+
+link:task-alert-rules-manage.html["Configurez les notifications et les stratégies d'alerte dans le déploiement local de NetApp Console"]. link:task-alerts-monitor.html["Afficher les alertes de stockage dans le déploiement local de la NetApp Console"].
+
+
+
+[[remediate-issues]]
+== Résoudre les problèmes
+
+Lorsque vous détectez un problème, corrigez-le directement depuis le déploiement local de la NetApp Console :
+
+* *Correction automatisée* — NetApp Console le déploiement local applique automatiquement des actions correctives en fonction de règles prédéfinies.
+* *Remédiation guidée* — Suivez les recommandations étape par étape pour résoudre les problèmes avec un contrôle total sur chaque action.
+

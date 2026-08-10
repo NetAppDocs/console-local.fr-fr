@@ -1,0 +1,65 @@
+= 
+:allow-uri-read: 
+
+
+.Étapes
+. Sélectionnez *Administration > *Credentials*.
+. Sélectionnez *identifiants de l'organisation*.
+. Sélectionnez le menu d'actions correspondant à un ensemble d'informations d'identification associées à un agent Console, puis sélectionnez *Configurer l'abonnement*. + nouvelle capture d'écran requise (TS) image:screenshot_gcp_add_subscription.png["Capture d'écran du menu d'actions pour un ensemble d'identifiants existants."]
+. Pour configurer un abonnement existant avec les informations d'identification sélectionnées, sélectionnez un projet et un abonnement Google Cloud dans la liste déroulante, puis sélectionnez *Configurer*.
++
+image:screenshot_gcp_associate.gif["Capture d'écran d'un projet Google Cloud et d'un abonnement sélectionnés pour les identifiants Google Cloud."]
+
+. Si vous n'avez pas encore d'abonnement, sélectionnez *Ajouter un abonnement > Continuer* et suivez les étapes indiquées dans Google Cloud Marketplace.
++
+
+NOTE: Avant de poursuivre, assurez-vous de disposer des privilèges d'administrateur de facturation dans votre compte Google Cloud ainsi que d'un identifiant de connexion à la NetApp Console.
+
++
+.. Après avoir été redirigé vers la  https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["NetApp Intelligent Services page sur Google Cloud Marketplace"^], assurez-vous que le bon projet est sélectionné dans le menu de navigation supérieur.
++
+image:screenshot_gcp_cvo_marketplace.png["Capture d'écran de la page Cloud Volumes ONTAP sur le marketplace dans Google Cloud."]
+
+.. Sélectionnez *S'abonner*.
+.. Sélectionnez le compte de facturation approprié et acceptez les conditions générales.
+.. Sélectionnez *S'abonner*.
++
+Cette étape envoie votre demande de transfert à NetApp.
+
+.. Dans la boîte de dialogue qui s'affiche, sélectionnez *S'inscrire auprès de NetApp, Inc.*
++
+Cette étape est indispensable pour associer l’abonnement Google Cloud à votre organisation ou compte NetApp Console. Le processus d’association de l’abonnement n’est terminé que lorsque vous êtes redirigé depuis cette page, puis que vous vous connectez à NetApp Console.
+
++
+image:screenshot_gcp_marketplace_register.png["Capture d'écran d'une fenêtre contextuelle d'inscription."]
+
+.. Suivez les étapes indiquées sur la page *Attribution de l’abonnement* :
++
+
+NOTE: Si un membre de votre organisation possède déjà un abonnement Marketplace associé à votre compte de facturation, vous serez redirigé vers  https://bluexp.netapp.com/ontap-cloud?x-gcp-marketplace-token=["la page Cloud Volumes ONTAP dans la NetApp Console"^] à la place. Si cela est inattendu, contactez votre équipe commerciale NetApp. Google n'autorise qu'un seul abonnement par compte de facturation Google.
+
++
+*** Sélectionnez les organisations ou les comptes Console auxquels vous souhaitez associer cet abonnement.
+*** Dans le champ *Remplacer l'abonnement existant*, choisissez si vous souhaitez remplacer automatiquement l'abonnement existant d'une organisation ou d'un compte par ce nouvel abonnement.
++
+La Console remplace l'abonnement existant pour toutes les informations d'identification de l'organisation ou du compte par ce nouvel abonnement. Si un ensemble d'informations d'identification n'a jamais été associé à un abonnement, alors ce nouvel abonnement ne sera pas associé à ces informations d'identification.
+
++
+Pour toutes les autres organisations ou tous les autres comptes, vous devrez associer manuellement l'abonnement en répétant ces étapes.
+
+*** Sélectionnez *Enregistrer*.
++
+La vidéo suivante présente les étapes à suivre pour vous abonner depuis Google Cloud Marketplace :
+
++
+.Abonnez-vous depuis la Place de marché Google Cloud
+video::373b96de-3691-4d84-b3f3-b05101161638[panopto]
+
+
+.. Une fois cette procédure terminée, retournez à la page des identifiants dans la NetApp Console et sélectionnez ce nouvel abonnement.
++
+image:screenshot_gcp_associate.gif["Capture d'écran de la page d'attribution de l'abonnement."]
+
+
+
+

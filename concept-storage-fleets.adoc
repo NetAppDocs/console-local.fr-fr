@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: concept-storage-fleets.html 
+keywords: storage fleets, fleet management, storage organization, folders, ONTAP, clusters, storage systems, resource grouping, delegated administration, fleet design, netapp console local 
+summary: Un parc de stockage regroupe les systèmes de stockage que vous gérez ensemble dans le déploiement local de NetApp Console. Utilisez des dossiers pour regrouper les parcs de stockage associés. Vous pouvez appliquer des stratégies, accorder des accès et surveiller l’état du système selon le périmètre souhaité. 
+---
+= Découvrez les flottes de stockage dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un parc de stockage regroupe les systèmes de stockage que vous gérez ensemble dans le déploiement local de NetApp Console. Utilisez des dossiers pour regrouper les parcs de stockage associés. Vous pouvez appliquer des stratégies, accorder des accès et surveiller l’état du système selon le périmètre souhaité.
+
+
+
+[[why-fleets-matter]]
+== Pourquoi les flottes sont importantes
+
+À mesure que les environnements de stockage s'étendent, la gestion isolée des clusters devient impraticable. Les flottes offrent une méthode structurée pour regrouper les systèmes de stockage apparentés afin que vous puissiez agir sur eux comme une seule unité. Au lieu de configurer les politiques ou les contrôles d'accès cluster par cluster, vous les appliquez une seule fois au niveau de la flotte. Cela réduit les tâches administratives répétitives et garantit que chaque cluster d'une flotte fonctionne selon les mêmes normes.
+
+
+
+[[how-folders-and-fleets-organize-your-resources]]
+== Comment les dossiers et les flottes organisent vos ressources
+
+L'arborescence des ressources de votre organisation se compose de dossiers et de parcs informatiques. Les dossiers regroupent les parcs informatiques associés, et les parcs informatiques regroupent les systèmes de stockage.
+
+* *Organisation* est le niveau hiérarchique le plus élevé et représente votre entreprise.
+* Les *dossiers* vous aident à organiser les flottes associées. Par exemple, vous pouvez créer un dossier pour chaque région ou unité commerciale, puis créer des flottes au sein de chaque dossier. Les dossiers peuvent contenir d'autres dossiers ou flottes, mais ils ne peuvent pas avoir de systèmes de stockage directement associés. Lorsque vous attribuez un rôle à un membre au niveau du dossier, le membre hérite de ce rôle pour toutes les flottes du dossier.
+* Les *flottes* regroupent les systèmes de stockage que vous gérez ensemble. Vous associez des systèmes de stockage aux flottes et affectez des membres aux flottes pour leur accorder l'accès.
+
+
+
+NOTE: Les dossiers sont un outil d'organisation et ne sont pas visibles par les membres ne disposant pas des autorisations IAM, telles que les rôles d'administrateur de l'organisation, de dossier ou de flotte. Les membres accèdent aux flottes, pas aux dossiers.
+
+
+
+[[fleet-examples]]
+== Exemples de flottes
+
+La façon dont vous organisez les flottes dépend de votre modèle opérationnel. Les approches courantes incluent :
+
+* *Par environnement* Créez des parcs distincts pour les charges de travail de production, de développement et de test. Cela permet de maintenir le stockage de production soumis à des politiques de performance et de capacité plus strictes, tout en offrant plus de flexibilité dans les environnements inférieurs.
+* *Par unité opérationnelle* Regroupez les clusters desservant un département spécifique—finance, ingénierie ou RH—au sein d'une flotte dédiée. Vous pouvez ensuite attribuer des responsabilités de gestion du stockage aux membres de l'équipe de cette unité opérationnelle sans exposer les autres flottes.
+* *Par emplacement ou centre de données* Lorsque les clusters sont répartis sur plusieurs sites, l'organisation par emplacement vous permet de surveiller l'état de santé au niveau du site, d'appliquer des politiques de tiering spécifiques à la région et de suivre la consommation de capacité par site.
+* *Par tier applicatif* Regroupez les clusters hébergeant une classe spécifique de charge de travail (bases de données, partages de fichiers ou machines virtuelles) afin d'appliquer une classe de stockage adaptée au profil de performance de cette charge de travail sur l'ensemble du parc.
+
+
+
+TIP: Utilisez des dossiers pour ajouter un niveau d'organisation supplémentaire. Par exemple, créez un dossier pour chaque région, puis créez des flottes en fonction de l'environnement au sein de chaque dossier régional.
+
+
+
+[[how-fleets-connect-to-storage-classes]]
+== Comment les flottes se connectent aux classes de stockage
+
+Lorsque vous associez une classe de stockage à une flotte, le déploiement local de la Console applique les stratégies de cette classe à tout le stockage provisionné au sein de la flotte. Les charges de travail provisionnées dans la flotte héritent automatiquement des règles de performance, de capacité et de tiering définies dans la classe de stockage, sans que les administrateurs aient à sélectionner ou vérifier les paramètres de stratégie lors du provisionnement. Cela fait des flottes le principal moyen d'assurer un comportement de stockage cohérent entre les clusters ayant une finalité commune.
+
+
+
+[[how-folders-and-fleets-support-access-control-and-visibility]]
+== Comment les dossiers et les flottes prennent en charge le contrôle d'accès et la visibilité
+
+Les dossiers et les flottes servent de limites à l'accès des utilisateurs :
+
+* Lorsque vous attribuez un rôle au niveau d'un dossier, le membre hérite de ce rôle pour toutes les flottes et ressources du dossier. Cela permet aux administrateurs de l'organisation de déléguer les responsabilités administratives en créant des dossiers et en attribuant un rôle d'administrateur de dossier ou de flotte. Ces administrateurs peuvent ensuite gérer toutes les flottes de leur dossier sans avoir accès à l'ensemble de l'organisation.
+* Lorsque vous attribuez un rôle au niveau de la *flotte*, le membre a uniquement accès aux systèmes de stockage de cette flotte.
+
+
+Cela vous permet de déléguer la gestion du stockage aux membres de votre équipe ou aux responsables d'applications sans leur donner accès aux parties non pertinentes de votre infrastructure. Le déploiement local de NetApp Console assure une surveillance de l'état et des performances au niveau de la flotte, vous permettant ainsi de visualiser l'état de tous les clusters d'une flotte depuis une vue unique, d'identifier rapidement les problèmes et d'intervenir avant qu'ils n'affectent les charges de travail.

@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: task-iam-manage-members-permissions.html 
+keywords: user, directory user, directory users, service account, member, role, permissions, organization, fleet, folder, iam, identity and access management, access roles, add members, grant permissions, AD, Active Directory, directory services 
+summary: Ajoutez des membres et attribuez des rôles pour fournir des autorisations à différents niveaux de la hiérarchie des ressources de votre organisation. 
+---
+= Ajoutez des membres à votre organisation de déploiement local NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ajoutez des membres à votre organisation de déploiement local NetApp Console et attribuez des rôles pour accorder l'accès au niveau de l'organisation, du dossier ou de la flotte pour les utilisateurs, les comptes de service et les utilisateurs d'annuaire.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation ou administrateur de dossier ou de flotte (pour les dossiers et les flottes qu'ils administrent). link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+
+
+[[before-you-begin]]
+== Avant de commencer
+
+* Créez la hiérarchie de dossiers et de flottes qui correspond à votre organisation. link:task-iam-manage-folders-fleets.html["Apprenez à organiser vos ressources avec des dossiers et des flottes"].
+* Associez les ressources aux flottes appropriées avant d'attribuer l'accès aux membres. link:task-iam-manage-resources.html["Apprenez à gérer les ressources dans les dossiers et les flottes"].
+* Si vous ajoutez un utilisateur d'annuaire, intégrez d'abord votre service d'annuaire. link:task-iam-active-directory-integrate.html["Découvrez comment intégrer votre service d'annuaire"].
+
+
+
+
+[[understand-how-access-is-granted-in-netapp-console-local-deployment]]
+== Comprendre comment l'accès est accordé dans le déploiement local de la NetApp Console
+
+NetApp Console utilise le contrôle d'accès basé sur les rôles (RBAC) pour gérer les autorisations. Attribuez des rôles aux membres afin de fournir l'accès requis. Chaque rôle définit les actions autorisées pour des ressources spécifiques.
+
+Veuillez noter les points suivants concernant l'octroi d'accès dans le déploiement local de NetApp Console :
+
+* Vous devez ajouter explicitement chaque utilisateur à votre organisation et lui attribuer au moins un rôle avant que cet utilisateur puisse accéder aux ressources.
+* Un rôle que vous attribuez au niveau de l'organisation ou du dossier est hérité par les étendues enfants, alors choisissez soigneusement l'étendue d'attribution afin de donner au membre l'accès uniquement là où cela est nécessaire. link:concept-iam-rbac.html#role-inheritance["Découvrez l'héritage des rôles dans le déploiement local de NetApp Console"].
+
+
+
+
+[[add-members-to-your-organization]]
+[[add-members]]
+== Ajoutez des membres à votre organisation
+
+NetApp Console prend en charge trois types de membres : les comptes d’utilisateurs, les utilisateurs d’annuaire et les comptes de service.
+
+
+NOTE: Vous devez d'abord configurer un serveur de messagerie à utiliser avec le déploiement local de la Console avant de pouvoir ajouter des utilisateurs. link:task-console-configure-notifications-delivery.html["Apprenez à configurer un serveur de messagerie."]
+
+Les utilisateurs de l'annuaire s'authentifient via votre service d'annuaire intégré, mais vous devez tout de même ajouter chaque utilisateur d'annuaire individuellement et lui attribuer des rôles dans le déploiement local de la NetApp Console. Créez les comptes de service directement dans la NetApp Console.
+
+Tous les membres doivent avoir au moins un rôle explicitement attribué afin d'accéder au déploiement local de la Console.
+
+Lors de l'ajout d'un membre, choisissez l'organisation, le dossier ou la flotte où le membre a besoin d'accès et attribuez le ou les rôles de départ dont il a besoin.
+
+
+
+[[add-a-user-account]]
+=== Ajouter un compte utilisateur
+
+Vous devez disposer du rôle d'administrateur d'organisation, de dossier ou de flotte pour ajouter un utilisateur à une organisation, un dossier ou une flotte afin qu'il puisse accéder aux ressources.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Members*.
+. Sélectionnez *Ajouter un membre*.
+. Pour *Type de membre*, laissez *Utilisateur* sélectionné.
+. Pour *Adresse e-mail de l'utilisateur*, saisissez l'adresse e-mail de l'utilisateur associée à la connexion qu'il a créée.
+. Utilisez la section *Sélectionnez une organisation, un dossier ou une flotte* pour choisir où le membre a besoin d'accéder.
++
+Remarque :
+
++
+** Vous pouvez sélectionner uniquement les dossiers et les flottes pour lesquels vous disposez des autorisations.
+** Lorsque vous sélectionnez une organisation ou un dossier, vous accordez au membre des autorisations sur tout son contenu.
+** Vous ne pouvez attribuer le rôle *Organization admin* qu'au niveau de l'organisation.
+
+
+. *Sélectionnez une catégorie*, puis sélectionnez un *rôle* qui confère au membre les autorisations initiales dont il a besoin pour l’organisation, le dossier ou la flotte que vous avez sélectionnés.
++
+link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+. Pour donner accès à davantage de dossiers, de flottes ou de rôles, sélectionnez *Ajouter un rôle*, choisissez le dossier, la flotte ou la catégorie de rôle, puis sélectionnez un rôle.
+. Sélectionnez *Add*.
++
+La console envoie des instructions par courriel à l'utilisateur.
+
+
+
+
+
+[[add-a-service-account]]
+[[service-account]]
+=== Ajouter un compte de service
+
+Ajoutez un compte de service lorsque vous devez automatiser des tâches ou vous connecter de manière sécurisée aux API de la Console. Après avoir créé le compte, copiez son client ID et son client secret pour l’intégration qui l’utilisera.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Members*.
+. Sélectionnez *Ajouter un membre*.
+. Pour *Type de membre*, sélectionnez *Compte de service*.
+. Saisissez un nom pour le compte de service.
+. Utilisez la section *Sélectionnez une organisation, un dossier ou une flotte* pour choisir où le compte de service doit avoir accès.
++
+Remarque :
+
++
+** Vous ne pouvez sélectionner que les dossiers et les flottes pour lesquels vous disposez des autorisations.
+** La sélection d'une organisation ou d'un dossier accorde au membre des autorisations sur tout son contenu.
+** Vous ne pouvez attribuer le rôle *Organization admin* qu'au niveau de l'organisation.
+
+
+. Sélectionnez une *Catégorie*, puis un *Rôle* qui confère au compte de service les autorisations initiales nécessaires pour l'organisation, le dossier ou le parc que vous avez sélectionné.
++
+link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+. Pour donner accès à davantage de dossiers, de flottes ou de rôles, sélectionnez *Ajouter un rôle*, choisissez le dossier, la flotte ou la catégorie de rôle, puis sélectionnez un rôle.
+. Téléchargez ou copiez l'identifiant client et le secret client.
++
+La console n'affiche le secret client qu'une seule fois. Copiez-le en lieu sûr ; vous pourrez le recréer ultérieurement en cas de perte.
+
+. Sélectionnez *Fermer*.
+
+
+
+
+[[add-a-directory-user-to-your-organization]]
+== Ajoutez un utilisateur d'annuaire à votre organisation
+
+Ajoutez un utilisateur depuis votre service d'annuaire intégré et attribuez-lui ses premiers rôles. Par exemple, ajoutez un nouvel ingénieur stockage depuis Active Directory et attribuez-lui le rôle Storage admin sur la flotte  `Production-US-East` afin qu'il puisse y travailler.
+
+Vous devez d'abord configurer votre service d'annuaire avant de pouvoir ajouter des utilisateurs d'annuaire. link:task-iam-active-directory-integrate.html["Découvrez comment intégrer votre service d'annuaire"].
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Members*.
+. Sélectionnez *Ajouter un membre*.
+. Pour *Type de membre*, sélectionnez *Utilisateur d'annuaire*.
+. Pour *Adresse e-mail de l'utilisateur*, saisissez l'adresse e-mail de l'utilisateur du répertoire que vous souhaitez ajouter. Cette adresse e-mail doit correspondre à l'adresse e-mail associée à la connexion de l'utilisateur dans votre répertoire.
+. Utilisez la section *Sélectionnez une organisation, un dossier ou une flotte* pour choisir où l'utilisateur du répertoire doit avoir accès.
++
+Remarque :
+
++
+** Vous ne pouvez sélectionner que les dossiers et les flottes pour lesquels vous disposez des autorisations.
+** La sélection d'une organisation ou d'un dossier accorde au membre des autorisations sur tout son contenu.
+** Vous ne pouvez attribuer le rôle *Organization admin* qu'au niveau de l'organisation.
+
+
+. Sélectionnez une *Catégorie*, puis un *Rôle* qui donne à l'utilisateur du répertoire les autorisations de départ dont il a besoin pour l'organisation, le dossier ou la flotte que vous avez sélectionné.
++
+link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+. Pour donner à l'utilisateur un accès supplémentaire à d'autres dossiers, flottes ou rôles, sélectionnez *Ajouter un rôle*, choisissez le dossier ou la flotte, la catégorie de rôle et sélectionnez un rôle.
+

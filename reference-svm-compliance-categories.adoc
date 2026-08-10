@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: reference-svm-compliance-categories.html 
+keywords: svm compliance, storage vm compliance, security compliance, svm security, compliance categories, netapp console local 
+summary: Référence pour les catégories de conformité de sécurité des machines virtuelles de stockage et les paramètres recommandés dans le déploiement local de la NetApp Console. 
+---
+= Catégories de conformité de sécurité des machines virtuelles de stockage dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez cette référence pour examiner les catégories de conformité de sécurité des machines virtuelles de stockage (SVM) affichées dans le déploiement local de la NetApp Console, y compris la valeur recommandée et si chaque catégorie affecte l'état de conformité global.
+
+Ces catégories sont basées sur les contrôles de posture de sécurité ONTAP.
+
+[cols="20,50,15,15"]
+|===
+| Catégorie | Ce que la catégorie vérifie | Valeur recommandée | Affecte la conformité globale 
+
+
+| Journal d'audit | Indique si la journalisation d'audit SVM est activée. | Activé | Oui 
+
+
+| Paramètres SSH non sécurisés | Si SSH est configuré avec des chiffrements non sécurisés, tels que des chiffrements qui commencent par `cbc`. | Non | Oui 
+
+
+| Bannière de connexion | Indique si une bannière de connexion est configurée pour les utilisateurs qui accèdent aux SVM. | Activé | Oui 
+
+
+| chiffrement LDAP | Indique si le chiffrement LDAP est activé. | Activé | Non 
+
+
+| Authentification NTLM | Indique si l'authentification NTLM est activée. | Activé | Non 
+
+
+| Signature de la charge utile LDAP | Indique si la signature de la charge utile LDAP est activée. | Activé | Non 
+
+
+| Paramètres CHAP | Indique si CHAP est activé. | Activé | Non 
+
+
+| Kerberos V5 | Indique si l'authentification Kerberos V5 est activée. | Activé | Non 
+
+
+| Authentification NIS | Indique si l'authentification NIS est configurée. | Désactivées | Non 
+
+
+| Statut FPolicy actif | Si FPolicy est créé et actif. | Oui | Non 
+
+
+| chiffrement SMB activé | Indique si la signature et le scellement SMB sont activés. | Oui | Non 
+
+
+| Signature SMB activée | Indique si la signature SMB est activée. | Oui | Non 
+|===

@@ -1,0 +1,499 @@
+---
+sidebar: sidebar 
+permalink: reference-iam-backup-rec-roles.html 
+keywords: backup and recovery roles, NetApp Backup and Recovery, backup admin, restore admin, clone admin, backup and recovery viewer, backup and recovery super admin, roles, permissions, rbac, access control, identity and access management, netapp console local 
+summary: Vous pouvez attribuer les rôles suivants aux utilisateurs pour leur donner accès à NetApp Backup and Recovery depuis la Console. Les rôles de sauvegarde et de restauration vous offrent la flexibilité d’attribuer aux utilisateurs un rôle spécifique aux tâches qu’ils doivent accomplir au sein de votre organisation. La façon dont vous attribuez les rôles dépend de vos propres pratiques de gestion d’entreprise et de stockage. 
+---
+= Rôles de NetApp Backup and Recovery dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, vous pouvez attribuer les rôles suivants aux utilisateurs afin de leur donner accès à NetApp Backup and Recovery au sein de la Console. Les rôles de Backup and Recovery vous offrent la flexibilité d’attribuer aux utilisateurs un rôle spécifique aux tâches qu’ils doivent accomplir au sein de votre organisation. La manière dont vous attribuez les rôles dépend de vos propres pratiques de gestion d’entreprise et de stockage.
+
+Le service utilise les rôles suivants, spécifiques à NetApp Backup and Recovery.
+
+* *Super administrateur de sauvegarde et de restauration* : Effectuez toutes les actions dans NetApp Backup and Recovery.
+* *Administrateur de sauvegarde et de restauration* : Effectuez des sauvegardes sur des instantanés locaux, répliquez-les vers un stockage secondaire et sauvegardez-les vers un stockage d’objets dans NetApp Backup and Recovery.
+* *Administrateur de la restauration de sauvegarde et de récupération* : Restaurez les charges de travail à l’aide de NetApp Backup and Recovery.
+* *Administration des clones de sauvegarde et de récupération* : Clonez les applications et les données à l’aide de NetApp Backup and Recovery.
+* *Visionneuse de sauvegarde et de restauration* : Consultez les informations dans NetApp Backup and Recovery, mais vous ne pouvez effectuer aucune action.
+
+
+Pour plus de détails sur tous les rôles d’accès à la NetApp Console, voir https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["la documentation d'installation et d'administration de la Console"^].
+
+
+
+[[roles-used-for-common-actions]]
+== Rôles utilisés pour les actions courantes
+
+Le tableau suivant indique les actions que chaque rôle NetApp Backup and Recovery peut effectuer pour toutes les charges de travail.
+
+[cols="20,20,15,15a,15a,15a"]
+|===
+| Fonctionnalité et action | Super administrateur de sauvegarde et de restauration | Administration de la sauvegarde et de la restauration | Administrateur de la restauration de sauvegarde et de récupération | Administration du clone de sauvegarde et de restauration | Visionneuse de sauvegarde et de récupération 
+
+
+| Ajouter, modifier ou supprimer des hôtes | Oui | Non  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Installer les plugins | Oui | Non  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Ajouter les informations d'identification (hôte, instance, vCenter) | Oui | Non  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Afficher le tableau de bord et tous les onglets | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Oui
+
+
+
+| Commencer l'essai gratuit | Oui | Non  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Lancer la découverte des charges de travail | Non | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Non
+
+
+
+| Consulter les informations de licence | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Oui
+
+
+
+| Activer la licence | Oui | Non  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Afficher les hôtes | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Oui
+
+
+
+6+| *Horaires* : 
+
+
+| Activer les plannings | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Non
+
+
+
+| Suspendre les plannings | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Non
+
+
+
+6+| *Politiques et protection* : 
+
+
+| Afficher les plans de protection | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créer, modifier ou supprimer des plans de protection | Oui | Oui  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Restaurez les charges de travail | Oui | Non  a| 
+Oui
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Créer, diviser ou supprimer des clones | Oui | Non  a| 
+Non
+ a| 
+Oui
+ a| 
+Non
+
+
+
+| Créer, modifier ou supprimer une politique | Oui | Oui  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+6+| *Rapports*: 
+
+
+| Consulter les rapports | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créer des rapports | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Non
+
+
+
+| Supprimer les rapports | Oui | Non  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+6+| *Importer depuis SnapCenter et gérer l’hôte* : 
+
+
+| Afficher les données SnapCenter importées | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Oui
+
+
+
+| Importer des données depuis SnapCenter | Oui | Oui  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Gérer (migrer) l’hôte | Oui | Oui  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+
+
+6+| *Configurer les paramètres* : 
+
+
+| Configurer le répertoire des journaux | Oui | Oui  a| 
+Oui
+ a| 
+Non
+ a| 
+Non
+
+
+
+| Associer ou supprimer les informations d'identification de l'instance | Oui | Oui  a| 
+Oui
+ a| 
+Non
+ a| 
+Non
+
+
+
+6+| *Seaux* : 
+
+
+| Afficher les compartiments | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créer, modifier ou supprimer un compartiment | Oui | Oui  a| 
+Non
+ a| 
+Non
+ a| 
+Non
+
+|===
+
+
+[[roles-used-for-workload-specific-actions]]
+== Rôles utilisés pour les actions spécifiques à la charge de travail
+
+Le tableau suivant indique les actions que chaque rôle NetApp Backup and Recovery peut effectuer pour des charges de travail spécifiques.
+
+
+
+[[kubernetes-workloads]]
+=== Charges de travail Kubernetes
+
+Ce tableau indique les actions que chaque rôle NetApp Backup and Recovery peut effectuer pour les actions spécifiques aux charges de travail Kubernetes.
+
+[cols="20,20,15,15a,15a"]
+|===
+| Fonctionnalité et action | Super administrateur de sauvegarde et de restauration | Administration de la sauvegarde et de la restauration | Administrateur de la restauration de sauvegarde et de récupération | Visionneuse de sauvegarde et de récupération 
+
+
+| Afficher les clusters, les espaces de noms, les classes de stockage et les ressources API | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Ajouter de nouveaux clusters Kubernetes | Oui | Oui  a| 
+Non
+ a| 
+Non
+
+
+
+| Mettre à jour les configurations du cluster | Oui | Non  a| 
+Non
+ a| 
+Non
+
+
+
+| Supprimer des clusters de la gestion | Oui | Non  a| 
+Non
+ a| 
+Non
+
+
+
+| Voir les applications | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créer et définir de nouvelles applications | Oui | Oui  a| 
+Non
+ a| 
+Non
+
+
+
+| Mettre à jour les configurations de l'application | Oui | Oui  a| 
+Non
+ a| 
+Non
+
+
+
+| Supprimer des applications de la gestion | Oui | Oui  a| 
+Non
+ a| 
+Non
+
+
+
+| Afficher les ressources protégées et l’état de la sauvegarde | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créez des sauvegardes et protégez des applications avec des règles | Oui | Oui  a| 
+Non
+ a| 
+Non
+
+
+
+| Désactiver la protection des applications et supprimer les sauvegardes | Oui | Oui  a| 
+Non
+ a| 
+Non
+
+
+
+| Afficher les points de récupération et les résultats de l’outil de visualisation des ressources | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Restaurez les applications à partir des points de récupération | Oui | Non  a| 
+Oui
+ a| 
+Non
+
+
+
+| Afficher les politiques de sauvegarde Kubernetes | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créer des politiques de sauvegarde Kubernetes | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Mettre à jour les politiques de sauvegarde | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Supprimer les politiques de sauvegarde | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Afficher les hooks d'exécution et les sources des hooks | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créer des hooks d'exécution et des sources de hooks | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Mettre à jour les hooks d'exécution et les sources des hooks | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Supprimez les hooks d'exécution et les sources de hooks | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Afficher les modèles de hooks d'exécution | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Créer des modèles de hook d'exécution | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Mettre à jour les modèles de hook d'exécution | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Supprimer les modèles de hook d'exécution | Oui | Oui  a| 
+Oui
+ a| 
+Non
+
+
+
+| Consultez le résumé de la charge de travail et les tableaux de bord analytiques | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+
+
+| Afficher les compartiments StorageGRID et les cibles de stockage | Oui | Oui  a| 
+Oui
+ a| 
+Oui
+
+|===

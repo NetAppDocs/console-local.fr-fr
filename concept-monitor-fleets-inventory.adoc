@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: concept-monitor-fleets-inventory.html 
+keywords: inventory, fleet inventory, systems, volumes, capacity, security, performance, monitoring, ONTAP, clusters, fleet visibility, capacity planning, storage governance, netapp console local 
+summary: 'Utilisez l"inventaire pour surveiller l"état du parc et examiner les ressources de stockage dans le déploiement local de NetApp Console.' 
+---
+= Surveillez les flottes à l'aide de l'inventaire dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, utilisez l'inventaire pour surveiller l'état de santé du parc et examiner les ressources de stockage dans votre environnement. L'inventaire fournit des vues sur la capacité, la sécurité et les performances, ce qui vous aide à identifier les problèmes, à comprendre l'utilisation des ressources et à suivre les systèmes de stockage gérés.
+
+L'inventaire est avant tout un espace de travail d'information et de diagnostic. Depuis l'inventaire, vous pouvez consulter les systèmes, les volumes et d'autres objets de stockage de vos parcs et effectuer des actions courantes telles que le provisionnement de ressources de stockage. Pour les opérations de gestion de stockage avancées, le déploiement local de NetApp Console vous redirige vers System Manager.
+
+
+
+[[access-inventory]]
+== Accès à l'inventaire
+
+Vous pouvez accéder à l'*Inventaire* depuis plusieurs zones du déploiement local de NetApp Console, notamment :
+
+* La page d'accueil
+* Pages de présentation de la flotte
+* Fiches de santé de la flotte et vues d'inventaire associées
+
+
+Selon l'endroit où vous saisissez *Inventaire*, la portée affichée peut être au niveau de l'organisation ou au niveau de la flotte.
+
+
+
+[[inventory-views]]
+== Vues d'inventaire
+
+*Inventaire* offre plusieurs vues qui vous aident à analyser différents aspects de votre environnement de stockage.
+
+Capacité:: Visualisez l'utilisation de la capacité et identifiez les systèmes, volumes et autres objets de stockage qui consomment des ressources de stockage.
+Sécurité:: Examinez les informations relatives à la sécurité et l'état de conformité des ressources de stockage gérées.
+Performances:: Analysez les indicateurs liés aux performances et identifiez les ressources qui pourraient nécessiter un examen plus approfondi.
+
+
+Les informations affichées varient en fonction de la vue sélectionnée et du type d'objet.
+
+
+
+[[investigate-storage-resources]]
+== Examiner les ressources de stockage
+
+Utilisez *Inventaire* pour :
+
+* Surveiller l'état de la flotte
+* Examiner l'utilisation de la capacité de stockage
+* Suivez les systèmes de stockage gérés
+* Identifier les volumes et autres objets qui consomment de la capacité
+* Examiner les problèmes potentiels de sécurité ou de performance
+* Localiser les ressources qui nécessitent une attention administrative
+
+
+*Inventaire* vous aide à passer d'une visibilité globale de votre environnement à une analyse plus détaillée de ressources de stockage spécifiques.
+
+
+
+[[provision-storage-resources]]
+== Provisionner les ressources de stockage
+
+L'inventaire comprend des flux de travail qui vous permettent de provisionner des ressources de stockage telles que des volumes et des LUN.
+
+Lors de la mise en service des ressources, vous sélectionnez un système de stockage géré existant et fournissez les paramètres de configuration requis pour la charge de travail.
+
+
+
+[[inventory-and-alerts]]
+== Inventaire et alertes
+
+Des alertes sont générées pour des objets de stockage et des conditions spécifiques au sein de votre environnement.
+
+Lorsque vous sélectionnez une alerte, le déploiement local de Console peut vous rediriger vers System Manager pour des investigations ou des actions de gestion supplémentaires. *L'inventaire* complète les alertes en offrant une visibilité plus large sur l'état général de votre environnement de stockage et de vos ressources gérées.
+
+
+
+[[advanced-management-tasks]]
+== Tâches de gestion avancées
+
+*Inventaire* vous aide à identifier les ressources qui nécessitent une intervention, mais certaines opérations avancées de gestion du stockage s’effectuent dans System Manager.
+
+Exemples :
+
+* Gestion avancée de la charge de travail
+* Tâches de relocalisation et d'optimisation des ressources
+* Activités détaillées d'administration système
+
+
+Utilisez *Inventaire* pour identifier et examiner les problèmes, puis utilisez System Manager lorsque des capacités de gestion plus poussées sont nécessaires.

@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: task-logging-in.html 
+keywords: logging in, log in, sign in, signing in, user account, MFA, multi-factor authentication, AD, Active Directory, directory services, local user, Console local deployment access 
+summary: Après votre inscription au déploiement local de NetApp Console, vous pouvez vous connecter depuis la console web pour commencer à gérer vos données et votre infrastructure de stockage. 
+---
+= Connectez-vous à la NetApp Console déploiement local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez vous connecter au déploiement local de NetApp Console après que l’administrateur de votre organisation vous a invité à votre compte utilisateur d’organisation pour le déploiement local de la Console. Pour vous connecter, utilisez l’adresse e-mail associée à votre connexion.
+
+Si vous vous connectez mais ne voyez aucune ressource, contactez l'administrateur de votre organisation. link:task-user-settings.html#contact-admin["Contactez l'administrateur de votre organisation"].
+
+.Étapes
+. Ouvrez un navigateur Web et accédez à l'adresse IP où le déploiement local de NetApp Console est installé.
+. Sur la page *Se connecter*, saisissez l'adresse e-mail associée à votre connexion.
+. Selon la méthode d'authentification associée à votre connexion, vous serez invité à saisir vos identifiants.
++
+** Un compte NetApp Console utilisant votre adresse e-mail et un mot de passe
+
+
++
+[NOTE]
+====
+** Si l'authentification multifacteur est activée : après avoir saisi votre mot de passe, vous serez invité à entrer un code TOTP (depuis votre application d'authentification) ou à utiliser un code de récupération.
+** Si vous vous connectez avec des codes de récupération, utilisez-les dans l'ordre indiqué dans l'interface utilisateur lors de l'invite de saisie du code de récupération.
+
+
+====
++
+** Un compte Active Directory utilisant votre adresse e-mail et votre mot de passe
+
+
+

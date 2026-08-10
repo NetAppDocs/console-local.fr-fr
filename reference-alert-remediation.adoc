@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: reference-alert-remediation.html 
+keywords: alert remediation, fix-it, guided remediation, automated remediation, ONTAP alerts, storage alerts, compliance alerts, remediate drift, alert actions, netapp console local 
+summary: 'Référence pour les actions correctives disponibles dans le déploiement local de la NetApp Console, y compris les alertes associées, les zones d"impact et les résumés des actions.' 
+---
+= Actions de correction des alertes dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez cette référence pour comprendre les actions correctives disponibles via *Fix it* dans le déploiement local de NetApp Console. Pour chaque action, le tableau décrit ce que fait l'action et l'alerte associée. Examinez les détails de l'action dans la boîte de dialogue de confirmation avant de l'exécuter.
+
+
+
+[[remediation-actions]]
+== Mesures correctives
+
+[cols="20,17,28,12,23"]
+|===
+| Action de remédiation | Nom de l'alerte | Description de l'alerte | Zone d'impact | Résumé des mesures correctives 
+
+
+| *Activer la croissance automatique du volume* | Volume plein | Le volume dispose de peu d'espace et approche de sa capacité maximale. | Capacité | Augmente automatiquement la taille d'un volume (jusqu'à une limite configurée) afin de réduire le risque de manque d'espace. 
+
+
+| *Redimensionner le volume* | Volume plein | Le volume dispose de peu d'espace et approche de sa capacité maximale. | Capacité | Augmente la taille d'un volume pour fournir immédiatement plus d'espace. 
+
+
+| *Mettre le volume en ligne* | Volume hors ligne | Le volume est hors ligne et ne sert pas de données. | Disponibilité | Remet en ligne un volume hors ligne afin qu'il puisse reprendre la diffusion de données. 
+
+
+| *Mettre l’agrégat en ligne* | Agrégat hors ligne | L'agrégat n'est pas en ligne et les volumes qui y sont hébergés peuvent être indisponibles. | Disponibilité | Remet en ligne un agrégat hors ligne pour rétablir l'accès aux volumes qu'il héberge. 
+
+
+| *Mettre LUN en ligne* | LUN hors ligne | Le LUN est hors ligne et l'accès à l'hôte est indisponible. | Disponibilité | Permet de remettre en ligne un LUN hors ligne afin que les hôtes puissent reprendre l'accès et les E/S. 
+
+
+| *Volume non restreint* | Volume limité | Le volume est dans un état restreint et peut ne pas assurer un fonctionnement normal des E/S. | Disponibilité | Permet de remettre en ligne un volume restreint afin que les clients puissent y accéder à nouveau. 
+
+
+| *Mettre en ligne l'espace de noms NVMe* | L'espace de noms NVMe est hors ligne | L'espace de noms NVMe est hors ligne et l'accès à l'hôte est indisponible. | Disponibilité | Permet de remettre en ligne un espace de noms NVMe hors ligne afin de rétablir l'accès à l'hôte. 
+
+
+| *Activer le LIF intercluster* | Intercluster LIF en panne | Une interface LIF intercluster est hors service et la communication entre clusters peut être affectée. | Connectivité | Active une interface LIF intercluster pour rétablir la connectivité cluster-à-cluster utilisée pour la réplication. 
+
+
+| *Réactiver MetroCluster AUSO* | MetroCluster basculement automatique non planifié désactivé | La commutation automatique non planifiée est désactivée sur ce cluster. | Disponibilité | Réactive la commutation automatique non planifiée (AUSO) afin que la protection MetroCluster fonctionne comme prévu. 
+
+
+| *Configurer le réseau du Service Processor* | Le processeur de service n'est pas configuré | Le réseau du Service Processor (SP) n'est pas configuré. | Gestion | Configure les paramètres réseau du Service Processor (SP) pour activer l'accès à la gestion hors bande. 
+
+
+| *Attribuer les disques non attribués* | Disques non attribués détectés | Des disques non attribués sont présents et leur capacité disponible peut être inutilisée. Attribuez ces disques à un nœud afin qu'ils puissent être utilisés pour le stockage. | Disponibilité | Attribue à un nœud les disques actuellement non attribués afin qu'ils puissent être utilisés pour le stockage. 
+
+
+| *Récupération de l'espace du volume racine* | Espace faible sur le volume racine du nœud | L'espace disponible sur le volume racine du nœud est faible et peut affecter le fonctionnement normal du système. | Santé du système | Libère de l'espace sur le volume racine du nœud en supprimant le plus grand instantané ou le plus grand fichier de vidage mémoire. Les suppressions sont définitives. 
+|===

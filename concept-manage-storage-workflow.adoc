@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: concept-manage-storage-workflow.html 
+keywords: storage management workflow, storage classes, provisioning, storage class policies, ONTAP, fleet, drift detection, compliance monitoring, storage governance, operational efficiency, netapp console local 
+summary: Découvrez comment gérer le stockage dans le déploiement local de NetApp Console, notamment les classes de stockage, les stratégies et les méthodes de provisionnement. 
+---
+= Vue d'ensemble du flux de travail de gestion du stockage dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, netApp Console (local) vous aide à gérer le stockage ONTAP à grande échelle grâce à des normes cohérentes et réutilisables. Au lieu de prendre des décisions ponctuelles pour chaque volume ou LUN, vous définissez un comportement approuvé une seule fois et l'appliquez à l'ensemble de vos parcs, que vous procédiez à un provisionnement manuel, utilisiez le placement automatisé ou des flux de travail de planification et d'approbation assistés par l'IA.
+
+Cette page constitue le point de départ pour les administrateurs de stockage qui gèrent le stockage ONTAP à l'aide de flottes, de politiques de classes de stockage et de classes de stockage. Elle organise le flux de travail de bout en bout et renvoie vers des procédures détaillées.
+
+Si vous découvrez ces concepts, commencez par [En savoir plus sur la gestion du stockage avec le déploiement local de NetApp Console](concept-manage-storage.html).
+
+
+
+[[prerequisites-and-dependencies]]
+== Prérequis et dépendances
+
+L'administrateur de l'organisation s'assure que les systèmes de stockage sont détectés et affectés aux flottes appropriées. Les administrateurs de stockage ne peuvent pas appliquer de normes ni provisionner dans une flotte tant que les systèmes ne sont pas disponibles dans cette flotte et que l'accès n'est pas accordé via le RBAC.
+
+Accès RBAC requis. Veuillez confirmer que vous avez accès aux flottes où vous définirez les normes et provisionnerez le stockage.
+
+
+
+[[typical-workflow]]
+== Flux de travail typique
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"] Examiner les flottes et l'accès
+[role="quick-margin-list"]
+* Examinez les flottes disponibles et confirmez que vous avez accès aux flottes où vous souhaitez gérer le stockage.
+* Validez les autorisations et la portée avant de créer ou d'attribuer des normes de stockage.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]Définir les politiques de classe de stockage
+[role="quick-margin-list"]
+* Définissez des politiques de classe de stockage qui représentent vos normes.
+* Capturez les exigences (performance, protection, emplacement) dans des règles réutilisables.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]Créer des classes de stockage
+[role="quick-margin-list"]
+* Créez des classes de stockage en combinant des politiques dans des modèles de charge de travail.
+* Utilisez des modèles cohérents pour garantir que les charges de travail sont provisionnées conformément à vos normes.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]Associer les classes de stockage aux flottes
+[role="quick-margin-list"]
+* Associez les classes de stockage aux flottes où elles s'appliquent.
+* Attribuez les classes de portée aux flottes appropriées afin que les options correctes apparaissent lors du provisionnement.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]Provisionnez des volumes ou des LUN
+[role="quick-margin-list"]
+* Provisionnez des volumes ou des LUN à l'aide de la méthode qui correspond à votre modèle opérationnel.
+* Choisissez le flux de travail qui correspond à la manière dont vos équipes demandent, approuvent et fournissent le stockage.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]Surveillez les charges de travail et corrigez les dérives
+[role="quick-margin-list"]
+* Surveillez les charges de travail pour détecter tout écart par rapport aux politiques définies.
+* Corrigez les configurations non conformes afin de rétablir l'alignement avec les politiques.
+

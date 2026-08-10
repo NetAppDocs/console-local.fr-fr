@@ -1,0 +1,18 @@
+= 
+:allow-uri-read: 
+
+
+Si vous avez sélectionné la case à cocher *Valider la configuration de l’agent* sur la page *Vérification*, la Console vérifie la configuration de l’agent Console après sa création. Si la Console ne parvient pas à déployer l’agent, elle fournit un rapport téléchargeable pour vous aider à résoudre le problème.
+
+
+NOTE: Si la NetApp Console déploie l’agent avec succès, elle ne génère pas de rapport et une boîte de dialogue de confirmation apparaît pour vérifier la réussite du déploiement.
+
+.Étapes
+. Dans la boîte de dialogue *Échec du déploiement de l'agent*, sélectionnez *Télécharger le rapport* pour télécharger un fichier PDF contenant le rapport de validation.
+. Vous pouvez également sélectionner *Recommencer* pour revenir à l’assistant *Déployer l’agent* et réessayer.
++
+Vous devez recommencer l'intégralité du processus si vous souhaitez tenter de déployer à nouveau l'agent.
+
+
+
+Accédez au rapport et aux journaux depuis l’hôte de l’agent de la NetApp Console

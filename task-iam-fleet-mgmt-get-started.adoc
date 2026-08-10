@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: task-iam-fleet-mgmt-get-started.html 
+keywords: iam, quick start, get started, get started with iam, identity and access management 
+summary: 'Configurez l"identité et l"accès dans le déploiement local de NetApp Console en créant votre hiérarchie de dossiers et de flottes, en ajoutant des membres, en ajoutant des ressources et en plaçant ces ressources dans les flottes appropriées.' 
+---
+= Commencez à utiliser la gestion des identités et des accès dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de la NetApp Console, configurez votre hiérarchie de dossiers et de flottes, ajoutez des membres et des autorisations initiales, puis ajoutez et placez les ressources dans les flottes appropriées afin que les équipes concernées puissent y accéder et les gérer.
+
+.Rôles d'accès requis
+Super administrateur, administrateur d'organisation, ou administrateur de dossier ou de flotte. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Vous devez disposer du rôle *Organization admin* ou *Super admin* pour effectuer la configuration initiale. Après la configuration, gérez les ressources, l'accès des membres et l'accès au parc au fur et à mesure de l'évolution de votre organisation.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]Ajouter ou découvrir des ressources
+[role="quick-margin-para"]
+Ajoutez les systèmes au déploiement local de NetApp Console. Lors de la configuration initiale, les systèmes sont généralement ajoutés lorsque la flotte par défaut est sélectionnée.
+
+[role="quick-margin-para"]
+Apprenez à créer ou à découvrir des ressources :
+
+[role="quick-margin-list"]
+* https://docs.netapp.com/us-en/storage-management-ontap-onprem/index.html["Clusters ONTAP sur site"^]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]Créez votre hiérarchie de dossiers et de flottes
+[role="quick-margin-para"]
+Créez des flottes et des dossiers supplémentaires qui correspondent à la hiérarchie de votre entreprise.
+
+[role="quick-margin-para"]
+link:task-iam-manage-folders-fleets.html["Apprenez à organiser vos ressources avec des dossiers et des flottes"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]Associer les ressources aux flottes appropriées
+[role="quick-margin-para"]
+L'ajout ou la découverte d'un système dans le déploiement local de NetApp Console associe automatiquement la ressource à la flotte actuellement sélectionnée. Pour qu'un système soit accessible aux équipes concernées, associez-le aux flottes appropriées dans votre hiérarchie.
+
+[role="quick-margin-list"]
+* link:task-iam-manage-resources.html["Apprenez à gérer les ressources dans les dossiers et les flottes"].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]Ajouter des membres et attribuer des permissions initiales
+[role="quick-margin-para"]
+Ajoutez des membres et attribuez-leur des rôles au niveau de l'organisation, du dossier ou de la flotte en fonction de ce qu'ils gèrent.
+
+[role="quick-margin-para"]
+link:task-iam-manage-members-permissions.html["Apprenez à gérer les membres et leurs autorisations"].
+
+
+
+[[after-initial-setup]]
+== Après la configuration initiale
+
+Une fois la configuration initiale terminée, gérez l'accès et le placement des ressources en fonction de l'évolution de votre organisation :
+
+* link:task-iam-manage-resources.html["Gérer les ressources dans les dossiers et les flottes"]
+* link:task-iam-manage-roles.html["Gérer l'accès des membres à travers les flottes et les dossiers (approche centrée sur le membre)"]
+* link:task-iam-users-fleets-assign.html["Gérer qui peut accéder à une flotte ou un dossier spécifique (gestion centrée sur la flotte)"]
+* link:task-iam-manage-folders-fleets.html#delete-a-folder-or-fleet["Supprimez les dossiers et les flottes lorsqu'ils ne sont plus nécessaires"]
+
+
+.Informations connexes
+* link:concept-identity-and-access-management.html["Découvrez la gestion des identités et des accès dans la NetApp Console"]
+* https://docs.netapp.com/us-en/console-automation/tenancyv4/overview.html["Découvrez l'API pour l'identité et l'accès"^]
+

@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: concept-iam-rbac.html 
+keywords: roles, permissions, role-based access control, rbac, iam, identity and access management, least privilege, access control, NetApp Console local access, organization access, folder access, fleet access, resource access, directory users, AD, Active Directory, directory services 
+summary: 'Gérez l"accès des utilisateurs au déploiement local de NetApp Console grâce au contrôle d"accès basé sur les rôles (RBAC), en attribuant des rôles prédéfinis au niveau de l"organisation, du dossier ou du parc. Chaque rôle accorde des autorisations spécifiques qui définissent les actions que les utilisateurs peuvent effectuer dans leur périmètre attribué.' 
+---
+= Découvrez le contrôle d'accès basé sur les rôles dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gérez l'accès des utilisateurs au déploiement local de NetApp Console grâce au contrôle d'accès basé sur les rôles (RBAC), en attribuant des rôles prédéfinis au niveau de l'organisation, du dossier ou du parc. Chaque rôle accorde des autorisations spécifiques qui définissent les actions que les utilisateurs peuvent effectuer dans leur périmètre attribué.
+
+NetApp conçoit les rôles de déploiement local de la Console selon le principe du moindre privilège, de sorte que chaque rôle ne dispose que des autorisations nécessaires à ses tâches. Cette approche renforce la sécurité en limitant l'accès à ce dont chaque membre a besoin.
+
+Après avoir organisé les ressources en dossiers et en flottes, attribuez aux membres de l'organisation un ou plusieurs rôles pour des dossiers ou des flottes spécifiques, ce qui leur permet de n'exercer que leurs responsabilités.
+
+Par exemple, vous pouvez attribuer à un membre le rôle d'administrateur de sauvegarde et de restauration pour un niveau de flotte spécifique, lui permettant d'effectuer des opérations de sauvegarde et de restauration pour les ressources de cette flotte, sans pour autant lui accorder un accès étendu à l'ensemble de l'organisation. Ce même utilisateur peut se voir attribuer ce rôle pour plusieurs flottes au sein de votre organisation.
+
+Vous pouvez attribuer plusieurs rôles à un même membre, que ce soit pour un même périmètre ou pour des périmètres différents, en fonction de ses responsabilités. Par exemple, une petite organisation peut attribuer à un même membre les rôles Storage admin et Backup and Recovery admin au niveau de l'organisation, tandis qu'une grande organisation peut attribuer chaque rôle à un membre différent au niveau du fleet.
+
+
+
+[[types-of-console-organization-members]]
+== Types de membres de l'organisation Console
+
+NetApp Console le déploiement local prend en charge les types de membres suivants :
+
+* _Utilisateurs_ : Les utilisateurs individuels peuvent être soit des utilisateurs locaux que vous ajoutez au déploiement local de NetApp Console et qui utilisent des identifiants locaux, soit des utilisateurs d’annuaire qui s’authentifient via votre service Active Directory ou LDAP intégré. Les deux types d’utilisateurs peuvent se voir attribuer des rôles dans le déploiement local de NetApp Console pour accéder aux ressources.
+* _Comptes de service_ : comptes non humains que les applications ou les services utilisent pour interagir avec le déploiement local de NetApp Console via des API. Vous pouvez ajouter des comptes de service directement à votre organisation de déploiement local de Console.
+
+
+link:task-iam-manage-members-permissions.html#add-members["Découvrez comment ajouter des membres à votre organisation."]
+
+
+
+[[predefined-roles-in-netapp-console-local-deployment]]
+== Rôles prédéfinis dans le déploiement local de la NetApp Console
+
+NetApp Console le déploiement local inclut des rôles prédéfinis que vous pouvez attribuer aux membres de l'organisation. Chaque rôle comprend des autorisations qui spécifient les actions qu'un membre peut effectuer dans son périmètre (organisation, dossier ou parc).
+
+NetApp Console les rôles de déploiement local utilisent les principes du moindre privilège qui garantissent que les membres ne disposent que des autorisations nécessaires à leurs tâches, et catégorisent les rôles selon le type d'accès qu'ils fournissent :
+
+* Rôles de la plateforme : Fournir les autorisations d’administration du déploiement local de la Console
+* Rôles des services de données : fournissez des autorisations pour la gestion de services de données spécifiques, tels que Ransomware Resilience et Backup and Recovery
+* Rôles de l'application : Fournissent les autorisations pour gérer le stockage ainsi que pour auditer les événements et alertes de déploiement local de la Console
+
+
+Vous pouvez attribuer plusieurs rôles à un membre en fonction de ses responsabilités. Par exemple, vous pouvez attribuer à un membre à la fois le rôle d'administrateur du stockage et celui d'administrateur de la sauvegarde et de la restauration pour une flotte spécifique.
+
+Pour choisir l'accès d'un membre, faites correspondre la catégorie de rôle aux responsabilités du membre, puis attribuez le rôle à la portée (organisation, dossier ou flotte) qui correspond à l'étendue de l'accès dont le membre doit disposer. link:concept-folders-fleets-overview.html#organization-design-examples["Découvrez comment différentes organisations structurent les rôles et la portée dans le déploiement local de la NetApp Console"].
+
+link:reference-iam-predefined-roles.html["Découvrez les rôles prédéfinis que vous pouvez attribuer aux membres dans le déploiement local de la NetApp Console"].
+
+
+
+[[how-role-inheritance-works]]
+[[role-inheritance]]
+== Comment fonctionne l'héritage des rôles
+
+Lorsque vous attribuez un rôle au niveau de l'organisation ou d'un dossier, ce rôle est hérité par les périmètres enfants de cette partie de la hiérarchie. Cela signifie que les rôles au niveau de l'organisation s'appliquent à l'ensemble de l'organisation, les rôles au niveau du dossier s'appliquent à tous les sous-dossiers et flottes de ce dossier, et les rôles au niveau de la flotte s'appliquent uniquement aux ressources de cette flotte.
+
+Utilisez le niveau d'accès correspondant à l'accès que vous souhaitez que le membre conserve. Par exemple, attribuez un rôle au niveau du dossier lorsque le membre a besoin du même accès pour plusieurs flottes dans une région. Attribuez le rôle au niveau de la flotte lorsque le membre ne doit accéder qu'à une seule flotte.
+
+Il est impossible de modifier un accès hérité à un niveau inférieur. Si un membre hérite d'un rôle de l'organisation ou d'un dossier, modifiez cette attribution au niveau supérieur où vous l'avez initialement accordée.
+
+link:concept-folders-fleets-overview.html["Découvrez les dossiers et les flottes dans le déploiement local de la NetApp Console"]. link:task-iam-manage-roles.html["Gérer l'accès des membres"]. link:task-iam-users-fleets-assign.html["Gérer les affectations d'accès à la flotte"].

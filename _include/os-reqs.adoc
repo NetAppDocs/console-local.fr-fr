@@ -1,0 +1,193 @@
+= 
+:allow-uri-read: 
+
+
+Hôte dédié:: L'agent Console n'est pas pris en charge sur un hôte partagé avec d'autres applications. L'hôte doit être un hôte dédié. L'hôte peut être de n'importe quelle architecture qui répond aux exigences de taille suivantes :
++
+--
+* CPU : 8 cœurs ou 8 vCPU
+* RAM : 32 Go
+* Espace disque : 165 Go sont recommandés pour l’hôte, avec les exigences de partition suivantes :
++
+** `/opt`: 120 Gio d'espace doivent être disponibles
++
+L’agent utilise  `/opt` pour installer le répertoire  `/opt/application/netapp` et son contenu.
+
+** `/var` : 40 Gio d'espace doivent être disponibles
++
+L'agent Console requiert cet espace dans `/var` car Docker ou Podman sont conçus pour créer les conteneurs dans ce répertoire. Plus précisément, ils créeront les conteneurs dans le répertoire `/var/lib/containers/storage`. Les montages externes ou les liens symboliques ne fonctionnent pas pour cet espace.
+
+
+
+
+
+--
+
+
+* Processeur : 16 cœurs ou 16 vCPUs
+* RAM : 64 Go
+* Espace disque : 596 Go (provisionnement épais recommandé)
+* vSphere 7.0u3 ou supérieur, avec une version matérielle virtuelle 19 ou supérieure
+
+
+
+NOTE: L'agent Console réserve la plage d'UID et de GID de 19000 à 19200. Cette plage est fixe et ne peut pas être modifiée. Si un logiciel tiers sur votre hôte utilise des UID ou des GID dans cette plage, l'installation de l'agent échouera. NetApp recommande d'utiliser un hôte exempt de logiciels tiers afin d'éviter tout conflit.
+
+NetApp Console local deployment utilise un espace d'adressage fixe pour la communication inter-services. Les plages d'adresses IP 10.42.0.0/16 et 10.43.0.0/16 sont utilisées pour le réseau interne. Avant de déployer Console local deployment, assurez-vous que ces plages d'adresses IP ne sont pas attribuées à d'autres machines virtuelles, plages DHCP, enregistrements DNS ou pools VIP d'équilibreur de charge sur les VLANs mis à disposition pour Console local deployment.
+
+Consultez l'article de la base de connaissances Agent IP conflict with existing network pour obtenir des instructions sur la façon de modifier l'adresse IP des interfaces de l'agent.
+
+Hyperviseur:: Un hyperviseur bare metal ou hébergé, certifié pour exécuter un système d'exploitation pris en charge, est requis.
+
+
+[[podman-versions]]Configuration requise pour le système d'exploitation et les conteneurs:: L'agent Console est compatible avec les systèmes d'exploitation suivants lorsque vous utilisez la Console en mode standard ou en mode restreint. Un outil d'orchestration de conteneurs est requis avant que vous n'installiez l'agent.
++
+--
+[cols="2a,2a,2a,2a,2a"]
+|===
+| Système d'exploitation | Versions de systèmes d'exploitation prises en charge | Versions d'agent prises en charge | Outil de conteneur requis | un SELinux 
+
+
+ a| 
+Red Hat Enterprise Linux
+ a| 
+9,1 à 9,4
+
+8,6 à 8,10
+
+* Versions en anglais uniquement.
+* L'hôte doit être enregistré auprès de Red Hat Subscription Management. S'il n'est pas enregistré, l'hôte ne pourra pas accéder aux dépôts pour mettre à jour les logiciels tiers requis lors de l'installation de l'agent.
+
+ a| 
+3.9.50 ou version ultérieure avec la Console en mode standard ou en mode restreint
+ a| 
+Podman version 4.6.1 ou 4.9.4
+
+<<podman-configuration,Consultez les exigences de configuration de Podman>>.
+ a| 
+Pris en charge en mode d'application ou en mode permissif
+
+* La gestion des systèmes Cloud Volumes ONTAP n'est PAS prise en charge par les agents dont le système d'exploitation a SELinux activé.
+
+
+
+
+ a| 
+Ubuntu
+ a| 
+24.04 LTS
+ a| 
+3.9.45 ou version ultérieure avec la NetApp Console en mode standard ou en mode restreint
+ a| 
+Docker Engine 23.06 à 28.0.0.
+ a| 
+Non pris en charge
+
+
+
+ a| 
+22.04 LTS
+ a| 
+3.9.50 ou version ultérieure
+ a| 
+Docker Engine 23.0.6 à 28.0.0.
+ a| 
+Non pris en charge
+
+|===
+--
+
+
+[[podman-versions]]Configuration requise pour le système d'exploitation et les conteneurs:: L'agent Console est compatible avec les systèmes d'exploitation suivants lorsque vous utilisez la Console en mode privé. Un outil d'orchestration de conteneurs est requis avant que vous n'installiez l'agent.
++
+--
+[cols="2a,2a,2a,2a,2a"]
+|===
+| Système d'exploitation | Versions de systèmes d'exploitation prises en charge | Versions d'agent prises en charge | Outil de conteneur requis | SELinux 
+
+
+ a| 
+Red Hat Enterprise Linux
+ a| 
+9,1 à 9,4
+
+8,6 à 8,10
+ a| 
+3.9.42 ou version ultérieure avec la Console en mode privé
+ a| 
+Podman version 4.6.1 ou 4.9.4
+
+<<podman-configuration,Consultez les exigences de configuration de Podman>>.
+ a| 
+Pris en charge en mode d'application ou en mode permissif ^1^
+
+
+
+ a| 
+Ubuntu
+ a| 
+22.04 LTS
+ a| 
+3.9.29 ou version ultérieure
+ a| 
+Docker Engine 23.0.6 à 26.0.0
+
+La version 26.0.0 est prise en charge avec les nouvelles installations de l’agent 3.9.44 ou ultérieures
+ a| 
+Non pris en charge
+
+|===
+Remarques:
+
+. La gestion des systèmes Cloud Volumes ONTAP n'est pas prise en charge par les agents dont le système d'exploitation a SELinux activé.
+. L'agent Console est pris en charge sur les versions anglaises de ces systèmes d'exploitation.
+. Pour RHEL, l'hôte doit être enregistré auprès de Red Hat Subscription Management. S'il n'est pas enregistré, l'hôte ne peut pas accéder aux dépôts pour mettre à jour les logiciels tiers requis lors de l'installation de l'agent.
+
+
+--
+
+
+Processeur:: 8 cœurs ou 8 vCPUs
+RAM:: 32 Go
+
+
+type d'instance AWS EC2:: Un type d'instance conforme aux exigences de processeur et de mémoire vive indiquées ci-dessus. Nous recommandons t3.2xlarge.
+
+
+Paire de clés:: Lorsque vous créez l'agent Console, vous devrez sélectionner une paire de clés EC2 à utiliser avec l'instance.
+
+
+Limite de sauts de réponse PUT lors de l'utilisation d'IMDSv2:: Si IMDSv2 est activé sur l'instance EC2 (il s'agit du paramètre par défaut pour les nouvelles instances EC2), vous devez modifier la limite de sauts de réponse PUT sur l'instance à 3. Si vous ne modifiez pas la limite sur l'instance EC2, vous recevrez une erreur d'initialisation de l'interface utilisateur lorsque vous tenterez de configurer l'agent.
++
+--
+* link:task-require-imdsv2.html["Exiger l'utilisation d'IMDSv2 sur les instances Amazon EC2"]
+* https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-existing-instances.html#modify-PUT-response-hop-limit["Documentation AWS : Modifier la limite de sauts de réponse PUT"^]
+
+
+--
+
+
+Taille de la machine virtuelle Azure:: Un type d'instance conforme aux exigences de processeur et de mémoire vive indiquées ci-dessus. Nous recommandons Standard_D8s_v3.
+
+
+Type de machine Google Cloud:: Un type d'instance conforme aux exigences de processeur et de mémoire vive indiquées ci-dessus. Nous recommandons n2-standard-8.
++
+--
+L'agent Console est pris en charge dans Google Cloud sur une instance de machine virtuelle dotée d'un système d'exploitation qui prend en charge https://cloud.google.com/compute/shielded-vm/docs/shielded-vm["Fonctionnalités de la machine virtuelle protégée"^]
+
+--
+
+
+Espace disque dans /opt:: 100 Gio d'espace doivent être disponibles
++
+--
+L’agent utilise  `/opt` pour installer le répertoire  `/opt/application/netapp` et son contenu.
+
+--
+Espace disque dans /var:: 20 Gio d'espace doivent être disponibles
++
+--
+L'agent Console requiert cet espace dans `/var` car Docker ou Podman sont conçus pour créer les conteneurs dans ce répertoire. Plus précisément, ils créeront les conteneurs dans le répertoire `/var/lib/containers/storage`. Les montages externes ou les liens symboliques ne fonctionnent pas pour cet espace.
+
+--
+

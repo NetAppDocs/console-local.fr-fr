@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: task-llm-connect.html 
+keywords: LLM, AI, connect, large language model, console assistant, openai, openai-compatible, proxy, netapp console 
+summary: 'Connectez OpenAI ou un point de terminaison compatible OpenAI pour activer l"assistant Console et la gestion assistée par IA dans le déploiement local de la NetApp Console.' 
+---
+= Connectez votre LLM et activez l’assistant NetApp Console dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Connectez votre grand modèle de langage (LLM) au déploiement local de NetApp Console pour activer l’assistant de la Console et la gestion du stockage assistée par l’IA.
+
+
+NOTE: Cette documentation relative à la connexion d'un LLM à l'assistant Console pour activer les fonctionnalités d'IA est fournie à titre d'aperçu technologique. Dans le cadre de cette offre d'aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+
+.Rôles d'accès requis
+Super administrateur ou administrateur de l'organisation. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Une fois la configuration terminée, les utilisateurs ouvrent l'assistant Console depuis le tableau de bord et choisissent un mode d'accès :
+
+* En mode *Lecture seule*, l'assistant répond aux questions et fournit des conseils sans apporter de modifications.
+* En mode *Lecture/écriture*, l'assistant peut interagir avec l'infrastructure de stockage. Il affiche les détails pour vérification et confirmation avant chaque modification. Pour les opérations asynchrones, telles que la création de volume, il crée une tâche que les utilisateurs peuvent vérifier depuis l'assistant.
+
+
+Pour connecter votre LLM, sélectionnez un chemin de fournisseur, saisissez les détails de l'endpoint et la clé API, puis sélectionnez un modèle dans *Administration > AI Tools*. Les actions de l’assistant restent conformes à vos politiques de stockage et à vos contrôles d’accès basés sur les rôles.
+
+
+
+[[gather-what-you-need-before-you-connect-an-llm]]
+== Rassemblez ce dont vous avez besoin avant de connecter un LLM
+
+Avant de connecter votre LLM, rassemblez les éléments suivants :
+
+* Votre choix de type de fournisseur : OpenAI ou compatible OpenAI.link:concept-llm-integration.html["Découvrez les choix de fournisseurs."]
+* Une clé API valide pour le chemin du fournisseur que vous sélectionnez.
+* L'URL du point de terminaison pour le chemin de votre fournisseur.
+* L'URL de votre proxy ou de votre passerelle, si votre organisation en exige une.
+* Votre nom d'utilisateur ou votre identifiant d'authentification unique (SSO) pour le compte fournisseur LLM, si nécessaire.
+* Accès réseau depuis le déploiement local de NetApp Console vers le point de terminaison sélectionné.
+* Classes de stockage et contrôles d'accès basés sur les rôles pour les actions de l'assistant que vous prévoyez d'autoriser.
+
+
+Pour plus de détails sur les modèles pris en charge, voir link:reference-llm-supported-models.html["Découvrez les fournisseurs et modèles LLM pris en charge dans le déploiement local de NetApp Console"].
+
+
+
+[[connect-an-llm-to-netapp-console-local-deployment]]
+== Connectez un LLM au déploiement local de la NetApp Console
+
+Saisissez les paramètres du fournisseur, la clé API et le modèle pour connecter votre LLM au déploiement local de NetApp Console.
+
+.Étapes
+. Connectez-vous au déploiement local de la NetApp Console.
+. Sélectionnez *Administration > Outils d'IA*.
+. Sélectionnez le menu, puis sélectionnez *Modifier*.
+. Dans *Type de fournisseur*, sélectionnez un type de fournisseur.
++
+link:concept-llm-integration.html["Découvrez l'intégration LLM dans le déploiement local de NetApp Console"].
+
+. Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné.
+. Saisissez l'URL du proxy ou de la passerelle et les identifiants.
+. Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige.
+. Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné.
+. Sélectionnez un modèle dans la liste.
+. Vérifiez la configuration, puis sélectionnez *Enregistrer*.
++
+Si l'enregistrement ou le test échoue, vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné, puis réessayez.
+
+
+
+link:task-llm-troubleshoot-integration.html["Résolvez les problèmes liés à l'intégration de votre LLM"].
+
+
+
+[[verify-that-llm-integration-works]]
+== Vérifiez que l'intégration LLM fonctionne
+
+Après avoir enregistré la configuration, vérifiez la disponibilité et le comportement de l'assistant.
+
+.Étapes
+. Vérifiez que le bouton *Assistant Console* apparaît sur le tableau de bord de déploiement local de la NetApp Console.
+. Ouvrez l'assistant en mode *Lecture seule* et exécutez une requête de base.
+. Ouvrez l'assistant en mode *Lecture/écriture* et vérifiez que les actions modifiant le stockage nécessitent une confirmation de l'utilisateur avant leur exécution.
+. Vérifiez que les utilisateurs qui ont besoin de flux de travail d’actions disposent des contrôles d’accès basés sur les rôles requis.
+
+
+Une fois la validation terminée, les utilisateurs peuvent ouvrir l'assistant Console depuis le tableau de bord et décrire les tâches en langage clair. Pour des exemples d'utilisation et des flux de travail pour les utilisateurs finaux, consultez link:task-console-asst-use.html["Utilisez l’assistant de la console NetApp"].
+
+
+
+[[protect-credentials-and-monitor-llm-usage]]
+== Protégez les identifiants et surveillez l'utilisation du LLM
+
+* Utilisez une clé API dédiée pour l'intégration du déploiement local de Console lorsque cela est possible.
+* Renouvelez les clés API conformément à la politique de votre organisation.
+* Restreindre la modification des paramètres des outils d'IA aux seuls rôles d'administrateur requis.
+* Surveillez l'utilisation des API côté fournisseur et les alertes afin de détecter les activités anormales ou les pics de coûts.
+

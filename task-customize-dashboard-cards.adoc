@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: task-customize-dashboard-cards.html 
+keywords: add card, dashboard card, card template, widget, preview, netapp console local 
+summary: Personnalisez les cartes du tableau de bord dans le déploiement local de NetApp Console en définissant la portée, les modèles, les ressources et les fenêtres temporelles. 
+---
+= Personnalisez les cartes dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, personnalisez les cartes du tableau de bord lorsque vous devez concentrer les opérateurs sur les signaux les plus importants, tels que le risque lié au SLA, la pression sur la capacité ou le bruit d'alertes récurrentes. Utilisez cette rubrique pour adapter l'affichage du tableau de bord aux décisions opérationnelles que votre équipe doit prendre.
+
+
+
+[[before-you-begin]]
+== Avant de commencer
+
+* Créez ou ouvrez un tableau de bord où vous souhaitez placer des cartes.
+* Examinez les modèles et les indicateurs disponibles dans link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"].
+
+
+
+
+[[add-cards-while-refining-an-existing-dashboard]]
+== Ajouter des cartes tout en peaufinant un tableau de bord existant
+
+Utilisez cette option lorsque vous affinez un tableau de bord existant et que vous devez rapidement ajouter des cartes répondant à une question opérationnelle spécifique.
+
+.Étapes
+. Ouvrez le tableau de bord auquel vous souhaitez ajouter une carte.
+. Sélectionnez *Ajouter une carte*.
+. Sélectionnez le *type de ressource* pour la carte, tel que flotte, système ou volume, puis choisissez des ressources dans la liste des ressources disponibles.
+. Sélectionnez *Suivant* pour continuer à choisir une métrique et un type de carte.
+. Choisissez une métrique à afficher. Vous pouvez filtrer les métriques disponibles par type : le *Type de métrique* : *Performance*, *Capacity*, *Health* ou *Alerts*, ou rechercher une métrique spécifique par nom. Les métriques disponibles dépendent du type de ressource que vous avez sélectionné.
++
+link:reference-dashboard-card-templates.html#metrics-list["Découvrez les indicateurs disponibles."]
+
+. Sélectionnez une carte à inclure dans le tableau de bord et sélectionnez *Suivant*.
++
+Vous ne pouvez sélectionner qu'une seule carte à la fois. L'aperçu de la carte affiche les données en temps réel pour la métrique et le type de ressource sélectionnés.
+
+. Nommez votre carte. Ce nom doit être unique dans le tableau de bord.
+. Vérifiez l'aperçu de la carte, saisissez un nom et une description de carte, puis sélectionnez *Ajouter*.
+. Répétez ces étapes pour les autres cartes.
+. Enregistrez le tableau de bord.
+
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+* link:concept-custom-dashboards.html["Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console"]
+* link:task-dashboard-create.html["Créer un tableau de bord personnalisé"]
+* link:task-dashboard-manage.html["Gérer les tableaux de bord personnalisés"]
+* link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"]
+

@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: task-dashboard-get-started.html 
+keywords: dashboards, quick start, get started, custom dashboards, predefined dashboards, monitoring, netapp console local 
+summary: 'Commencez à utiliser les tableaux de bord dans le déploiement local de NetApp Console en consultant la page d"accueil et les tableaux de bord prédéfinis, en créant des tableaux de bord personnalisés et en les maintenant à jour.' 
+---
+= Commencez à utiliser les tableaux de bord dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, suivez ce flux de travail pour effectuer une surveillance allant des vues générales aux vues ciblées : consultez le tableau de bord de la page d’accueil, consultez les tableaux de bord prédéfinis, créez des tableaux de bord personnalisés et maintenez les tableaux de bord à jour.
+
+.Rôles d'accès requis
+Tous les rôles. Les tableaux de bord affichent uniquement les ressources que vous êtes autorisé à consulter. Si une ressource n'apparaît pas dans la liste des ressources disponibles, vous n'avez pas l'autorisation de la consulter.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]Vérifiez l'état de santé initial sur la page d'accueil
+[role="quick-margin-para"]
+Utilisez le tableau de bord de la page d'accueil pour consulter la capacité, les alertes, les performances et l'état de la protection des données au niveau de l'organisation.
+
+[role="quick-margin-list"]
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+* link:concept-monitor-storage.html["Découvrez la surveillance du stockage dans le déploiement local de NetApp Console"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]Consultez les autres tableaux de bord prédéfinis
+[role="quick-margin-para"]
+Ouvrez *Stockage > Tableaux de bord* pour consulter les tableaux de bord prédéfinis pour des vues supplémentaires spécifiques à chaque rôle.
+
+[role="quick-margin-list"]
+* link:task-dashboard-manage.html["Gérez les tableaux de bord dans le déploiement local de NetApp Console"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]Créez des tableaux de bord personnalisés pour une surveillance ciblée
+[role="quick-margin-para"]
+Créez des tableaux de bord personnalisés lorsque vous avez besoin de vues ciblées pour des ressources, des métriques et des fenêtres temporelles spécifiques.
+
+[role="quick-margin-list"]
+* link:task-dashboard-create.html["Créer un tableau de bord personnalisé"]
+* link:task-customize-dashboard-cards.html["Personnalisez les cartes du tableau de bord dans le déploiement local de la NetApp Console"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"] Maintenez les tableaux de bord à jour
+[role="quick-margin-para"]
+Mettez à jour les tableaux de bord en fonction de l'évolution des priorités en modifiant, dupliquant ou supprimant des tableaux de bord personnalisés.
+
+[role="quick-margin-list"]
+* link:task-dashboard-manage.html["Gérez les tableaux de bord dans le déploiement local de NetApp Console"]
+* link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"]
+
+
+.Informations connexes
+* link:concept-custom-dashboards.html["Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console"]
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+

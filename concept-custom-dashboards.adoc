@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: concept-custom-dashboards.html 
+keywords: dashboards, predefined dashboards, custom dashboards, cards, card templates, metrics, KPI, fleet health, performance monitoring, capacity monitoring, storage visibility, netapp console local, monitoring 
+summary: 'Découvrez comment les tableaux de bord prédéfinis de la page d"accueil et les tableaux de bord personnalisés fonctionnent ensemble dans le déploiement local de NetApp Console.' 
+---
+= Découvrez les tableaux de bord personnalisés dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez des tableaux de bord personnalisés dans le déploiement local de NetApp Console pour créer des vues de surveillance ciblées pour des équipes, des flottes, des charges de travail et des objectifs opérationnels spécifiques. Les tableaux de bord personnalisés complètent le tableau de bord de la page d’accueil en ajoutant une visibilité ciblée à la surveillance globale et toujours disponible.
+
+
+
+[[how-dashboard-types-work-together]]
+== Comment les types de tableaux de bord fonctionnent ensemble
+
+Tableau de bord de la page d'accueil:: Des panneaux de surveillance prêts à l'emploi pour la capacité, les alertes, la capacité de performance, les licences et l'état de la protection des données. Les vues sont préconfigurées et se mettent à jour automatiquement. link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"].
+Tableaux de bord personnalisés:: Vues de surveillance spécifiques aux rôles, construites à partir de cartes prédéfinies, incluant la portée, les indicateurs, les ressources cibles et les fenêtres temporelles sélectionnables.
+
+
+Utilisez les deux conjointement : * Commencez par la page d’accueil pour une surveillance quotidienne de référence. * Utilisez des tableaux de bord personnalisés pour une analyse ciblée par équipe, flotte, charge de travail ou question opérationnelle.
+
+Vous pouvez ajouter un seul tableau de bord personnalisé à la page d'accueil à la fois.
+
+
+
+[[understand-custom-dashboards]]
+== Comprendre les tableaux de bord personnalisés
+
+Un tableau de bord personnalisé est un ensemble enregistré de cartes que vous organisez sur une grille. Chaque carte est basée sur un modèle de carte prédéfini avec une métrique et un type de graphique. Lorsque vous ajoutez une carte, vous configurez la portée, les objets cibles, l'agrégation et la fenêtre temporelle.
+
+Les tableaux de bord et les cartes personnalisés sont privés pour vous. Chaque carte affiche uniquement les données des ressources de stockage que vous êtes autorisé à consulter.
+
+Vous pouvez supprimer le tableau de bord personnalisé de votre page d'accueil et en ajouter un autre en fonction de l'évolution de vos priorités de surveillance.
+
+
+
+[[monitor-what-matters]]
+== Surveillez ce qui compte
+
+Les modèles de cartes sont organisés par type de métrique, ce qui vous permet de centrer un tableau de bord sur un domaine opérationnel spécifique. Par exemple, utilisez les cartes de capacité pour surveiller un volume qui augmente plus vite que prévu, ou les cartes d'alerte pour suivre les pannes répétées sur un cluster très sollicité :
+
+Performances:: Latence, IOPS, débit, utilisation et capacité de performance sur l'ensemble du parc, des systèmes, des SVM, des volumes et des LUN.
+Capacité:: Capacité utilisée, capacité libre, pourcentage de capacité utilisée et capacité de snapshot sur l'ensemble du parc, des systèmes, des SVM, des volumes, des LUN et des niveaux locaux.
+Santé:: État de santé, nombre d'objets dégradés ou critiques, disques défaillants, erreurs d'interface réseau et objets chauds.
+Alertes:: Nombre d'alertes critiques, alertes par niveau de gravité, alertes par zone d'impact, alertes récentes et tendances des alertes au fil du temps.
+
+
+Pour un catalogue complet des cartes et des métriques prédéfinies, voir link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"].
+
+
+
+[[resource-types]]
+== Types de ressources
+
+Vous pouvez affecter des cartes à n'importe quel niveau de la hiérarchie de stockage ONTAP : parc, cluster, système (nœud), SVM, volume, LUN et niveau local (agrégat). Les types de ressources disponibles dépendent du modèle de carte que vous sélectionnez.
+
+
+
+[[plan-dashboard-views]]
+== Planifier les vues du tableau de bord
+
+Organisez des tableaux de bord personnalisés autour des objectifs d'administration du stockage tels que le triage des performances des charges de travail, la planification de la capacité, la détection des risques pour la santé et la priorisation des alertes.
+
+
+
+[[related-information]]
+== Informations connexes
+
+* link:task-dashboard-get-started.html["Commencez à utiliser les tableaux de bord dans le déploiement local de la NetApp Console"]
+* link:task-storage-dashboard.html["Afficher les statistiques de la page d'accueil dans le déploiement local de la NetApp Console"]
+* link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"]
+

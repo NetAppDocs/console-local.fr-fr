@@ -1,0 +1,127 @@
+---
+sidebar: sidebar 
+permalink: task-user-settings.html 
+keywords: user profile, mfa, change password, role, login, multi-factor, authentication, dark mode, read-only mode, contact admin, AD, Active Directory, directory services 
+summary: 'Vous pouvez modifier votre profil Console, notamment changer votre mot de passe, activer l"authentification multifacteur (MFA) et voir qui est votre administrateur Console.' 
+---
+= Gérez les paramètres utilisateur de votre déploiement local NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans le déploiement local de NetApp Console, vous pouvez modifier votre profil de déploiement local de Console, notamment changer votre mot de passe, activer l'authentification multifacteur (MFA) et voir qui est votre administrateur Console.
+
+
+
+[[change-your-display-name]]
+== Changez votre nom d'affichage
+
+Vous pouvez modifier le nom d'affichage de votre déploiement local sur la Console, qui vous identifie auprès des autres utilisateurs. Vous ne pouvez pas modifier votre nom d'utilisateur ni votre adresse e-mail.
+
+.Étapes
+. Sélectionnez l'icône de profil dans le coin supérieur droit du déploiement local de la Console pour afficher le panneau des paramètres utilisateur.
+. Sélectionnez l'icône *Modifier* à côté de votre nom.
+. Saisissez votre nouveau nom d'affichage dans le champ *Nom*.
+
+
+
+
+[[configure-multi-factor-authentication]]
+[[task-user-mfa]]
+== Configurer l'authentification multifacteur
+
+Configurez l'authentification multifactorielle (MFA) pour améliorer la sécurité en exigeant une deuxième méthode de vérification lors de la connexion au déploiement local NetAppConsole.
+
+Les utilisateurs qui se connectent via le site d'assistance NetApp ne peuvent pas activer l'authentification multifacteur (MFA). Si c'est votre cas, vous ne voyez pas l'option permettant d'activer la MFA dans les paramètres de votre profil.
+
+N’activez pas l’authentification multifacteur si votre compte utilisateur est utilisé pour l’accès à l’API. L’authentification multifacteur bloque l’accès à l’API lorsqu’elle est activée pour un compte utilisateur. Utilisez des comptes de service pour tout accès à l’API.
+
+
+NOTE: Vous ne pouvez pas configurer l'authentification multifacteur (MFA) pour votre compte via le déploiement local de la Console si votre compte utilise Active Directory ou un autre service d'annuaire intégré pour l'authentification.
+
+.Avant de commencer
+* Vous devez avoir déjà téléchargé une application d'authentification, telle que Google Authenticator ou Microsoft Authenticator, sur votre appareil.
+* Vous aurez besoin de votre mot de passe pour configurer l'authentification multifacteur.
+
+
+
+NOTE: Si vous n'avez pas accès à votre application d'authentification ou si vous avez perdu votre code de récupération, contactez votre administrateur NetApp Console pour obtenir de l'aide.
+
+.Étapes
+. Sélectionnez l'icône de profil dans le coin supérieur droit de la Console pour afficher le panneau des paramètres utilisateur.
+. Sélectionnez *Configurer* à côté de l'en-tête *Authentification multifacteur*.
+. Suivez les instructions pour configurer l'authentification multifacteur (MFA) pour votre compte.
+. Une fois terminé, vous serez invité à enregistrer vos codes de récupération. Choisissez soit de copier les codes, soit de télécharger un fichier texte contenant les codes. Conservez ces codes en lieu sûr. Vous aurez besoin de ces codes si vous perdez l'accès à votre application d'authentification.
++
+
+NOTE: Si vous devez vous connecter avec un code de récupération, utilisez-les dans l'ordre indiqué dans l'interface utilisateur lors de l'invite de saisie du code de récupération.
+
++
+Une fois l'authentification multifacteur (MFA) configurée, le déploiement local de la Console vous invite à saisir un code à usage unique provenant de votre application d'authentification à chaque connexion.
+
+
+
+
+
+[[regenerate-your-mfa-recovery-code]]
+== Régénérez votre code de récupération MFA
+
+Vous ne pouvez utiliser un code de récupération qu'une seule fois. Si vous perdez le vôtre, créez-en un nouveau.
+
+.Étapes
+. Sélectionnez l'icône de profil dans le coin supérieur droit du déploiement local de la NetApp Console pour afficher le panneau des paramètres utilisateur.
+. Sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] à côté de l’en-tête *Authentification multifacteur*.
+. Sélectionnez *Régénérer le code de récupération*.
+. Copiez les codes de récupération générés et enregistrez-les dans un emplacement sécurisé.
+
+
+
+
+[[delete-your-mfa-configuration]]
+== Supprimez votre configuration MFA
+
+Supprimer l'authentification multifacteur (MFA) supprime la deuxième étape de vérification lors de votre prochaine connexion. Pour utiliser à nouveau l'authentification multifacteur, vous devez la configurer à nouveau dans vos paramètres utilisateur.
+
+
+NOTE: Si vous ne parvenez pas à accéder à votre application d'authentification ou à votre code de récupération, vous devrez contacter l'administrateur de votre organisation pour réinitialiser votre configuration MFA.
+
+.Étapes
+. Sélectionnez l'icône de profil dans le coin supérieur droit du déploiement local de la Console pour afficher le panneau des paramètres utilisateur.
+. Sélectionnez image:icon-action.png["Une icône composée de trois points côte à côte"] à côté de l’en-tête *Authentification multifacteur*.
+. Sélectionnez *Delete*.
+
+
+
+
+[[contact-your-organization-administrator]]
+[[contact-admin]]
+== Contactez l'administrateur de votre organisation
+
+Si vous devez contacter l'administrateur de votre organisation, vous pouvez lui envoyer un e-mail directement depuis la NetApp Console. L'administrateur gère les comptes utilisateurs et les autorisations au sein de votre organisation.
+
+
+NOTE: Vous devez avoir une application de messagerie par défaut configurée pour votre navigateur afin d'utiliser la fonction *Contacter les administrateurs*.
+
+.Étapes
+. Sélectionnez l'icône de profil dans le coin supérieur droit du déploiement local de la Console pour afficher le panneau des paramètres utilisateur.
+. Sélectionnez *Contacter les administrateurs* pour envoyer un e-mail à l’administrateur de votre organisation.
+. Sélectionnez l'application de messagerie à utiliser.
+. Terminez le courriel et sélectionnez *Envoyer*.
+
+
+
+
+[[configure-dark-mode-dark-theme]]
+== Configurer le mode sombre (thème sombre)
+
+Vous pouvez configurer le déploiement local de NetApp Console pour qu'il s'affiche en mode sombre.
+
+.Étapes
+. Sélectionnez l'icône de profil dans le coin supérieur droit du déploiement local de la Console pour afficher le panneau des paramètres utilisateur.
+. Déplacez le curseur *Thème sombre* pour l’activer.
+

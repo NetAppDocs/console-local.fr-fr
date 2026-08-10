@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: task-iam-active-directory-integrate.html 
+keywords: AD, Active Directory, LDAP, directory services, directory users, authentication, user management, netapp console 
+summary: Intégrez le déploiement local de la NetApp Console avec Active Directory pour la connexion et la recherche d’utilisateurs basées sur l’annuaire. 
+---
+= Intégrer le déploiement local de la NetApp Console avec Active Directory
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Intégrez le déploiement local de NetApp Console à Active Directory pour la connexion et la recherche d'utilisateurs via l'annuaire. Utilisez votre service d'annuaire pour authentifier les utilisateurs, puis attribuez des accès à ces utilisateurs dans le déploiement local de NetApp Console.
+
+.Rôles d'accès requis
+Super administrateur ou administrateur de l'organisation. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+
+Lorsque vous intégrez Active Directory, le déploiement local de la Console authentifie les utilisateurs via votre annuaire existant. Après avoir ajouté un utilisateur à l'annuaire, attribuez des rôles d'accès à la Console pour contrôler ce à quoi cet utilisateur peut accéder.
+
+L'intégration d'Active Directory vous aide également à répondre aux exigences de conformité en appliquant vos contrôles, journaux d'audit et politiques existants à l'accès au déploiement local de NetApp Console.
+
+[NOTE]
+====
+* L'intégration d'Active Directory ne crée pas de groupes fédérés, ne synchronise pas les affectations de groupes d'annuaire et n'accorde pas automatiquement l'accès. Les administrateurs ajoutent toujours les utilisateurs de l'annuaire à l'organisation et attribuent des rôles dans le déploiement local de la Console.
+* Une seule intégration Active Directory est prise en charge à la fois. Une fois une intégration configurée, le bouton *Ajouter une intégration* est désactivé. Pour passer à un autre annuaire, désactivez ou supprimez d'abord l'intégration existante.
+* Les utilisateurs de l'annuaire ne configurent ni n'utilisent l'authentification multifacteur (MFA). Le déploiement local de la console prend en charge la MFA uniquement pour les utilisateurs locaux. link:task-manage-member-security.html["Apprenez à gérer les paramètres de sécurité des membres"].
+
+
+====
+
+
+[[before-you-begin]]
+== Avant de commencer
+
+Avant d'intégrer Active Directory, assurez-vous de disposer des éléments suivants :
+
+* Un domaine Active Directory et des identifiants permettant d'interroger l'annuaire
+* L'adresse du serveur LDAP et le nom unique (DN) de base de l'arborescence d'annuaire
+* Accès réseau depuis le déploiement local de NetApp Console vers votre serveur LDAP sur le port 389 (LDAP) ou 636 (LDAPS)
+* Certificats SSL/TLS, si vous prévoyez d'utiliser LDAPS
+
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Directory services* pour ouvrir la page Federations.
+. Sélectionnez *Ajouter une intégration*.
+. Saisissez les informations de connexion à votre serveur Active Directory :
++
+** Un nom descriptif pour l'intégration.
+** *Hôte LDAP* : nom d’hôte ou adresse IP de votre serveur LDAP. Pour plusieurs serveurs, saisissez le principal.
+** Le port : 389 pour LDAP ou 636 pour LDAPS.
+** Délai d'expiration de la connexion en millisecondes. La valeur par défaut est de 1000 ms.
+
+
+. Sélectionnez *Utiliser SSL/TLS* pour utiliser LDAPS. Vérifiez que votre serveur LDAP prend en charge LDAPS et que la NetApp Console peut accéder aux certificats requis.
+. Testez la connexion. En cas d'échec, vérifiez l'hôte LDAP, le port, la connectivité réseau et les certificats SSL/TLS.
+. Une fois le test réussi, saisissez le répertoire et les informations de l'utilisateur :
++
+** *Liaison DN de base* : Saisissez le nom unique de liaison (Bind DN) du compte LDAP/AD que cette application utilisera pour se connecter à l’annuaire, ainsi que l’identifiant (mot de passe) de ce compte. NetApp Console utilise ces informations pour se lier à LDAP et valider la connexion.
+** *DN utilisateur* : un compte utilisateur autorisé à interroger l’annuaire. Par exemple, `CN=ldap-reader,OU=Service Accounts,DC=example,DC=com`.
+
+
+. Sélectionnez *Ajouter* pour enregistrer l'intégration.
+
+
+.Après avoir terminé
+Après avoir enregistré l'intégration, ajoutez les utilisateurs de l'annuaire à votre organisation et attribuez-leur des rôles. Vous devez configurer et activer au moins une intégration Active Directory avant de pouvoir ajouter des utilisateurs de l'annuaire. link:task-iam-manage-members-permissions.html["Découvrez comment ajouter des utilisateurs à l'annuaire et attribuer des rôles"].
+
+
+
+[[disable-or-enable-an-active-directory-integration]]
+== Désactiver ou activer une intégration Active Directory
+
+Désactivez une intégration pour suspendre temporairement l'authentification par annuaire sans supprimer la configuration. Lorsque vous désactivez un service d'annuaire, les utilisateurs de l'annuaire ne peuvent pas se connecter via l'annuaire.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Directory services* pour ouvrir la page Federations.
+. Dans la liste des intégrations, repérez l'intégration et sélectionnez le menu d'actions correspondant à cette ligne.
+. Sélectionnez *Désactiver* pour suspendre l'intégration, ou *Activer* pour la rétablir.
+
+
+
+
+[[delete-an-active-directory-integration]]
+== Supprimer une intégration Active Directory
+
+Supprimez une intégration pour supprimer définitivement la configuration du service d'annuaire. Avant de supprimer, vérifiez les avertissements concernant les utilisateurs d'annuaire liés à l'intégration, car leur accès sera affecté.
+
+.Étapes
+. Sélectionnez *Administration > Identité et accès*.
+. Sélectionnez *Directory services* pour ouvrir la page Federations.
+. Dans la liste des intégrations, repérez l'intégration et sélectionnez le menu d'actions correspondant à cette ligne.
+. Sélectionnez *Supprimer* et confirmez la suppression.
+

@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+Points de terminaison contactés depuis des ordinateurs lors de l'utilisation de la NetApp Console basée sur le web::
++
+--
+Les ordinateurs accédant à la Console via un navigateur web doivent pouvoir contacter plusieurs points de terminaison. Vous devrez utiliser la Console pour configurer l'agent Console et pour l'utilisation quotidienne de la Console.
+
+link:reference-networking-saas-console.html["Préparez la mise en réseau pour la console NetApp"].
+
+--
+

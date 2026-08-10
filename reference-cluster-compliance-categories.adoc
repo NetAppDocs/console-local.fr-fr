@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: reference-cluster-compliance-categories.html 
+keywords: cluster compliance, security compliance, cluster security, ontap cluster security, compliance categories, netapp console local 
+summary: Référence pour les catégories de conformité de sécurité du cluster et les paramètres recommandés dans le déploiement local de la NetApp Console. 
+---
+= Catégories de conformité de sécurité du cluster dans le déploiement local de la NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez cette référence pour examiner les catégories de conformité de sécurité du cluster affichées dans le déploiement local de la NetApp Console, y compris la valeur recommandée et si chaque catégorie affecte l'état de conformité global.
+
+Ces catégories sont basées sur les contrôles de posture de sécurité ONTAP.
+
+[cols="20,50,15,15"]
+|===
+| Catégorie | Ce que la catégorie vérifie | Valeur recommandée | Affecte la conformité globale 
+
+
+| FIPS global | Indique si le mode FIPS 140-2 est activé. Lorsqu'il est activé, TLSv1 et SSLv3 sont désactivés et seuls TLSv1.1 et TLSv1.2 sont autorisés. | Activé | Oui 
+
+
+| Telnet | Indique si l’accès Telnet est activé. SSH est la méthode d’accès distant sécurisée recommandée. | Désactivées | Oui 
+
+
+| Paramètres SSH non sécurisés | Si SSH est configuré avec des chiffrements non sécurisés, tels que des chiffrements qui commencent par `cbc`. | Non | Oui 
+
+
+| Bannière de connexion | Indique si une bannière de connexion est configurée pour l'accès au système. | Activé | Oui 
+
+
+| Entre cluster | Indique si les communications entre les clusters appariés sont chiffrées. Le chiffrement doit être activé sur les clusters source et de destination. | Chiffré | Oui 
+
+
+| Protocole de temps réseau | Indique si un ou plusieurs serveurs NTP sont configurés pour le cluster. NetApp recommande d’en configurer au moins trois pour garantir la résilience. | configuré | Oui 
+
+
+| OCSP | Indique si la validation du protocole Online Certificate Status Protocol (OCSP) est activée pour la validation des certificats SSL/TLS. | Activé | Non 
+
+
+| Journalisation d'audit à distance | Indique si le transfert des journaux (syslog) est chiffré. | Chiffré | Oui 
+
+
+| AutoSupport transport HTTPS | Indique si le protocole HTTPS est utilisé comme protocole de transport par défaut pour les messages AutoSupport. | Activé | Oui 
+
+
+| Utilisateur administrateur par défaut | Indique si le compte administrateur par défaut intégré est désactivé. | Désactivées | Oui 
+
+
+| utilisateurs SAML | Indique si SAML est configuré pour l’authentification unique et l’authentification multifacteur compatible MFA. | Non | Non 
+
+
+| Utilisateurs Active Directory | Indique si l'authentification Active Directory est configurée pour l'accès au cluster. | Non | Non 
+
+
+| utilisateurs LDAP | Indique si l'authentification LDAP est configurée pour l'accès au cluster. | Non | Non 
+
+
+| Utilisateurs de certificats | Indique si les utilisateurs basés sur des certificats sont configurés pour la connexion au cluster. | Non | Non 
+
+
+| Utilisateurs locaux | Indique si les utilisateurs locaux sont configurés pour la connexion au cluster. | Non | Non 
+
+
+| Shell distant | Indique si RSH est activé. SSH est préférable pour un accès distant sécurisé. | Désactivées | Oui 
+
+
+| MD5 en cours d'utilisation | Si les comptes utilisateurs ONTAP utilisent toujours le hachage MD5 au lieu de hachages plus robustes tels que SHA-512. | Non | Oui 
+
+
+| Type d'émetteur de certificat | Le type d'émetteur de certificat utilisé par le cluster. | Signé par CA | Non 
+|===
