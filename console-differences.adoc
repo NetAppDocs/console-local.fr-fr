@@ -13,8 +13,6 @@ summary: 'NetApp Console est une application SaaS qui utilise des agents Console
 :imagesdir: ./media/
 
 
-NetApp propose deux façons d’exécuter sa plateforme de gestion unifiée du stockage : NetApp Console et NetApp Console local deployment. Les deux partagent une base commune, mais diffèrent par leur architecture, leur connectivité, l’étendue de leurs fonctionnalités et leur modèle opérationnel. NetApp Console utilise des agents Console déployés dans votre environnement pour gérer les systèmes de stockage. NetApp Console local deployment est une machine virtuelle sans agent. NetApp Console local deployment communique directement avec les clusters ONTAP et offre des capacités de gestion de parc d’entreprise qui ne sont pas disponibles dans NetApp Console.
-
 
 NOTE: Choisissez NetApp Console si vous gérez des environnements cloud et sur site et souhaitez que NetApp gère l'infrastructure de la plateforme. Choisissez le déploiement local de NetApp Console si vous gérez un vaste parc ONTAP sur site et avez besoin d'une souveraineté des données totale ainsi que d'une gestion du stockage basée sur des politiques.
 
@@ -27,7 +25,7 @@ NetApp héberge et maintient NetApp Console en tant qu'application SaaS. Vous vo
 
 La NetApp Console prend également en charge le mode restreint (installé dans votre propre cloud public avec une connectivité sortante limitée) et le mode privé (installé sur site ou dans votre cloud sans connectivité à la plateforme NetApp Console, y compris les environnements isolés).
 
-https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Découvrez les modes de déploiement de la NetApp Console"^].
+https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Découvrez les modes de déploiement de la NetApp Console"].
 
 NetApp Console prend en charge la plus large gamme de systèmes de stockage, y compris le stockage cloud tel que Amazon FSx for ONTAP, Cloud Volumes ONTAP, Amazon S3, Google Cloud Storage, E-Series, StorageGRID, et les clusters ONTAP sur site. Elle donne accès à l'ensemble de la suite des services de données NetApp, y compris NetApp Backup and Recovery, NetApp Disaster Recovery, NetApp Ransomware Resilience, NetApp Copy and Sync, et NetApp Data Classification. NetApp Console propose également des fonctionnalités de contrat de support telles que Digital Advisor, la planification du cycle de vie et des tableaux de bord de durabilité.
 
@@ -56,7 +54,7 @@ Le déploiement local de la console prend en charge les clusters ONTAP sur site 
 
 Le déploiement local sur console est parfaitement adapté aux organisations disposant de vastes environnements ONTAP sur site qui nécessitent un provisionnement basé sur des politiques, des contrôles de conformité automatisés et une souveraineté des données totale.
 
-link:https://docs.netapp.com/us-en/concept-netapp-console-local.html["Découvrez le déploiement local de la NetApp Console^."]
+link:https://docs.netapp.com/us-en/console-local/concept-netapp-console-local.html["Découvrez le déploiement local de la NetApp Console^."]
 
 
 

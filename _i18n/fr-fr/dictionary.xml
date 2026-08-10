@@ -3686,7 +3686,6 @@
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">Référence</block>
   <block id="7ba642558e7e1d23e0a4b6d723fe8cb1" category="sidebar">NetApp Console API de déploiement local</block>
   <block id="454d0fa294eacaf6687d76609e9d2de5" category="sidebar">Identifiants de l'organisation et de la flotte</block>
-  <block id="48a692835317bf23f0c6c5786de2ed91" category="sidebar">Référence de l'API de gestion des identités et des accès</block>
   <block id="cddab4871d91f1348299c2439e79e2c8" category="sidebar">Référence des alertes ONTAP</block>
   <block id="4bb64a663d2c295916c54bfd11eb3986" category="sidebar">Catégories de conformité de sécurité des clusters</block>
   <block id="6833b9c301b8c18695d73d7766de5136" category="sidebar">Catégories de conformité de sécurité des Storage VM</block>
@@ -3695,12 +3694,10 @@
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="sidebar">Obtenez de l'aide</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="sidebar">Mentions légales</block>
   <block id="d84803ce394c9284844fcf1a08967ee4" category="paragraph"><block ref="a11bdddbf642d1f60f3b9997ef8c00d9" category="inline-link-rx"></block>.</block>
-  <block id="0aa0a64aaeee0597df416c44affddd02" category="paragraph">NetApp propose deux façons d’exécuter sa plateforme de gestion unifiée du stockage : NetApp Console et NetApp Console local deployment. Les deux partagent une base commune, mais diffèrent par leur architecture, leur connectivité, l’étendue de leurs fonctionnalités et leur modèle opérationnel. NetApp Console utilise des agents Console déployés dans votre environnement pour gérer les systèmes de stockage. NetApp Console local deployment est une machine virtuelle sans agent. NetApp Console local deployment communique directement avec les clusters ONTAP et offre des capacités de gestion de parc d’entreprise qui ne sont pas disponibles dans NetApp Console.</block>
   <block id="8e3ec462216d5097444b77ca00f80473" category="admonition">Choisissez NetApp Console si vous gérez des environnements cloud et sur site et souhaitez que NetApp gère l'infrastructure de la plateforme. Choisissez le déploiement local de NetApp Console si vous gérez un vaste parc ONTAP sur site et avez besoin d'une souveraineté des données totale ainsi que d'une gestion du stockage basée sur des politiques.</block>
   <block id="d7500dc8af696cd476663bebb9d0fcb4" category="paragraph">NetApp héberge et maintient NetApp Console en tant qu'application SaaS. Vous vous inscrivez et commencez immédiatement à gérer le stockage. Pour gérer les systèmes de stockage, vous déployez des agents Console légers dans vos environnements cloud ou sur site. Les agents se connectent en sortie à la plateforme NetApp Console, et NetApp gère automatiquement l'authentification, les mises à niveau et la disponibilité de la plateforme.</block>
   <block id="773ad4889739d9b22df6b5f152501006" category="paragraph">La NetApp Console prend également en charge le mode restreint (installé dans votre propre cloud public avec une connectivité sortante limitée) et le mode privé (installé sur site ou dans votre cloud sans connectivité à la plateforme NetApp Console, y compris les environnements isolés).</block>
   <block id="09e422c729719f602773531e14c7fdcb" category="inline-link">Découvrez les modes de déploiement de la NetApp Console</block>
-  <block id="32ef743eec8d1960468ee10a3c5852f2" category="paragraph"><block ref="6c90d7f16c5f8e8c87a61f8328eb6845" category="inline-link-rx"></block>.</block>
   <block id="6bc8e262d6c87c1cc67ba2e2ef69c080" category="paragraph">NetApp Console prend en charge la plus large gamme de systèmes de stockage, y compris le stockage cloud tel que Amazon FSx for ONTAP, Cloud Volumes ONTAP, Amazon S3, Google Cloud Storage, E-Series, StorageGRID, et les clusters ONTAP sur site. Elle donne accès à l'ensemble de la suite des services de données NetApp, y compris NetApp Backup and Recovery, NetApp Disaster Recovery, NetApp Ransomware Resilience, NetApp Copy and Sync, et NetApp Data Classification. NetApp Console propose également des fonctionnalités de contrat de support telles que Digital Advisor, la planification du cycle de vie et des tableaux de bord de durabilité.</block>
   <block id="abd3ebf1d0176fca066a577a665824f3" category="paragraph">NetApp Console est parfaitement adaptée aux organisations qui gèrent des environnements de cloud hybride et qui souhaitent bénéficier du plus grand nombre de fonctionnalités, réduire les efforts nécessaires pour assurer le bon fonctionnement et disposer d'une licence flexible.</block>
   <block id="78c9351d6bfa969cec1e259c5314fb98" category="inline-link">Découvrez la NetApp Console^.</block>
@@ -3722,7 +3719,6 @@
   <block id="00c24ecc0e9a6f1c6a5202f40e8c96c1" category="paragraph">Le déploiement local de la console prend en charge les clusters ONTAP sur site ainsi que NetApp Backup and Recovery. Il s’intègre à Active Directory pour l’authentification fédérée et prend en charge l’authentification multifacteur pour les utilisateurs locaux.</block>
   <block id="be6ca74d1ea996c7c4fe59d3f22d39a4" category="paragraph">Le déploiement local sur console est parfaitement adapté aux organisations disposant de vastes environnements ONTAP sur site qui nécessitent un provisionnement basé sur des politiques, des contrôles de conformité automatisés et une souveraineté des données totale.</block>
   <block id="70b86d6aa7fb00fd1d760b33b8607159" category="inline-link-macro">Découvrez le déploiement local de la NetApp Console^.</block>
-  <block id="dea2002a8471bfaae7f8b931f449e095" category="paragraph"><block ref="dea2002a8471bfaae7f8b931f449e095" category="inline-link-macro-rx"></block></block>
   <block id="0161e3d40bdbea6ca6998c8c60165b33" category="section-title">Comparaison des fonctionnalités</block>
   <block id="21021ea0e52be8e9c599f4dff41e5be0" category="cell">Fonctionnalité</block>
   <block id="23dad8eedc041cc12dbd56726f7f5a94" category="cell">Oui (nécessite l’agent Console)</block>
@@ -3757,4 +3753,7 @@
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="cell">Licence</block>
   <block id="5d888c34f4251b9bdd3ba8412b69ff87" category="cell">Abonnements Marketplace et utilisation de votre propre licence</block>
   <block id="c7eca4d9dd171fc4b4a21c3425a47aa6" category="cell">Apportez votre propre licence</block>
+  <block id="5ceffe99385ecce35b5a538a16ca57cb" category="paragraph"><block ref="dc7c11e9da585b9fa1e35ca44da95ccc" category="inline-link-rx"></block>.</block>
+  <block id="f64bf1d04df251b82d06554b478f9ae4" category="paragraph"><block ref="f64bf1d04df251b82d06554b478f9ae4" category="inline-link-macro-rx"></block></block>
+  <block id="955bb7127a670884e7aac906d810238a" category="sidebar">Référence de l'API de déploiement local de la console</block>
 </blocks>
