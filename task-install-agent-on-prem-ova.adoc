@@ -63,7 +63,7 @@ NetApp prend en charge l'installation locale de NetApp Console dans votre enviro
 
 Téléchargez l'OVA.
 
-. Téléchargez le logiciel de déploiement local de la Console depuis le site de support NetApp.
+. Téléchargez le logiciel de déploiement local de la Console à partir du link:https://mysupport.netapp.com/site/products/all/details/ncl/downloads-tab["Site de support NetApp"^].
 
 
 

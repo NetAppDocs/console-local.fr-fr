@@ -897,7 +897,6 @@
   <block id="371acb072fb244306a15b7ff5193bce9" category="list-text"><block ref="371acb072fb244306a15b7ff5193bce9" category="inline-link-macro-rx"></block></block>
   <block id="d0be151a63fab72d6333774c4ad643bb" category="inline-link">Découvrez l'API pour NetApp Console IAM</block>
   <block id="d7726716920c51dac9e8d3b944fb1d9c" category="list-text"><block ref="d7726716920c51dac9e8d3b944fb1d9c" category="inline-link-rx"></block></block>
-  <block id="823d0c76da1241a2b4bacad6a700ad94" category="summary">Découvrez comment le déploiement local de NetApp Console s'intègre aux modèles OpenAI et compatibles avec OpenAI, notamment en ce qui concerne les décisions relatives au fournisseur, au proxy et à la sécurité.</block>
   <block id="aaa31fb12388ee6f380920310c04b753" category="doc">Découvrez l'intégration LLM dans le déploiement local de NetApp Console</block>
   <block id="345b50b0707634d277d7a44851e59fe4" category="paragraph">NetApp Console local deployment se connecte à un grand modèle de langage (LLM) pour une gestion du stockage assistée par l'IA. Après la configuration, les utilisateurs peuvent utiliser le langage naturel pour provisionner du stockage, analyser les alertes et obtenir des conseils sur le stockage.</block>
   <block id="4f9d5100edf765a8f2ae1c53a1a257cc" category="paragraph">La gestion assistée par l'IA permet aux utilisateurs de décrire les demandes en langage clair, tandis que le déploiement local de NetApp Console applique vos politiques de stockage.</block>
@@ -920,7 +919,6 @@
   <block id="fcc55126fd45a515695466fda4602164" category="paragraph">NetApp Console le déploiement local prend en charge les types de fournisseurs LLM suivants :</block>
   <block id="873109553cafbb3e957f0cc91186aa99" category="list-text">*OpenAI* pour un accès direct aux modèles OpenAI.</block>
   <block id="fee6af50bc6105fefb846f7e518fb7cf" category="list-text">*Compatible avec OpenAI* pour un point de terminaison compatible, tel qu'une passerelle d'entreprise ou un service proxy.</block>
-  <block id="9b5550554d175b4703c9783519160fad" category="list-text">Anthropic pour les modèles Claude d'Anthropic.</block>
   <block id="7de1d980a668ed0c9d00649c3750c5d1" category="paragraph">La disponibilité du modèle dépend du point de terminaison que vous configurez. Sélectionnez un modèle dans la liste du déploiement local de NetApp Console.</block>
   <block id="64c716e8b3c375cb10518555f2cc559d" category="inline-link-macro">Découvrez les fournisseurs et modèles LLM pris en charge dans le déploiement local de NetApp Console</block>
   <block id="42e3047ea36dd2b663d0f3f5d7b20152" category="paragraph">Pour plus de détails sur les modèles pris en charge, voir <block ref="1a3a7e8df14b08dab1953f3a058a454f" category="inline-link-macro-rx"></block>.</block>
@@ -3169,7 +3167,6 @@
   <block id="3730b696052b51ae22af2269ff6edfbd" category="paragraph">NetApp prend en charge l'installation locale de NetApp Console dans votre environnement vCenter. Le fichier OVA inclut une image de machine virtuelle préconfigurée que vous pouvez déployer dans votre environnement VMware.</block>
   <block id="15e605ee974fa55f027726848cc8afff" category="section-title">Téléchargez le fichier OVA ou copiez l’URL</block>
   <block id="0581616b53582ac26aae5d26a64dd995" category="paragraph">Téléchargez l'OVA.</block>
-  <block id="e1a2daca3267d204edcee05245d2283c" category="list-text">Téléchargez le logiciel de déploiement local de la Console depuis le site de support NetApp.</block>
   <block id="fbf739c4dddaccc70b331772ffa91a55" category="section-title">Déployez le déploiement local de la console NetApp dans votre vCenter</block>
   <block id="2dc9f6815a8338fe4cef7c144fd9501e" category="paragraph">Connectez-vous à votre environnement vCenter pour effectuer le déploiement local de Console.</block>
   <block id="19070c8313a6999045690aa5c39cd703" category="list-text">Si votre environnement l'exige, ajoutez le certificat auto-signé à votre liste de certificats de confiance. Vous pouvez remplacer ce certificat après l'installation.</block>
@@ -3218,7 +3215,6 @@
   <block id="336e4351e57a856f458961abc5062751" category="list-text">Votre choix de type de fournisseur : OpenAI ou compatible OpenAI.<block ref="78f935c14127e9543a594b2e8112c798" category="inline-link-macro-rx"></block></block>
   <block id="d8bd49d8fe4a0de7a2b03c1aec99e88b" category="list-text">Une clé API valide pour le chemin du fournisseur que vous sélectionnez.</block>
   <block id="12415726cf97af159e3e05710842f040" category="list-text">L'URL du point de terminaison pour le chemin de votre fournisseur.</block>
-  <block id="761c475526d6aca6a6c425ee949f082a" category="list-text">L'URL de votre proxy ou de votre passerelle, si votre organisation en exige une.</block>
   <block id="0a3c869dbd390ca2cdefafd338d2cf3d" category="list-text">Votre nom d'utilisateur ou votre identifiant d'authentification unique (SSO) pour le compte fournisseur LLM, si nécessaire.</block>
   <block id="cfe024af8356a3decd0f09b47eff88fa" category="list-text">Accès réseau depuis le déploiement local de NetApp Console vers le point de terminaison sélectionné.</block>
   <block id="1f3d7608a574b42ba681dcef64704661" category="list-text">Classes de stockage et contrôles d'accès basés sur les rôles pour les actions de l'assistant que vous prévoyez d'autoriser.</block>
@@ -3633,7 +3629,6 @@
   <block id="bfd15aa26ba0ced782240c4a8b7e517e" category="sidebar">Gestion du stockage</block>
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">Blogs et communauté</block>
   <block id="fae210aa9f9d8906ee39264d97001f11" category="sidebar">NetApp Console déploiement local</block>
-  <block id="cc58d3a9b2264c4fd8cb1d3f61b90bdc" category="sidebar">NetApp Data Services</block>
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">Communauté NetApp</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">Notes de version</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Quoi de neuf</block>
@@ -3756,4 +3751,8 @@
   <block id="5ceffe99385ecce35b5a538a16ca57cb" category="paragraph"><block ref="dc7c11e9da585b9fa1e35ca44da95ccc" category="inline-link-rx"></block>.</block>
   <block id="f64bf1d04df251b82d06554b478f9ae4" category="paragraph"><block ref="f64bf1d04df251b82d06554b478f9ae4" category="inline-link-macro-rx"></block></block>
   <block id="955bb7127a670884e7aac906d810238a" category="sidebar">Référence de l'API de déploiement local de la console</block>
+  <block id="c88543bdef944177133ea29faedf50df" category="summary">Découvrez comment le déploiement local de la NetApp Console s’intègre aux modèles OpenAI et compatibles OpenAI, y compris les décisions relatives au fournisseur et à la sécurité.</block>
+  <block id="7886cf4f03a683503e8235a0eef59e73" category="list-text">*Anthropic* pour les modèles Claude d'Anthropic.</block>
+  <block id="dc666edc3ed6edcb6babcae67d26fcd2" category="list-text">Téléchargez le logiciel de déploiement local de la Console à partir du <block ref="5574d9b8352359225831a51c7e6c17ee" category="inline-link-macro-rx"></block>.</block>
+  <block id="ad8f5be1c708f8e891508a0a9c643e0a" category="sidebar">Centre de confiance NetApp</block>
 </blocks>
