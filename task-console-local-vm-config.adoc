@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-console-local-vm-config.html 
-keywords: Console local VM, vcenter, esxi, increase cpu, increase ram, vm maintenance, Console local maintenance, Console local operating system, Console local host 
-summary: 'Vous pouvez modifier votre hôte VCenter ou ESXi existant après avoir déployé le déploiement local de Console. Par exemple, vous pouvez augmenter le CPU ou la RAM de l"instance de machine virtuelle qui héberge le déploiement local de Console.' 
+keywords: Console local VM, vcenter, esxi, vm maintenance, Console local maintenance, Console local operating system, Console local host 
+summary: Vous pouvez modifier votre hôte VCenter ou ESXi existant après avoir déployé le déploiement local de Console. 
 ---
 = Maintenez votre vCenter ou hôte ESXi pour le déploiement local de NetApp Console
 :hardbreaks:
@@ -14,11 +14,10 @@ summary: 'Vous pouvez modifier votre hôte VCenter ou ESXi existant après avoir
 
 
 [role="lead"]
-Dans le déploiement local de NetApp Console, vous pouvez apporter des modifications à votre VCenter ou hôte ESXi existant après avoir déployé le déploiement local de la Console. Par exemple, vous pouvez augmenter le CPU ou la RAM de l’instance de machine virtuelle qui héberge le déploiement local de la Console.
+Dans le déploiement local de NetApp Console, vous pouvez apporter des modifications à votre VCenter ou hôte ESXi existant après avoir déployé le déploiement local de la Console.
 
 Effectuez ces tâches de maintenance à l'aide de la console Web de la machine virtuelle :
 
-* Augmenter la taille du disque
 * Redémarrez le déploiement local de la NetApp Console
 * Mettre à jour les routes statiques
 * Mettre à jour les domaines de recherche
@@ -55,37 +54,6 @@ Vous pouvez modifier le mot de passe de l' `maint` utilisateur.
 . Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
 . Saisissez  `1` pour afficher le  `System Configuration` menu.
 . Saisissez  `1` pour modifier le mot de passe de l'utilisateur de maintenance et suivez les instructions à l'écran.
-
-
-
-
-[[increase-the-cpu-or-ram-of-the-vm-instance]]
-=== Augmentez le CPU ou la RAM de l'instance de machine virtuelle
-
-Vous pouvez augmenter le CPU ou la RAM de l'instance de machine virtuelle qui héberge le déploiement local de Console.
-
-Modifiez les paramètres de l'instance de machine virtuelle dans votre VCenter ou hôte ESXi, puis utilisez la NetApp Console de maintenance pour appliquer les modifications.
-
-.Étapes dans le client vSphere
-. Ouvrez le client vSphere et connectez-vous à votre vCenter.
-. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de la Console.
-. Cliquez avec le bouton droit sur l'instance de machine virtuelle et sélectionnez *Modifier les paramètres*.
-. Augmentez l'espace disque utilisé pour /opt ou la partition /var.
-+
-.. Sélectionnez *Disque dur 2* pour augmenter l'espace disque utilisé pour /opt.
-.. Sélectionnez *Disque dur 3* pour augmenter l'espace disque utilisé pour /var.
-
-
-. Enregistrez vos modifications.
-
-
-.Étapes dans la console de maintenance
-. Ouvrez le client vSphere et connectez-vous à votre vCenter.
-. Sélectionnez l'instance de machine virtuelle qui héberge le déploiement local de NetApp Console.
-. Sélectionnez *Lancer la console Web*.
-. Connectez-vous à l'instance de machine virtuelle à l'aide du nom d'utilisateur et du mot de passe que vous avez spécifiés lors de la création de l'instance de machine virtuelle. Le nom d'utilisateur est  `maint` et le mot de passe est celui que vous avez spécifié lors de la création de l'instance de machine virtuelle.
-. Accédez au  `1 to view the `System Configuration` menu.
-. Saisissez  `2` et suivez les instructions à l'écran. La console recherche de nouveaux paramètres et augmente la taille des partitions.
 
 
 
