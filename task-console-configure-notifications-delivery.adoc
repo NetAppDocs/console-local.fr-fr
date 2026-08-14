@@ -75,21 +75,6 @@ Si le test échoue, revérifiez les paramètres que vous avez saisis et vérifie
 
 
 
-[[remove-an-email-server-configuration]]
-=== Supprimer une configuration de serveur de messagerie
-
-Vous pouvez supprimer la configuration du serveur de messagerie si vous ne souhaitez plus que le déploiement local de Console envoie des e-mails.
-
-.Étapes
-. Sélectionnez *Administration > Console*.
-. Sélectionnez *Configuration* pour ouvrir la page de configuration des systèmes.
-. Dans la section *Serveur de messagerie*, sélectionnez *Configurer*.
-. Sélectionnez *Effacer les champs* pour effacer la configuration existante.
-. Sélectionnez *Enregistrer* pour sauvegarder la configuration effacée, ce qui supprime la configuration du serveur de messagerie du déploiement local de NetApp Console.
-
-
-
-
 [[configure-a-webhook]]
 == Configurer un webhook
 

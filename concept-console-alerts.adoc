@@ -16,7 +16,7 @@ summary: 'Découvrez comment les alertes de stockage dans le déploiement local 
 [role="lead"]
 NetApp Console local déploiement génère des alertes qui identifient les problèmes de santé sur vos clusters ONTAP sur site et pour les opérations NetApp Backup and Recovery.
 
-Le déploiement local de la Console consolide les alertes des clusters ONTAP et des opérations de Backup and Recovery dans une vue unique. La page Alertes comprend un tableau de bord, une liste d’alertes et une vue des systèmes afin que vous puissiez consulter les alertes à l’échelle de l’ensemble de l’organisation ou les limiter à une flotte ou un système spécifique. Chaque alerte identifie le système concerné, son niveau de gravité et sa zone d’impact.
+Le déploiement local sur console centralise les alertes des clusters ONTAP et des opérations de sauvegarde et de restauration dans une vue unique. La page Alertes comprend un tableau de bord, une liste d’alertes et une vue affichant les alertes de tous les systèmes de l’organisation. Chaque alerte précise le système concerné, son niveau de gravité et sa zone d’impact.
 
 Utilisez les alertes dans le déploiement local de NetApp Console pour :
 
@@ -34,8 +34,8 @@ Utilisez les alertes dans le déploiement local de NetApp Console pour :
 
 Chaque alerte comprend un niveau de gravité et une zone d'impact :
 
-* *Gravité* indique le degré d'urgence, du plus élevé au plus faible : Critique, Majeur, Mineur, Avertissement et Information.
-* *Zone d'impact* identifie le domaine affecté : capacité, connectivité, protection des données, performance et sécurité.
+* *Gravité* indique le degré d'urgence, du plus élevé au plus faible : Critique, Avertissement et Information.
+* *Zone d'impact* identifie le domaine concerné : disponibilité, capacité, configuration, performance, protection et sécurité.
 
 
 
@@ -43,7 +43,7 @@ Chaque alerte comprend un niveau de gravité et une zone d'impact :
 [[alert-sources-and-scope]]
 == Sources et étendue des alertes
 
-* *Les alertes ONTAP* proviennent du système de gestion des événements ONTAP (EMS) sur les clusters sur site que le déploiement local de NetApp Console a découverts.link:https://docs.netapp.com/us-en/ontap-ems/acp-auto-events.html["En savoir plus sur le ONTAP EMS et les alertes disponibles."^]
+* *Les alertes ONTAP* proviennent du système de gestion des événements ONTAP (EMS) sur les clusters sur site découverts par le déploiement local de Console, ainsi que des métriques de surveillance collectées à partir d’ONTAP. link:https://docs.netapp.com/us-en/ontap-ems/acp-auto-events.html["En savoir plus sur le ONTAP EMS et les alertes disponibles."^]
 * *NetApp Backup and Recovery* les alertes proviennent des actions de sauvegarde et de restauration. link:https://docs.netapp.com/us-en/data-services-backup-recovery/reference-audit-actions.html["En savoir plus sur les alertes NetApp Backup and Recovery."^]
 * Vos autorisations déterminent les flottes que vous pouvez consulter. Limitez la vue à l'ensemble de l'organisation, à une flotte spécifique ou à un système individuel. L'onglet *Systems health* affiche l'état de chaque système et l'onglet *Alerts* affiche la liste actuelle des alertes pour la zone sélectionnée.
 * L'exportation CSV reflète la portée actuelle, le texte de recherche et les filtres.
@@ -51,14 +51,14 @@ Chaque alerte comprend un niveau de gravité et une zone d'impact :
 
 
 
-[[alert-notification-rules]]
-== Règles de notification d'alerte
+[[notification-rules]]
+== Règles de notification
 
 Créez des règles de notification pour déterminer quelles alertes génèrent des notifications et qui les reçoit. Une règle de notification possède les caractéristiques suivantes :
 
 * Il fait correspondre les alertes au service (comme la gestion ONTAP ou NetApp Backup and Recovery), à la gravité, à la zone d'impact et au système cible.
 * Pour l'envoi d'e-mails, il envoie des notifications aux utilisateurs disposant des rôles d'accès spécifiés. Pour l'envoi par webhook, il envoie les données d'alerte au point de terminaison configuré ; l'accès à ces données est contrôlé par l'application destinataire, et non par le déploiement local de Console.
-* Cela s'applique à des systèmes spécifiques, pas à des flottes.
+* Cela s'applique à tous les systèmes de l'organisation.
 * Il est possible de la désactiver pendant une fenêtre de maintenance planifiée afin de supprimer les alertes attendues.
 
 
@@ -68,6 +68,6 @@ Les alertes de niveau Info sont visibles sur la page Alertes, mais ne sont pas e
 
 .Informations connexes
 * link:task-alerts-monitor.html["Surveiller et analyser les alertes"]
-* link:task-alert-rules-manage.html["Créer et gérer des règles de notification d'alerte"]
+* link:task-alert-rules-manage.html["Créer et gérer des règles de notification"]
 * link:reference-ontap-alerts.html["Découvrez les alertes ONTAP dans le déploiement local de NetApp Console"]
 

@@ -19,7 +19,7 @@ Surveillez et analysez les alertes dans le déploiement local de NetApp Console 
 Consultez les alertes actives pour l'ensemble de votre organisation ou une flotte spécifique, hiérarchisez-les par niveau de gravité et zone d'impact, et identifiez leurs causes profondes afin de résoudre les problèmes avant qu'ils ne s'aggravent. Lorsqu'une alerte propose une action recommandée ou une option Fix It, vous pouvez passer directement de l'investigation à la correction.
 
 .Rôle d'accès requis
-Tous les rôles, à l'exception d'administrateur de fédération et de lecteur de fédération. Les utilisateurs disposant du rôle d'administrateur de fédération ou de lecteur de fédération ne peuvent pas consulter les alertes. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
+Tous les rôles. Les alertes ne s'affichent que pour les ressources que vous êtes autorisé à consulter. Si une ressource n'apparaît pas dans la liste des ressources disponibles, vous n'êtes pas autorisé à consulter ses alertes. link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès"].
 
 Pour les alertes ONTAP, vous pouvez accéder à des outils tels que System Manager et Workload Analyzer directement depuis la page Alertes pour examiner et résoudre les problèmes.
 
@@ -60,7 +60,8 @@ Vous pouvez filtrer le tableau de bord pour vous concentrer sur les alertes crit
 +
 ** Gravité (Critique, Avertissement ou Information)
 ** Alertes critiques regroupées par zone d'impact
-** Domaine d'impact (Sécurité, Protection, Disponibilité, Performance, Capacité ou Configuration)
+** Domaine d'impact (disponibilité, capacité, configuration, performance, protection ou sécurité)
+** Alertes de dérive pour voir uniquement les alertes causées par une dérive de configuration
 
 
 
@@ -111,7 +112,7 @@ Vous pouvez consulter les alertes relatives à un système spécifique au sein d
 [[investigate-an-alert]]
 == Enquêter sur une alerte
 
-Vous pouvez examiner une alerte pour voir ce qui l'a déclenchée et qui a reçu la notification.
+Vous pouvez examiner une alerte pour voir ce qui l'a déclenchée.
 
 Lors de l'investigation d'une alerte ONTAP, vous pouvez également accéder directement à l'interface System Manager du système qui a généré l'alerte pour consulter des détails supplémentaires et prendre des mesures.
 
