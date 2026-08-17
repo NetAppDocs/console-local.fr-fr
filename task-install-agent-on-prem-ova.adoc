@@ -48,7 +48,6 @@ Assurez-vous que votre machine hôte répond aux exigences d'installation avant 
 
 
 [[set-up-network-access-for-the-netapp-console-local-deployment]]
-[[network-access-agent]]
 === Configurer l'accès réseau pour le déploiement local de la NetApp Console
 
 NetApp Console local deployment utilise un espace d'adressage fixe pour la communication inter-services. Les plages d'adresses IP 10.42.0.0/16 et 10.43.0.0/16 sont utilisées pour le réseau interne. Avant de déployer Console local deployment, assurez-vous que ces plages d'adresses IP ne sont pas attribuées à d'autres machines virtuelles, plages DHCP, enregistrements DNS ou pools VIP d'équilibreur de charge sur les VLANs mis à disposition pour Console local deployment.

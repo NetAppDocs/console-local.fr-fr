@@ -198,8 +198,6 @@ sidebar:
         url: "/reference-svm-compliance-categories.html"
     - title: Connaissances et support
       entries:
-      - title: Inscrivez-vous pour obtenir de l'aide
-        url: "/task-support-registration.html"
       - title: Obtenez de l'aide
         url: "/task-get-help.html"
   - title: Mentions légales
