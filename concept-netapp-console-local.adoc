@@ -18,6 +18,8 @@ Le déploiement local de la NetApp Console vous permet d’héberger et d’exé
 
 Vous bénéficiez d'une gestion unifiée du stockage, de l'application de politiques, d'une automatisation à grande échelle et d'opérations assistées par l'IA. Aucune donnée, métadonnée ou trafic de gestion ne quitte votre environnement.
 
+link:console-differences.html["Découvrez les différences entre le déploiement local de NetApp Console et NetApp Console SaaS et le mode privé"].
+
 
 
 [[deploy-and-operate-console-in-your-own-infrastructure]]

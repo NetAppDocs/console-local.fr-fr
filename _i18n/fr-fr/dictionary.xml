@@ -3633,4 +3633,7 @@
   <block id="66ae36e07e30e4c89165201182d037be" category="cell">Un serveur de messagerie SMTP doit être configuré avant que vous puissiez inviter des utilisateurs locaux ou utiliser la réinitialisation de mot de passe pour les utilisateurs locaux.</block>
   <block id="d433d6de6ccf389e02982430306a440f" category="cell">L'utilisation d'adresses électroniques en double n'est pas prise en charge entre les utilisateurs locaux et les utilisateurs Active Directory. Par exemple, si l'administrateur local initial de l'organisation s'ajoute ultérieurement en tant qu'utilisateur Active Directory, il doit utiliser une adresse électronique différente.</block>
   <block id="3be37f60cf59fb4438b6120b07ffd2e9" category="admonition">Les liens d'invitation pour les utilisateurs locaux sont à usage unique et expirent après 7 jours. Si un lien expire avant que l'utilisateur ait terminé la configuration, supprimez l'utilisateur et ajoutez-le à nouveau pour envoyer un nouveau lien d'invitation.</block>
+  <block id="d2a0f46558d1ad15a1efcaa26aef1b39" category="inline-link">Découvrez les différences entre le déploiement local de NetApp Console et NetApp Console SaaS et le mode privé</block>
+  <block id="fc43c258a671e0d243e8a95a48956300" category="paragraph"><block ref="a79ef635b40614d2cd5c555de517dd6f" category="inline-link-rx"></block>.</block>
+  <block id="4688d87a2acbed67ab6380ef3dbee717" category="paragraph"><block ref="dff1bfa50abe498b973310763c6748f5" category="inline-link-macro-rx"></block>.</block>
 </blocks>

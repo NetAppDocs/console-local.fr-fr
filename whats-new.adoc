@@ -22,3 +22,5 @@ Découvrez les nouvelles fonctionnalités et améliorations de la dernière vers
 === Présentation du déploiement local de la NetApp Console
 
 https://docs.netapp.com/us-en/console-local/concept-netapp-console-local.html["Découvrez le déploiement local de NetApp Console"].
+
+https://docs.netapp.com/us-en/console-local/console-differences.html["Découvrez les différences entre le déploiement local de NetApp Console et NetApp Console SaaS et le mode privé"].
