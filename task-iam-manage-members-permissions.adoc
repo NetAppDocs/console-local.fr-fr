@@ -94,6 +94,9 @@ La console envoie des instructions par courriel à l'utilisateur.
 
 
 
+NOTE: Les liens d'invitation pour les utilisateurs locaux sont à usage unique et expirent après 7 jours. Si un lien expire avant que l'utilisateur ait terminé la configuration, supprimez l'utilisateur et ajoutez-le à nouveau pour envoyer un nouveau lien d'invitation.
+
+
 
 [[add-a-service-account]]
 [[service-account]]

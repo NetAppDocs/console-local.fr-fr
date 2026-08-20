@@ -36,6 +36,9 @@ Une règle de notification associe les alertes à des conditions que vous défin
 
 
 
+NOTE: Les notifications de l'interface utilisateur de la console sont conservées pendant 24 heures.
+
+
 
 [[view-notification-rules]]
 == Consulter les règles de notification

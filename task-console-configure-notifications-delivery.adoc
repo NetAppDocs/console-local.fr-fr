@@ -21,6 +21,9 @@ Super administrateur ou administrateur de l'organisation. link:reference-iam-pre
 
 Par défaut, le déploiement local de la Console affiche les notifications via son système de notifications intégré. La configuration de canaux de diffusion supplémentaires vous permet de recevoir les notifications de la manière la plus adaptée à votre flux de travail.
 
+
+NOTE: Les notifications de l'interface utilisateur de la console sont conservées pendant 24 heures.
+
 Vous pouvez envoyer toutes les notifications par les mêmes canaux ou utiliser des canaux différents pour différents types de notifications. Par exemple, vous pouvez envoyer des alertes de stockage urgentes par e-mail tout en acheminant d'autres alertes vers un outil de surveillance tiers via un webhook.
 
 Une fois les canaux de diffusion des notifications configurés, vous pouvez configurer les règles de notification et les affecter à différents canaux. link:task-alert-rules-manage.html["Apprenez à configurer les règles de notification"].

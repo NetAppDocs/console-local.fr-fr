@@ -108,11 +108,6 @@ Connectez-vous à votre environnement vCenter pour effectuer le déploiement loc
 
 ** *Configuration de la machine virtuelle*
 +
-*** *Ignorer la vérification de configuration* : Cette case à cocher est décochée par défaut, ce qui signifie que le déploiement local de la NetApp Console effectue une vérification de configuration pour valider l’accès au réseau.
-+
-**** NetApp recommande de laisser cette case à cocher décochée afin que l'installation inclue une vérification de la configuration du déploiement local de la NetApp Console. La vérification de la configuration valide que le déploiement local de la NetApp Console dispose d'un accès réseau aux points de terminaison requis. Si le déploiement échoue en raison de problèmes de connectivité, vous pouvez accéder au rapport de validation et aux journaux depuis l'hôte du déploiement local de la NetApp Console. Dans certains cas, si vous êtes certain que le déploiement local de la NetApp Console dispose d'un accès réseau, vous pouvez choisir d'ignorer la vérification.
-
-
 *** *Mot de passe de maintenance* : Définissez le mot de passe pour l'utilisateur  `maint` qui permet d’accéder à la console de maintenance du déploiement local de la NetApp Console.
 *** *Serveurs NTP* : Spécifiez un ou plusieurs serveurs NTP pour la synchronisation de l’heure.
 *** *Nom d'hôte* : Indiquez le nom d'hôte de cette machine virtuelle. Il ne doit pas inclure le domaine de recherche. Par exemple, un FQDN de console10.searchdomain.company.com doit être saisi comme console10.

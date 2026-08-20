@@ -43,3 +43,19 @@ NetApp Console le déploiement local n'est pas pris en charge sur une machine vi
 === Agents et extensions tiers
 
 Les agents tiers ou les extensions de machine virtuelle ne sont pas pris en charge sur la machine virtuelle de déploiement local de la NetApp Console.
+
+
+
+[[identity-and-access-limitations]]
+== Limitations d'identité et d'accès
+
+[cols="1,3"]
+|===
+| Zone | Limitation 
+
+
+| Intégration des utilisateurs locaux et récupération des comptes | Un serveur de messagerie SMTP doit être configuré avant que vous puissiez inviter des utilisateurs locaux ou utiliser la réinitialisation de mot de passe pour les utilisateurs locaux. 
+
+
+| Intégration Active Directory | L'utilisation d'adresses électroniques en double n'est pas prise en charge entre les utilisateurs locaux et les utilisateurs Active Directory. Par exemple, si l'administrateur local initial de l'organisation s'ajoute ultérieurement en tant qu'utilisateur Active Directory, il doit utiliser une adresse électronique différente. 
+|===
