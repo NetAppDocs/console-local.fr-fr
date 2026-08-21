@@ -67,7 +67,7 @@ Consultez le journal des audits pour confirmer qui a modifié l'accès MFA, quan
 [[recreate-the-credentials-for-a-service-account]]
 == Recréez les identifiants d'un compte de service
 
-Vous pouvez créer de nouveaux identifiants pour un compte de service si vous les perdez ou si vous devez les mettre à jour.
+Faites pivoter les identifiants du compte de service lorsque les exigences de sécurité changent, en invalidant les secrets précédents et en préservant l'accès contrôlé à l'API.
 
 La création de nouveaux identifiants supprime les anciens. Vous ne pouvez pas utiliser les anciens identifiants.
 

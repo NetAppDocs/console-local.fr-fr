@@ -101,17 +101,18 @@ Les étapes suivantes décrivent le processus d'utilisation des classes de stock
 
 Les classes de stockage sont associées à des flottes. Lorsque vous associez une classe de stockage à une flotte, cette classe devient disponible pour tous les provisionnements au sein de la flotte. Cela garantit que chaque charge de travail provisionnée dans la flotte respecte les mêmes normes, faisant des flottes le principal moyen d'assurer un comportement de stockage cohérent entre les clusters associés.
 
-Pour plus de détails sur la manière d'organiser les flottes, voir link:concept-manage-storage.html["Découvrez la gestion de flotte dans le déploiement local de NetApp Console"].
+link:concept-manage-storage.html["Découvrez la gestion de flotte dans le déploiement local de NetApp Console"].
 
 
 
 [[where-to-go-next]]
 == Où aller ensuite
 
-* Pour comprendre l'organisation de la flotte, voir link:concept-manage-storage.html["Découvrez la gestion de flotte dans le déploiement local de NetApp Console"].
-* Pour créer des politiques et des classes de stockage, voir link:task-storage-class-manage.html["Gérer les classes de stockage et les politiques"].
+* link:concept-manage-storage.html["Découvrez la gestion de flotte dans le déploiement local de NetApp Console"].
+* link:task-storage-class-manage.html["Gérer les classes de stockage et les politiques"].
 * link:task-provisioning-manual.html["Provisionner manuellement le stockage"]
 * link:task-provisioning-automated.html["Provisionner automatiquement le stockage"]
 * link:task-provisioning-agentic.html["Provisionnez le stockage avec l'aide de l'IA"]
-* Pour analyser et corriger la dérive, voir link:task-storage-class-drift-remediate.html["Corriger la dérive de la classe de stockage"]
+* link:reference-console-assistant-operations.html["Consultez les opérations d’assistant de NetApp Console prises en charge"]
+* link:task-storage-class-drift-remediate.html["Découvrez comment corriger la dérive de la classe de stockage"]
 

@@ -14,7 +14,7 @@ summary: 'Dépannez l"intégration LLM dans le déploiement local de NetApp Cons
 
 
 [role="lead"]
-Utilisez ce flux de triage rapide pour diagnostiquer et résoudre les problèmes d'intégration LLM courants dans le déploiement local de la NetApp Console.
+Diagnostiquez les défaillances d’intégration LLM dans le déploiement local de NetApp Console afin de rétablir l’accès à l’assistant de Console et des réponses fiables pour le guidage et les opérations de stockage.
 
 
 NOTE: Cette documentation relative à la connexion d'un LLM à l'assistant Console pour activer les fonctionnalités d'IA est fournie à titre d'aperçu technologique. Dans le cadre de cette offre d'aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
@@ -53,7 +53,7 @@ Exécutez une simple requête en lecture seule et confirmez l'accessibilité du 
 | Échec de l'enregistrement ou du test dans AI Tools | Incompatibilité de configuration ou de connectivité | Type de fournisseur, URL du point de terminaison, format de clé API, modèle sélectionné et accès sortant | Corrigez la valeur qui n'est pas validée et enregistrez à nouveau 
 
 
-| Le bouton *Console assistant* est manquant | État d'intégration défaillant, incompatibilité d'organisation ou incompatibilité RBAC | Enregistrement réussi des outils d'IA, état d'intégration, organisation actuelle et rôle d'accès attendu | Actualisez la session et vérifiez avec un compte administrateur valide 
+| Le bouton *Console assistant* est manquant | État d'intégration non valide | Sauvegarde réussie des outils d'IA, état d'intégration et rôle d'accès attendu | Actualisez la session et vérifiez avec un compte administrateur valide 
 
 
 | L'assistant s'ouvre mais la requête échoue | Problème de chemin d'accès au fournisseur ou à l'exécution | Accessibilité du point de terminaison, disponibilité du modèle sur ce point de terminaison, limites du fournisseur et statut temporaire du fournisseur | Réessayez après avoir corrigé les problèmes de correspondance entre l’endpoint/le modèle ou les problèmes de limite côté fournisseur 

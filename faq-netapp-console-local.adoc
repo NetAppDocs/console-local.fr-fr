@@ -156,13 +156,19 @@ Les utilisateurs locaux peuvent activer l'authentification multifacteur (MFA) po
 == Gestion assistée par l'IA
 
 .Quels fournisseurs LLM le déploiement local de NetApp Console prend-il en charge pour la gestion assistée par IA ?
-Vous apportez votre propre abonnement ou accès au service pour un type de fournisseur pris en charge : OpenAI ou compatible OpenAI. Vous fournissez ensuite une clé API valide lors de la configuration. Vous devez également disposer de la Console déployée avec un accès au cluster, d'une connectivité réseau sortante vers le point de terminaison configuré, du rôle d'administrateur de l'organisation et de classes de stockage qui guident le provisionnement. link:concept-llm-integration.html["Découvrez l'intégration du LLM"].
+Vous utilisez votre propre abonnement ou accès au service pour un type de fournisseur pris en charge : OpenAI, compatible OpenAI ou Anthropic, selon ce qui est pris en charge par votre version et votre point de terminaison. Vous fournissez ensuite une clé API valide lors de la configuration. Vous devez également disposer d'une connectivité réseau sortante vers le point de terminaison configuré et du rôle Organization admin ou Super admin pour configurer l'intégration. link:concept-llm-integration.html["Découvrez l'intégration du LLM"].
 
 .L'activation de l'intégration LLM envoie-t-elle mes données de stockage ou mes requêtes à un service tiers ?
 La Console envoie les prompts et le contexte associé uniquement au point de terminaison LLM que vous configurez. Si ce point de terminaison est un service cloud tiers, les données sont envoyées à ce service via HTTPS. Si ce point de terminaison est un service interne compatible avec OpenAI, les données restent sur votre chemin interne pour cette intégration. Toutes les actions d'IA respectent également votre RBAC, et les opérations sensibles nécessitent votre confirmation. link:concept-llm-integration.html["Découvrez l'intégration du LLM"].
 
 .Que peut faire l'assistant de la Console, et comment puis-je contrôler s'il modifie mon stockage ?
-Une fois que vous connectez un LLM, l'assistant de la Console permet aux utilisateurs de provisionner du stockage, d'examiner les alertes et d'obtenir des réponses en langage naturel. Les utilisateurs choisissent un mode d'accès : en mode *Lecture seule*, l'assistant répond et guide sans effectuer de modifications, tandis qu'en mode *Lecture/écriture*, il peut agir sur l'infrastructure de stockage mais affiche les détails pour que l'utilisateur les examine et les confirme avant chaque modification. link:task-llm-connect.html["Connectez votre LLM et activez l’assistant NetApp Console"].
+Une fois que vous connectez un LLM, l'assistant de la Console permet aux utilisateurs d'obtenir des conseils, d'analyser les métriques prises en charge, de provisionner du stockage, d'examiner les alertes et de demander les opérations ONTAP prises en charge en langage naturel. En mode *Lecture seule*, l'assistant n'apporte aucune modification. En mode *Lecture/écriture*, il affiche les actions de modification du stockage proposées pour examen et confirmation avant exécution. link:task-console-asst-use.html["Utilisez l’assistant de la console NetApp"].
+
+.Quelles opérations l'assistant NetApp Console prend-il en charge ?
+L'assistant de NetApp Console prend en charge le guidage conversationnel, l'analyse des métriques en lecture seule, le provisionnement du stockage, l'investigation des alertes et certaines opérations de gestion ONTAP. Les opérations disponibles dépendent de la version, du point de terminaison configuré, ainsi que de votre rôle et de l'étendue de vos ressources. link:reference-console-assistant-operations.html["Consultez les opérations d’assistant de NetApp Console prises en charge"].
+
+.Que se passe-t-il lorsque l'assistant Console effectue une opération asynchrone ?
+Pour les opérations prises en charge qui ne s'achèvent pas immédiatement, l'assistant crée une tâche et peut renvoyer l'état actuel lorsque vous interrogez l'assistant sur la demande. link:task-console-asst-use.html["Utilisez l’assistant de la console NetApp"].
 
 
 

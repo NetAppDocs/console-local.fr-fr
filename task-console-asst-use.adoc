@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-console-asst-use.html 
 keywords: console assistant, ai assistant, ask questions, provision storage, natural language, agentic, netapp console local 
-summary: 'Utilisez l"assistant de la Console pour provisionner du stockage, examiner les alertes et obtenir des réponses en langage naturel dans le déploiement local de la NetApp Console.' 
+summary: 'Utilisez l"assistant de la console pour obtenir des conseils sur le stockage, des analyses, le provisionnement et les opérations prises en charge dans le déploiement local de NetApp Console.' 
 ---
 = Utilisez l’assistant NetApp Console dans le déploiement local de NetApp Console
 :hardbreaks:
@@ -26,11 +26,13 @@ Les actions de l'assistant sont limitées par votre accès basé sur les rôles 
 [[see-what-you-can-do-with-the-console-assistant]]
 == Découvrez ce que vous pouvez faire avec l'assistant Console
 
-L'assistant de la console est une interface en langage naturel pour le déploiement local de NetApp Console. Posez une question ou décrivez une tâche, et il vous fournit une réponse ou une action proposée. L'assistant offre les fonctionnalités suivantes :
+Identifiez les conditions de stockage et les actions prises en charge grâce à une interface conversationnelle unique, afin que vous puissiez décider quand une assistance ou une intervention est nécessaire. Posez une question ou décrivez une tâche, et il vous renverra une réponse, une analyse ou une action proposée. L’assistant offre les fonctionnalités suivantes :
 
 * *Provisionnement du stockage* Décrivez une charge de travail en langage clair. L’assistant vous recommande une classe de stockage et un emplacement, puis crée le volume ou le LUN après que vous avez confirmé les détails. Par exemple, demandez-lui de créer un volume CIFS d’une capacité spécifique. L’assistant identifie le cluster et la machine virtuelle de stockage (SVM), renseigne les paramètres requis et provisionne le stockage.
+* *Analyse des indicateurs* Demandez les indicateurs de capacité, de performance et de stockage pris en charge pour les ressources dans votre périmètre autorisé. L’assistant renvoie une analyse en lecture seule basée sur l’état du parc disponible.
 * *Recherchez et obtenez des conseils* Posez des questions sur votre environnement de stockage, découvrez les fonctionnalités de déploiement local de la Console, et obtenez des réponses contextuelles à partir de la documentation NetApp et de l'état actuel de votre parc.
 * *Analyser les alertes* Demandez à l'assistant d'examiner une alerte active. Il analyse le problème et propose une solution ou, avec votre confirmation, effectue une action corrective.
+* *Gérez les systèmes ONTAP* Demandez une opération de gestion ONTAP prise en charge en langage naturel. L’assistant identifie le contexte système ou SVM manquant, présente l’opération proposée et requiert une confirmation avant toute opération d’écriture.
 
 
 L'assistant envoie des requêtes uniquement au point de terminaison LLM configuré par votre administrateur dans le déploiement local de Console. Il demande une confirmation avant d'effectuer toute modification du stockage, et toutes les actions respectent les contrôles d'accès basés sur les rôles attribués à votre compte.
@@ -40,7 +42,7 @@ L'assistant envoie des requêtes uniquement au point de terminaison LLM configur
 [[confirm-that-you-can-use-the-console-assistant]]
 == Confirmez que vous pouvez utiliser l'assistant de la Console
 
-* Un administrateur ou un super administrateur de l'organisation doit activer l'assistant Console en connectant un grand modèle de langage (LLM) au déploiement local de Console. Si le bouton *Console assistant* n'apparaît pas sur le tableau de bord, demandez à votre administrateur de l'activer. Pour plus d'informations, voir link:task-llm-connect.html["Connectez votre LLM et activez l’assistant NetApp Console"].
+* Un administrateur ou un super administrateur de l'organisation doit activer l'assistant Console en connectant un grand modèle de langage (LLM) au déploiement local de Console. Si le bouton *Console assistant* n'apparaît pas sur le tableau de bord, demandez à votre administrateur de l'activer. link:task-llm-connect.html["Découvrez comment connecter votre LLM et activer l’assistant NetApp Console"].
 * Assurez-vous de disposer des contrôles d'accès basés sur les rôles requis pour les actions que vous souhaitez que l'assistant effectue.
 
 
@@ -49,7 +51,7 @@ L'assistant envoie des requêtes uniquement au point de terminaison LLM configur
 [[ask-the-console-assistant-a-question-or-request-an-action]]
 == Posez une question à l'assistant de la console ou demandez une action
 
-Ouvrez l'assistant de la Console, choisissez un mode d'accès et saisissez une invite décrivant votre demande.
+Demandez les travaux de stockage pris en charge de manière conversationnelle afin de pouvoir évaluer les changements proposés avant qu'ils n'affectent votre infrastructure.
 
 .Étapes
 . Depuis le tableau de bord de déploiement local de la NetApp Console, sélectionnez le bouton *Console assistant*.
@@ -72,3 +74,19 @@ Par exemple : `Create a 10GiB volume for home directories named home, and share
 . Confirmez l'action. Pour les opérations asynchrones, telles que la création d'un volume, l'assistant crée une tâche pour exécuter la requête.
 . Pour vérifier l'état d'une requête, interrogez l'assistant. Par exemple, saisissez  `Let me know when the job completes`, et l'assistant retourne l'état actuel.
 
+
+
+
+[[use-the-assistant-for-metrics-and-analytics]]
+== Utilisez l'assistant pour les indicateurs et les analyses
+
+Posez une question en lecture seule précisant la ressource, la portée, la métrique et la période que vous souhaitez comprendre. L’assistant fournit une analyse des métriques prises en charge et ne modifie pas votre stockage.
+
+
+
+[[use-the-assistant-for-ontap-management]]
+== Utilisez l'assistant pour la gestion ONTAP
+
+Gérez les opérations ONTAP prises en charge grâce à des propositions d’assistant examinées, afin que les modifications d’infrastructure restent délibérées et contrôlées par des autorisations.
+
+link:reference-console-assistant-operations.html["Découvrez les opérations prises en charge par l'assistant NetApp Console"].

@@ -53,7 +53,7 @@ Santé:: État de santé, nombre d'objets dégradés ou critiques, disques défa
 Alertes:: Nombre d'alertes critiques, alertes par niveau de gravité, alertes par zone d'impact, alertes récentes et tendances des alertes au fil du temps.
 
 
-Pour un catalogue complet des cartes et des métriques prédéfinies, voir link:reference-dashboard-card-templates.html["Découvrez les cartes de tableau de bord et les indicateurs personnalisés dans le déploiement local de NetApp Console"].
+link:reference-dashboard-card-templates.html["Consultez le catalogue des cartes de tableau de bord personnalisées et des indicateurs dans le déploiement local de NetApp Console"].
 
 
 

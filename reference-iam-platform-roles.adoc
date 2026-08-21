@@ -60,6 +60,12 @@ Les tableaux suivants indiquent les actions que chaque rôle de la plateforme de
 
 
 | Consultez la page d'audit et les notifications | Oui | Oui 
+
+
+| Configurez l'intégration LLM et activez l'assistant NetApp Console | Oui | Non 
+
+
+| Configurer les paramètres de diffusion des notifications et du serveur de messagerie | Oui | Non 
 |===
 
 

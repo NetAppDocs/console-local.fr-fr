@@ -37,8 +37,6 @@ La gestion de flotte répond à trois défis fondamentaux :
 
 La hiérarchie des ressources de votre organisation se compose de dossiers et de flottes :
 
-Pour une présentation détaillée de la hiérarchie et du modèle d'accès, voir link:concept-folders-fleets-overview.html["Découvrez les dossiers et les flottes dans le déploiement local de la NetApp Console"].
-
 * *Organisation* - Le niveau supérieur représentant votre entreprise.
 * *Dossiers* - Vous aident à organiser les flottes associées. Par exemple, vous pouvez créer un dossier pour chaque région ou unité commerciale, puis créer des flottes dans chaque dossier. Les dossiers peuvent contenir d'autres dossiers ou flottes. Lorsque vous attribuez un rôle au niveau du dossier, les membres héritent de ce rôle pour toutes les flottes dans le dossier.
 * *Flottes* - Regroupez les systèmes de stockage que vous gérez. Vous associez les systèmes de stockage à des flottes et affectez des membres à ces flottes pour leur accorder l'accès.
@@ -46,6 +44,8 @@ Pour une présentation détaillée de la hiérarchie et du modèle d'accès, voi
 
 
 NOTE: Les dossiers sont un outil d'organisation et ne sont pas visibles par les membres ne disposant pas des autorisations IAM, telles que les rôles d'administrateur d'organisation, d'administrateur de dossier ou d'administrateur de flotte. Les membres accèdent aux flottes, pas aux dossiers.
+
+link:concept-folders-fleets-overview.html["En savoir plus sur les dossiers et les flottes dans le déploiement local de la NetApp Console"].
 
 
 
@@ -108,9 +108,10 @@ Le déploiement local sur console prend en charge trois approches de provisionne
 [[where-to-go-next]]
 == Où aller ensuite
 
-* Pour comprendre les normes de stockage, voir link:concept-storage-classes.html["Découvrez les classes de stockage et les stratégies dans le déploiement local de la NetApp Console"].
-* Pour créer et gérer des flottes, consultez link:task-iam-manage-folders-fleets.html["Gérer les dossiers et les flottes"].
+* link:concept-storage-classes.html["Découvrez les classes de stockage et les stratégies dans le déploiement local de la NetApp Console"].
+* link:task-iam-manage-folders-fleets.html["Apprenez à créer et à gérer des flottes"].
 * link:task-provisioning-manual.html["Provisionner manuellement le stockage"]
 * link:task-provisioning-automated.html["Provisionner automatiquement le stockage"]
 * link:task-provisioning-agentic.html["Provisionnez le stockage avec l'aide de l'IA"]
+* link:reference-console-assistant-operations.html["Consultez les opérations d’assistant de NetApp Console prises en charge"]
 

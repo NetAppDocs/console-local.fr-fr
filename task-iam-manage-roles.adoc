@@ -63,7 +63,7 @@ Si vous possédez le rôle d’administrateur de dossier ou de flotte, la page a
 
 Vous pouvez modifier les droits d'accès d'un membre en fonction de l'évolution de ses responsabilités. Par exemple, lorsqu'un collègue prend en charge les sauvegardes pour une deuxième région, ajoutez le rôle Backup and Recovery admin à la flotte de cette région sans toucher à ses rôles de stockage existants.
 
-Si vous devez ajouter un nouveau membre et lui attribuer son premier rôle, consultez link:task-iam-manage-members-permissions.html#add-members["Ajouter des membres et attribuer des rôles"].
+link:task-iam-manage-members-permissions.html#add-members["Apprenez comment ajouter des membres et attribuer des rôles"].
 
 
 
