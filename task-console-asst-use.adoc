@@ -77,10 +77,26 @@ Par exemple : `Create a 10GiB volume for home directories named home, and share
 
 
 
+[[use-a-prompt-from-the-prompt-library]]
+== Utilisez une invite de la bibliothèque d'invites
+
+Explorez la bibliothèque de prompts pour trouver un point de départ approprié pour les questions relatives à la gestion du stockage et à l'état des flottes.
+
+.Étapes
+. Ouvrez l'assistant Console.
+. Ouvrez la bibliothèque d'invites à partir du bouton dans l'en-tête de l'assistant.
+. Sélectionnez une invite dans la bibliothèque, consultez-la et soumettez la demande.
+. Suivez la réponse de l'assistant. Selon la demande, l'assistant peut fournir des informations, demander des détails supplémentaires ou demander une confirmation avant d'effectuer une action.
+
+
+
+
 [[use-the-assistant-for-metrics-and-analytics]]
 == Utilisez l'assistant pour les indicateurs et les analyses
 
-Posez une question en lecture seule précisant la ressource, la portée, la métrique et la période que vous souhaitez comprendre. L’assistant fournit une analyse des métriques prises en charge et ne modifie pas votre stockage.
+Examinez les conditions de capacité et de performance dans la limite de votre périmètre autorisé sans modifier votre environnement de stockage. Posez une question en lecture seule qui identifie la ressource, le périmètre, la métrique et la période que vous souhaitez analyser. L’assistant renvoie une analyse des métriques prises en charge et ne modifie pas votre stockage.
+
+Utilisez l'assistant de la Console pour poser des questions en langage naturel et effectuer une analyse générale des ressources incluses dans votre périmètre autorisé. Utilisez Workload Analyzer lorsque vous avez besoin d'une analyse détaillée et temporelle d'un volume, incluant la latence, le débit, l'utilisation des ressources, la capacité, les événements et les prévisions.
 
 
 

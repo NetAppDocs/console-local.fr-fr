@@ -14,19 +14,37 @@ summary: 'Examinez les catégories d"opérations destinées aux clients prises e
 
 
 [role="lead"]
-L'assistant de la Console prend en charge les questions en langage naturel et certaines opérations de stockage. Les opérations disponibles dépendent de la version, du point de terminaison LLM configuré et de vos autorisations.
-
-
-NOTE: Cette documentation relative à la connexion d'un LLM à l'assistant Console pour activer les fonctionnalités d'IA est fournie à titre d'aperçu technologique. Dans le cadre de cette offre d'aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+Utilisez l’assistant de la Console dans le déploiement local de NetApp Console pour poser des questions en langage naturel et effectuer certaines opérations de stockage. Les opérations disponibles dépendent de votre rôle d’accès attribué. REMARQUE : Cette documentation concernant la connexion d’un LLM à l’assistant de la Console pour activer les fonctionnalités d’IA est fournie à titre d’aperçu technologique. Dans le cadre de cette offre d’aperçu, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l’offre avant la disponibilité générale.
 
 Utilisez l'assistant de la NetApp Console en mode *Lecture seule* pour les questions et analyses sans modification de l'infrastructure. Utilisez le mode *Lecture/écriture* pour les opérations prises en charge pouvant modifier les systèmes de stockage ou ONTAP. L'assistant affiche la modification proposée et requiert une confirmation avant d'exécuter une opération d'écriture.
 
 
 
-[[conversational-guidance-and-search]]
-== Conseils conversationnels et recherche
+[[console-assistant-capabilities]]
+== Fonctionnalités de l'assistant de console
 
-Posez des questions sur le déploiement local de NetApp Console, votre environnement de stockage ou les workflows d'administration ONTAP pris en charge. L'assistant utilise le point de terminaison LLM configuré, ainsi que la documentation disponible et le contexte du parc pour fournir une réponse ou demander un contexte supplémentaire.
+L'assistant de console prend en charge les catégories d'opérations suivantes. Les opérations disponibles dépendent de votre version, du point de terminaison LLM configuré, des rôles attribués et de l'étendue des ressources.
+
+[cols="28,18,54"]
+|===
+| Capacité | Mode d'accès | Utilisez-le pour 
+
+
+| Conseils conversationnels et recherche | Lecture seule | Posez des questions sur le déploiement local de NetApp Console, votre environnement de stockage et les flux de travail d'administration ONTAP pris en charge. 
+
+
+| Indicateurs et analyses | Lecture seule | Analysez la capacité prise en charge, les performances et d'autres indicateurs dans votre périmètre autorisé. 
+
+
+| Provisionnement du stockage | Lire/écrire | Planifiez et provisionnez les volumes ou LUN pris en charge après avoir examiné et confirmé l'opération proposée. 
+
+
+| Enquête et correction des alertes | Lecture seule ou lecture/écriture | Examinez les alertes actives et passez en revue les actions correctives prises en charge avant qu'elles ne modifient le stockage. 
+
+
+| Gestion ONTAP | Lecture seule ou lecture/écriture | Afficher ou effectuer les opérations de gestion prises en charge sur les systèmes associés à la NetApp Console. 
+|===
+Utilisez vos rôles attribués ainsi que l'organisation, le dossier ou le périmètre du parc informatique pour déterminer les systèmes et les charges de travail auxquels l'assistant peut accéder. L'assistant ne contourne pas les contrôles d'accès au déploiement local de la NetApp Console.
 
 
 
@@ -36,6 +54,8 @@ Posez des questions sur le déploiement local de NetApp Console, votre environne
 Posez des questions en lecture seule concernant la capacité de stockage prise en charge, les performances et d'autres indicateurs pour les ressources dans votre périmètre autorisé. Indiquez la ressource, l'indicateur et la période lorsque ces informations sont pertinentes pour votre question.
 
 L'assistant renvoie une analyse et ne modifie pas le stockage en mode *Lecture seule*.
+
+Utilisez l'assistant de la Console pour poser des questions en langage naturel et effectuer une analyse générale des ressources incluses dans votre périmètre autorisé. Utilisez Workload Analyzer lorsque vous avez besoin d'une analyse détaillée et temporelle d'un volume, incluant la latence, le débit, l'utilisation des ressources, la capacité, les événements et les prévisions. link:concept-workload-analyzer.html["Découvrez Workload Analyzer."]
 
 
 
@@ -51,26 +71,31 @@ Une fois le plan approuvé, l'assistant configure le volume ou l'opération LUN 
 [[alert-investigation-and-remediation]]
 == Enquête et correction des alertes
 
-Demandez à l'assistant d'examiner une alerte active prise en charge. Il analyse l'alerte et peut suggérer une action corrective. Lorsqu'une action corrective prise en charge modifie le stockage, l'assistant présente l'action pour examen et requiert une confirmation avant l'exécution.
+Demandez à l'assistant d'examiner une alerte active. Il analyse l'alerte et peut suggérer une action de remédiation. Lorsqu'une action de remédiation prise en charge modifie le stockage, l'assistant présente l'action pour examen et requiert votre confirmation avant l'exécution.
+
+Examinez les détails de la mesure corrective proposée et confirmez l'action avant que l'assistant ne modifie le stockage.
+
+link:reference-alert-remediation.html["Découvrez les actions de remédiation aux alertes."]
 
 
 
 [[ontap-management]]
 == Gestion ONTAP
 
-Demandez une opération de gestion prise en charge pour un système ONTAP enregistré en utilisant un langage naturel. Identifiez le cluster, la SVM ou la ressource cible lorsque vous la connaissez afin que l’assistant puisse utiliser le contexte approprié.
+Demandez une opération de gestion prise en charge pour un système ONTAP enregistré en langage naturel. Identifiez le cluster cible, la machine virtuelle de stockage (SVM) ou la ressource lorsque vous la connaissez afin que l’assistant puisse utiliser le contexte approprié.
 
-L'assistant fait la distinction entre les requêtes en lecture seule et les opérations d'écriture. Vérifiez la cible et les modifications proposées avant de confirmer une opération d'écriture. L'ensemble des opérations disponibles dépend de la version de déploiement local de NetApp Console et des autorisations attribuées à votre compte.
+Vérifiez si votre requête vise uniquement à lire des informations ou à modifier un système ONTAP, puis confirmez toute opération d'écriture proposée. L'ensemble des opérations disponibles dépend de la version de déploiement local de la NetApp Console et des autorisations attribuées à votre compte.
+
+link:task-console-asst-use.html["Découvrez comment utiliser l'assistant de la Console."]
 
 
 
 [[permissions-and-scope]]
 == Autorisations et étendue
 
-L'assistant utilise les autorisations et la portée des ressources de l'utilisateur connecté :
+L'assistant utilise les autorisations et la portée des ressources de l'utilisateur connecté. Votre organisation, dossier ou périmètre de flotte attribué détermine les systèmes et les charges de travail auxquels l'assistant peut accéder.
 
 * Votre rôle détermine les ressources et les opérations que vous pouvez consulter ou modifier.
-* L'organisation, le dossier et le périmètre de la flotte limitent les systèmes et les charges de travail accessibles à l'assistant.
 * Les politiques de classe de stockage contraignent le provisionnement assisté par l’IA.
 * L'assistant ne contourne pas les contrôles d'accès au déploiement local de NetApp Console.
 
@@ -82,7 +107,7 @@ link:reference-iam-predefined-roles.html["Découvrez les rôles d'accès au dép
 [[asynchronous-operations]]
 == Opérations asynchrones
 
-Certaines opérations d'écriture prises en charge ne s'exécutent pas immédiatement. Pour ces opérations, l'assistant crée une tâche. Demandez à l'assistant l'état de la requête pour surveiller l'achèvement.
+Demandez à l'assistant l'état d'une opération d'écriture prise en charge qui s'exécute de manière asynchrone. L'assistant crée une tâche pour les opérations qui ne se terminent pas immédiatement.
 
 
 

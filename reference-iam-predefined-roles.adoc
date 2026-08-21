@@ -28,7 +28,7 @@ Les rôles de plateforme confèrent à la NetApp Console des autorisations d'adm
 | Rôle de la plateforme | Responsabilités 
 
 
-| link:reference-iam-platform-roles.html#organization-admin-roles["Administrateur de l'organisation"] | Ce rôle permet à un utilisateur d'accéder sans restriction à tous les parcs et dossiers d'une organisation, d'ajouter des membres à n'importe quel parc ou dossier, ainsi que d'effectuer toute tâche et d'utiliser tout service de données qui n'a pas de rôle explicite associé. Les utilisateurs disposant de ce rôle gèrent votre organisation en créant des dossiers et des parcs, en attribuant des rôles, en ajoutant des utilisateurs et en gérant les systèmes s'ils disposent des identifiants appropriés. 
+| link:reference-iam-platform-roles.html#organization-admin-roles["Administrateur de l'organisation"] | Ce rôle permet à un utilisateur d'accéder sans restriction à toutes les flottes et à tous les dossiers d'une organisation, d'ajouter des membres à n'importe quelle flotte ou dossier, ainsi que d'effectuer toute tâche et d'utiliser tout service de données qui n'a pas de rôle explicite associé. Les utilisateurs disposant du rôle d'admin Org peuvent également configurer les intégrations LLM, les paramètres du serveur de messagerie et ajouter des webhooks. Les utilisateurs disposant de ce rôle gèrent votre organisation en créant des dossiers et des flottes, en attribuant des rôles, en ajoutant des utilisateurs et en administrant les systèmes s'ils disposent des identifiants appropriés. 
 
 
 | link:reference-iam-platform-roles.html#organization-admin-roles["Administrateur de dossier ou de flotte"] | Permet à un utilisateur d'accéder sans restriction aux flottes et dossiers qui lui sont attribués. Peut ajouter des membres aux dossiers ou flottes qu'il gère, ainsi qu'effectuer toute tâche et utiliser tout service de données ou application sur les ressources du dossier ou de la flotte qui lui est attribué. 
@@ -68,6 +68,13 @@ Voici la liste des rôles dans la catégorie application. Chaque rôle accorde d
 
 | link:reference-iam-storage-roles.html["Spécialiste de la santé du système"] | Administrer les fonctions de stockage, de santé et de gouvernance, disposer de toutes les autorisations de l’administrateur de stockage, à l’exception de la possibilité de modifier ou de supprimer les systèmes existants. 
 |===
+
+
+[[console-assistant-access]]
+== Accès à l'assistant de console
+
+Un administrateur ou un super administrateur de l'organisation doit configurer une intégration LLM avant que les membres puissent utiliser l'assistant de la Console. Chaque membre peut consulter ou modifier uniquement les ressources autorisées par son rôle et son périmètre d'organisation, de dossier ou de flotte. link:reference-console-assistant-operations.html["Découvrez les opérations d'assistant Console prises en charge."]
+
 
 
 [[data-service-roles]]

@@ -32,8 +32,8 @@ Pour connecter votre LLM, sélectionnez un chemin de fournisseur, saisissez les 
 
 
 
-[[gather-what-you-need-before-you-connect-an-llm]]
-== Rassemblez ce dont vous avez besoin avant de connecter un LLM
+[[before-you-begin]]
+== Avant de commencer
 
 Préparez les informations d'identification du fournisseur et l'accès au point de terminaison afin que l'assistant NetApp Console puisse fonctionner dans les limites de gouvernance configurées de votre organisation.
 

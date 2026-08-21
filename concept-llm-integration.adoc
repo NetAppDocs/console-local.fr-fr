@@ -88,6 +88,8 @@ Protégez l'intégration avec ces contrôles :
 * Examinez l'utilisation et les alertes côté fournisseur pour détecter toute activité inattendue.
 
 
+Maîtrisez les coûts de l’assistant de la Control Console en choisissant un fournisseur et un modèle LLM appropriés, en définissant des limites d’utilisation et des alertes auprès de votre fournisseur, et en surveillant l’utilisation des jetons. Seules les activités qui envoient des requêtes au LLM consomment des jetons du fournisseur ; les opérations en arrière-plan n’en consomment pas.
+
 
 
 [[connect-your-llm]]

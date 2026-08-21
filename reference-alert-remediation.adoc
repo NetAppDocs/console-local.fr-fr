@@ -14,7 +14,7 @@ summary: 'Référence pour les actions correctives disponibles dans le déploiem
 
 
 [role="lead"]
-Utilisez cette référence pour comprendre les actions correctives disponibles via *Fix it* dans le déploiement local de NetApp Console. Pour chaque action, le tableau décrit ce que fait l'action et l'alerte associée. Examinez les détails de l'action dans la boîte de dialogue de confirmation avant de l'exécuter.
+Utilisez cette référence pour comprendre les actions correctives disponibles via *Corriger* dans le déploiement local de NetApp Console. Pour chaque action, le tableau décrit ce que fait l'action et l'alerte associée. Examinez les détails de l'action dans la boîte de dialogue de confirmation avant de l'exécuter. Cette référence décrit les actions dans le workflow des alertes ; elle n'indique pas quelles actions l'assistant de la Console peut suggérer.
 
 
 

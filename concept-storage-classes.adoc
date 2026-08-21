@@ -68,7 +68,7 @@ Les problèmes se répartissent en deux catégories :
 * *Non-conformité des performances* : Le comportement d’exécution de la charge de travail ne répond plus à l’intention de performance de la classe de stockage (par exemple, une pression soutenue près d’une limite QoS ou une latence de queue élevée).
 
 
-Une vue d'analyse explique les modifications apportées et leurs causes. Des actions correctives guidées (par exemple, *Corriger le problème*) peuvent être proposées pour rétablir la conformité. Certaines corrections peuvent être appliquées directement, tandis que d'autres peuvent nécessiter l'alignement de la charge de travail sur une classe de stockage différente afin de rétablir le comportement attendu.
+Une vue d'analyse explique les modifications apportées et leurs causes. Des actions correctives guidées (par exemple, *Corriger le problème*) peuvent être proposées pour rétablir la conformité. Certaines corrections peuvent être appliquées directement, tandis que d'autres peuvent nécessiter l'affectation de la charge de travail à une classe de stockage différente afin de rétablir le comportement attendu.
 
 .Où enquêter
 Vous pouvez généralement examiner les dérives et les cas de non-conformité à partir de l'un de ces emplacements (la disponibilité dépend de votre déploiement et de vos autorisations) :

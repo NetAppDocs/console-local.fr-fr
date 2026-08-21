@@ -16,6 +16,8 @@ summary: Découvrez comment le Workload Analyzer vous aide à examiner les probl
 [role="lead"]
 Utilisez l'Analyseur de charge de travail du déploiement local de NetApp Console pour observer le comportement d'un volume unique au fil du temps. Vous pouvez analyser la dégradation des performances, les tendances de capacité et les problèmes de contention des ressources directement depuis le volume, une alerte ou l'inventaire.
 
+Pour les questions en langage naturel et les analyses de haut niveau sur les ressources autorisées, utilisez l’assistant de la Console. link:reference-console-assistant-operations.html["Découvrez les opérations d'assistant Console prises en charge."]
+
 
 
 [[how-workload-analyzer-identifies-root-causes]]

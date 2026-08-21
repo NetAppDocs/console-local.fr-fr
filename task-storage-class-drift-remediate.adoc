@@ -46,7 +46,7 @@ La page *Alertes > Vue d'ensemble* s'ouvre avec les filtres appliqués.
 +
 Pour les dérives de configuration, comparez les paramètres prévus et réels afin de déterminer ce qui a changé.
 
-. Sélectionnez l'action corrective recommandée, telle que *Fix it*.
+. Sélectionnez l'action corrective recommandée, telle que *Fix It*.
 . Examinez les modifications proposées et appliquez les mesures correctives.
 . Retournez dans *Stockage > Classes de stockage* et vérifiez que la charge de travail n'apparaît plus comme ayant dérivé.
 +
