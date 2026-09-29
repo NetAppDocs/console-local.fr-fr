@@ -3011,10 +3011,6 @@
   <block id="6d78ed573fddd6a3f8f162c07848707d" category="list-text">Choisissez le type de configuration de proxy que vous souhaitez utiliser : proxy explicite, proxy transparent ou aucun proxy.</block>
   <block id="12dc2cce6b942756043a4ae0da4c14b6" category="list-text">Sélectionnez le datastore sur lequel vous souhaitez déployer la machine virtuelle, puis sélectionnez *Suivant*. Assurez-vous qu'il répond aux exigences de l'hôte.</block>
   <block id="945e8bee85a6e3eef017e30f4ee2df31" category="list-text">Sélectionnez le réseau auquel vous souhaitez connecter la machine virtuelle, puis sélectionnez *Suivant*. Assurez-vous que le réseau est de type IPv4 et qu'il dispose d'un accès Internet sortant vers les points de terminaison requis.</block>
-  <block id="5ff2f6027b004f50fdeef1f7b72a3261" category="list-text">Dans la fenêtre *Personnaliser le modèle*, complétez les champs suivants :</block>
-  <block id="25ed452e0ddd0d0767ff6341fa17da58" category="list-text">*Informations sur le proxy*</block>
-  <block id="bb1e1ef266584a5a332dfd21a0ceff90" category="list-text">Si vous avez sélectionné un proxy explicite, saisissez le nom d’hôte ou l’adresse IP et le numéro de port du serveur proxy, ainsi que le nom d’utilisateur et le mot de passe.</block>
-  <block id="777fde86c6354cd539ec78cfac87b390" category="list-text">Si vous avez sélectionné un proxy transparent, téléchargez le certificat correspondant.</block>
   <block id="f6b06d7af2e17b031527e55078cf6bda" category="list-text">*Configuration de la machine virtuelle*</block>
   <block id="4dbd3c987fc3c99f4068f93b9ddf0271" category="list-text">*Mot de passe de maintenance* : Définissez le mot de passe pour l'utilisateur <block ref="67f50785d40416a7a7689c5c353f1128" prefix=" " category="inline-code"></block> qui permet d’accéder à la console de maintenance du déploiement local de la NetApp Console.</block>
   <block id="cb059a17daa0db402273fce83326bc2b" category="list-text">*Serveurs NTP* : Spécifiez un ou plusieurs serveurs NTP pour la synchronisation de l’heure.</block>
@@ -3718,4 +3714,5 @@
   <block id="43e1d149efe94e65609c12dcb5cab779" category="list-text">Le processeur et la mémoire sont réservés sur l'hôte ESXi lors du démarrage de la machine virtuelle, et non simplement alloués. Assurez-vous que l'hôte cible dispose d'au moins 16 cœurs de processeur et de 64 Go de capacité réservée. Les réservations de machines virtuelles existantes sur l'hôte réduisent la capacité disponible.</block>
   <block id="e68d2c37dd2355df41bb544adc897de6" category="inline-link-macro">Article de la base de connaissances du site d’assistance NetApp</block>
   <block id="29bfebf6dcc74c9e558756ca6998173c" category="admonition">Pour sécuriser la communication avec votre propre certificat TLS, suivez les instructions de ce <block ref="eb10a8c97ab666bf81650f11f6a3aa78" category="inline-link-macro-rx"></block>.</block>
+  <block id="e1b143775fd4087c8f3fffb22a2a2569" category="list-text">Dans la fenêtre *Personnaliser le modèle*, remplissez les champs suivants :</block>
 </blocks>

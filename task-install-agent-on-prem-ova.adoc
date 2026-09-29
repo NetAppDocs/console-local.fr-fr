@@ -98,14 +98,8 @@ Connectez-vous à votre environnement vCenter pour effectuer le déploiement loc
 . Choisissez le type de configuration de proxy que vous souhaitez utiliser : proxy explicite, proxy transparent ou aucun proxy.
 . Sélectionnez le datastore sur lequel vous souhaitez déployer la machine virtuelle, puis sélectionnez *Suivant*. Assurez-vous qu'il répond aux exigences de l'hôte.
 . Sélectionnez le réseau auquel vous souhaitez connecter la machine virtuelle, puis sélectionnez *Suivant*. Assurez-vous que le réseau est de type IPv4 et qu'il dispose d'un accès Internet sortant vers les points de terminaison requis.
-. Dans la fenêtre *Personnaliser le modèle*, complétez les champs suivants :
+. Dans la fenêtre *Personnaliser le modèle*, remplissez les champs suivants :
 +
-** *Informations sur le proxy*
-+
-*** Si vous avez sélectionné un proxy explicite, saisissez le nom d’hôte ou l’adresse IP et le numéro de port du serveur proxy, ainsi que le nom d’utilisateur et le mot de passe.
-*** Si vous avez sélectionné un proxy transparent, téléchargez le certificat correspondant.
-
-
 ** *Configuration de la machine virtuelle*
 +
 *** *Mot de passe de maintenance* : Définissez le mot de passe pour l'utilisateur  `maint` qui permet d’accéder à la console de maintenance du déploiement local de la NetApp Console.
