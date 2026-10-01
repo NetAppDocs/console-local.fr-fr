@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: task-manage-licenses.html 
+keywords: licenses, licensing, NetApp Backup and Recovery, NetApp Console local deployment, BYOL, bring-your-own-license, direct license 
+summary: Gérez les licences directes pour NetApp Backup and Recovery dans le déploiement local de NetApp Console. 
+---
+= Gérer les licences dans le déploiement local de NetApp Console
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gérez la licence NetApp Backup and Recovery dans le déploiement local de NetApp Console. Il s'agit d'une licence flottante que vous pouvez utiliser sur tous les systèmes associés à votre organisation NetApp Console. Si la licence offre une capacité de sauvegarde suffisante, vous n'avez pas besoin d'en acheter une autre. Vous pouvez ajouter, mettre à jour et supprimer la licence, et afficher sa capacité consommée, sa capacité de licence et son expiration.
+
+
+NOTE: Le déploiement local de NetApp Console ne nécessite pas de licence. NetApp Backup and Recovery est actuellement le seul service à prendre en charge l'octroi direct de licences dans le déploiement local de NetApp Console. Cette licence est également appelée licence BYOL (bring-your-own-license). Pour plus d'informations, consultez la link:https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html["Documentation de licence de NetApp Backup and Recovery"^].
+
+.Rôles d'accès requis
+Vous devez disposer du rôle de Super admin ou d'Organization admin pour gérer les licences dans un déploiement local de Console.
+
+
+
+[[add-a-license]]
+== Ajouter une licence
+
+Ajoutez une licence à votre organisation Console en téléchargeant un fichier de licence.
+
+.Avant de commencer
+Vous avez besoin du numéro de série de votre service cloud et de l’ID de votre organisation NetApp Console pour générer le fichier de licence.
+
+.Étapes
+. Sélectionnez *Administration > Licenses*.
+. Sélectionnez l'onglet *Licences directes*.
+. Sélectionnez *Ajouter une licence*.
+. Rendez-vous dans l’onglet *Système > Licences logicielles* du site de support NetApp et générez le fichier de licence.
+. Retournez à la boîte de dialogue *Ajouter une licence*, sélectionnez *Téléverser*, puis sélectionnez le fichier de licence.
+. Sélectionnez *Ajouter une licence* pour installer la licence.
+
+
+La licence apparaît dans le tableau *Licences directes* et le résumé *Répartition des licences et des capacités* se met à jour.
+
+
+
+[[view-license-status]]
+== Consulter l'état de la licence
+
+Consultez les licences installées et leur statut dans l’onglet *Licences directes*. Le tableau affiche le service, le numéro de série, le type, la capacité consommée, la capacité de la licence et sa date d’expiration. Le récapitulatif *Répartition des licences et de la capacité* indique le nombre de licences installées et la capacité allouée à NetApp Backup and Recovery.
+
+Dans le menu Actions image:icon-action.png["Une icône avec trois points"] de chaque ligne, vous pouvez mettre à jour ou supprimer une licence.
+
+.Étapes
+. Sélectionnez *Administration > Licenses*.
+. Sélectionnez l'onglet *Licences directes*.
+. Consultez le tableau et le résumé *Répartition des licences et des capacités*.
+
+
+
+
+[[update-a-license]]
+== Mettre à jour une licence
+
+Remplacez une licence existante dans votre organisation Console, par exemple, lorsqu'une licence est renouvelée ou que sa capacité ou sa date d'expiration change.
+
+.Étapes
+. Sélectionnez *Administration > Licenses*.
+. Sélectionnez l'onglet *Licences directes*.
+. Sélectionnez le menu des actions image:icon-action.png["Une icône avec trois points"] pour la licence que vous mettez à jour, puis sélectionnez *Update license*.
+. Dans la boîte de dialogue *Mettre à jour la licence*, sélectionnez *Upload* et sélectionnez le nouveau fichier de licence.
+. Sélectionnez *Update license* pour confirmer la mise à jour.
+
+
+Une fois la licence mise à jour, la ligne sélectionnée affiche la nouvelle capacité de licence et la date d'expiration de la licence. Le récapitulatif *Répartition des licences et des capacités* est également mis à jour.
+
+
+
+[[remove-a-license]]
+== Supprimer une licence
+
+Supprimez une licence de votre organisation Console. La suppression d'une licence est définitive. Une licence supprimée n'apporte plus de capacité ni de durée à NetApp Backup and Recovery. Si la licence expire, les sauvegardes issues des stratégies existantes et les restaurations se poursuivent, mais vous ne pouvez pas créer de nouvelles stratégies de sauvegarde ni étendre la protection à des charges de travail et des banques de données supplémentaires.
+
+.Étapes
+. Sélectionnez *Administration > Licenses*.
+. Sélectionnez l'onglet *Licences directes*.
+. Sélectionnez le menu des actions image:icon-action.png["Une icône avec trois points"] correspondant à la licence que vous souhaitez supprimer, puis sélectionnez *Supprimer la licence*.
+. Dans la boîte de dialogue de confirmation *Supprimer la licence*, vérifiez le numéro de série dans l’invite.
+. Sélectionnez *Supprimer* pour supprimer définitivement la licence.
+
+
+La licence est supprimée du tableau *Licences directes* et le récapitulatif *Répartition des licences et des capacités* se met à jour.
