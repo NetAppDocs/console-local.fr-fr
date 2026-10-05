@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-llm-connect.html 
-keywords: LLM, AI, connect, large language model, console assistant, openai, openai-compatible, proxy, netapp console 
+keywords: LLM, AI, connect, large language model, console assistant, openai, openai-compatible proxy, netapp console 
 summary: Connectez un point de terminaison LLM pris en charge pour activer l’assistant de la Console et la gestion assistée par IA dans le déploiement local de NetApp Console. 
 ---
 = Connectez votre LLM et activez l’assistant NetApp Console dans le déploiement local de NetApp Console
@@ -37,7 +37,7 @@ Pour connecter votre LLM, sélectionnez un chemin de fournisseur, saisissez les 
 
 Préparez les informations d'identification du fournisseur et l'accès au point de terminaison afin que l'assistant NetApp Console puisse fonctionner dans les limites de gouvernance configurées de votre organisation.
 
-* Votre choix de type de fournisseur : OpenAI, compatible OpenAI ou Anthropic, selon la version et le point de terminaison pris en charge.
+* Votre choix de fournisseur : OpenAI, proxy compatible OpenAI ou Anthropic
 * Une clé API valide pour le chemin du fournisseur que vous sélectionnez.
 * L'URL du point de terminaison pour le chemin de votre fournisseur.
 * Votre nom d'utilisateur ou votre identifiant pour le compte fournisseur LLM, le cas échéant.
@@ -59,17 +59,16 @@ Activez les fonctionnalités d'assistance via une configuration de fournisseur v
 . Sélectionnez le menu, puis sélectionnez *Modifier*.
 . Dans *Type de fournisseur*, sélectionnez un type de fournisseur.
 +
-link:concept-llm-integration.html["Découvrez l'intégration LLM dans le déploiement local de NetApp Console"].
-
-. Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné.
-. Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige.
-. Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné.
-. Sélectionnez un modèle dans la liste.
-. Vérifiez la configuration, puis sélectionnez *Enregistrer*.
-+
-Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.
+** *OpenAI* pour un accès direct aux modèles OpenAI.
+** *Proxy compatible avec OpenAI* pour utiliser une passerelle d’entreprise ou un service proxy.
+** *Anthropic* pour les modèles Claude d'Anthropic.
 
 
+
+
+link:concept-llm-integration.html["Découvrez l'intégration LLM dans le déploiement local de NetApp Console"]. . Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné. . Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige. . Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné. . Sélectionnez un modèle dans la liste. . Vérifiez la configuration, puis sélectionnez *Enregistrer*.
+
++ Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.
 
 
 

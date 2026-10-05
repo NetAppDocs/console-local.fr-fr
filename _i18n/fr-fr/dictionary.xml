@@ -898,7 +898,6 @@
   <block id="752430c5b5b9939ef8d9fafde15e90dc" category="section-title">Choisissez un chemin de fournisseur LLM</block>
   <block id="fcc55126fd45a515695466fda4602164" category="paragraph">NetApp Console le déploiement local prend en charge les types de fournisseurs LLM suivants :</block>
   <block id="873109553cafbb3e957f0cc91186aa99" category="list-text">*OpenAI* pour un accès direct aux modèles OpenAI.</block>
-  <block id="fee6af50bc6105fefb846f7e518fb7cf" category="list-text">*Compatible avec OpenAI* pour un point de terminaison compatible, tel qu'une passerelle d'entreprise ou un service proxy.</block>
   <block id="7de1d980a668ed0c9d00649c3750c5d1" category="paragraph">La disponibilité du modèle dépend du point de terminaison que vous configurez. Sélectionnez un modèle dans la liste du déploiement local de NetApp Console.</block>
   <block id="64c716e8b3c375cb10518555f2cc559d" category="inline-link-macro">Découvrez les fournisseurs et modèles LLM pris en charge dans le déploiement local de NetApp Console</block>
   <block id="26973ca0129cd9b839210e7a88910363" category="section-title">Protégez les identifiants LLM et contrôlez l'accès administrateur</block>
@@ -1886,7 +1885,6 @@
   <block id="75e4289188e6a7cd06138286c091fab0" category="section-title">Découvrez comment le type de fournisseur affecte la disponibilité du modèle</block>
   <block id="94fdc96c690956dfeb881e08a7738112" category="paragraph">Le type de fournisseur que vous choisissez détermine les modèles qui apparaissent dans la liste des modèles de déploiement local de la Console :</block>
   <block id="758cbeb7242c0d95a1ba25a826bf7466" category="list-text">*OpenAI* — fournit des modèles pour une intégration directe à OpenAI.</block>
-  <block id="f8882d796dcd55911551ffa65e9934af" category="list-text">*Compatible avec OpenAI* — fournit des modèles que le point de terminaison compatible de votre organisation expose.</block>
   <block id="8c705cedce8873cec4385d32a46d41f7" category="list-text">*Anthropic* — propose des modèles pour une intégration directe à Anthropic.</block>
   <block id="08a146c5c0cb45bfe3682f78567b0421" category="section-title">Modèles OpenAI pris en charge</block>
   <block id="5b6c99e4c6c823fdc627954b67266130" category="list-text">GPT-5.4</block>
@@ -3031,11 +3029,6 @@
   <block id="e63bd278e9f3067278f0c1de02ea51d1" category="list-text">Sélectionnez *Administration &gt; Outils d'IA*.</block>
   <block id="fce40004669eef7e64c789d1aba006e4" category="list-text">Sélectionnez le menu, puis sélectionnez *Modifier*.</block>
   <block id="7f15a21cfa00dfd7d41b88b3e1451357" category="list-text">Dans *Type de fournisseur*, sélectionnez un type de fournisseur.</block>
-  <block id="cf72c8170aef768cae71f4e2a449acaf" category="list-text">Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné.</block>
-  <block id="d78f26f4373007724d98776e20cd9322" category="list-text">Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige.</block>
-  <block id="b2914c614292093e506dbf4a10fd671c" category="list-text">Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné.</block>
-  <block id="73d0a6de3953116536b1666d0db7c78a" category="list-text">Sélectionnez un modèle dans la liste.</block>
-  <block id="f646c307a4396cd41f6593ce84be57d7" category="list-text">Vérifiez la configuration, puis sélectionnez *Enregistrer*.</block>
   <block id="4e0ef856d01b17ebeacb44ab6e813a5b" category="section-title">Vérifiez que l'intégration LLM fonctionne</block>
   <block id="b9218edb7fcba77407a69cc8446ba839" category="list-text">Vérifiez que les utilisateurs qui ont besoin de flux de travail d’actions disposent des contrôles d’accès basés sur les rôles requis.</block>
   <block id="3bc0e23bd46bad08da1876b2cc4430a7" category="inline-link-macro">Utilisez l’assistant de la console NetApp</block>
@@ -3630,9 +3623,7 @@
   <block id="06f4b3c533aaacbe7f5b54e11890ed43" category="summary">Connectez un point de terminaison LLM pris en charge pour activer l’assistant de la Console et la gestion assistée par IA dans le déploiement local de NetApp Console.</block>
   <block id="c85a5bee169bf00565c85292d26490c9" category="paragraph">Connectez un point de terminaison LLM pris en charge pour mettre à la disposition des utilisateurs du déploiement local de NetApp Console des instructions et des opérations de stockage en langage naturel régies.</block>
   <block id="d8d4c492ef9ce07470fd7c71a7074375" category="paragraph">Préparez les informations d'identification du fournisseur et l'accès au point de terminaison afin que l'assistant NetApp Console puisse fonctionner dans les limites de gouvernance configurées de votre organisation.</block>
-  <block id="755c1d5c75ebb1af53c8d9be3e7bd559" category="list-text">Votre choix de type de fournisseur : OpenAI, compatible OpenAI ou Anthropic, selon la version et le point de terminaison pris en charge.</block>
   <block id="433b02ac268c7f9d577bf9be57b5c3eb" category="paragraph">Activez les fonctionnalités d'assistance via une configuration de fournisseur validée tout en conservant le contrôle administratif des informations d'identification des points de terminaison.</block>
-  <block id="26033ba1ab8ce1319bdb0de963d1cdcc" category="paragraph">Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.</block>
   <block id="eddb36c1b2e3f9e786d7cccf7782664c" category="paragraph">Confirmez la disponibilité de l’assistant et son comportement d’approbation afin que les utilisateurs puissent se fier à l’intégration configurée pour les opérations encadrées.</block>
   <block id="3f9a5821f38ce494dd45cf9edfdf74d3" category="inline-link-macro">Découvrez comment utiliser l’assistant NetApp Console</block>
   <block id="634f9e5260713299abe36310597702d1" category="paragraph">Une fois la validation terminée, les utilisateurs peuvent ouvrir l'assistant Console depuis le tableau de bord et décrire les tâches en langage clair. <block ref="8dfd03d5e9a3a9ef76c8379ee37ac6ff" category="inline-link-macro-rx"></block>.</block>
@@ -3744,4 +3735,9 @@
   <block id="37bea8c46b8d33fa477648eba0912d07" category="list-text">Sélectionnez *Supprimer* pour supprimer définitivement la licence.</block>
   <block id="2c6ce7383b3cc986a190791da38b9a2a" category="paragraph">La licence est supprimée du tableau *Licences directes* et le récapitulatif *Répartition des licences et des capacités* se met à jour.</block>
   <block id="81c2b56f99167782a533db86470cac6e" category="list-text">Ajoutez la licence NetApp Backup and Recovery au déploiement local de NetApp Console. <block ref="b245df0c039209d78d5353ec232ea246" category="inline-link-macro-rx"></block>.</block>
+  <block id="06b44c661a84a26e0ce1a017b3a10bf5" category="list-text">*Proxy compatible avec OpenAI* pour utiliser une passerelle d’entreprise ou un service proxy.</block>
+  <block id="06cec8d93319a0a41f62ded52e6e388b" category="list-text">*Proxy compatible avec OpenAI* — pour utiliser une passerelle d’entreprise ou un service proxy afin de se connecter aux modèles pris en charge.</block>
+  <block id="b1cda2c8041bdb2e7c757f55bc07d4e0" category="list-text">Votre choix de fournisseur : OpenAI, proxy compatible OpenAI ou Anthropic</block>
+  <block id="a9e0ed29bcf0eb9114558aea8e38b3dd" category="paragraph"><block ref="ab74dc1a527eb39bc2a75230306dc5a0" category="inline-link-macro-rx"></block>. . Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné. . Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige. . Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné. . Sélectionnez un modèle dans la liste. . Vérifiez la configuration, puis sélectionnez *Enregistrer*.</block>
+  <block id="3202e0a5b24589a1f3bedee597ddb7d9" category="paragraph">+ Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.</block>
 </blocks>

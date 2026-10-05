@@ -29,7 +29,7 @@ Choisissez un modèle qui corresponde à vos exigences en matière de performanc
 Le type de fournisseur que vous choisissez détermine les modèles qui apparaissent dans la liste des modèles de déploiement local de la Console :
 
 * *OpenAI* — fournit des modèles pour une intégration directe à OpenAI.
-* *Compatible avec OpenAI* — fournit des modèles que le point de terminaison compatible de votre organisation expose.
+* *Proxy compatible avec OpenAI* — pour utiliser une passerelle d’entreprise ou un service proxy afin de se connecter aux modèles pris en charge.
 * *Anthropic* — propose des modèles pour une intégration directe à Anthropic.
 
 
