@@ -62,13 +62,20 @@ Activez les fonctionnalités d'assistance via une configuration de fournisseur v
 ** *OpenAI* pour un accès direct aux modèles OpenAI.
 ** *Proxy compatible avec OpenAI* pour utiliser une passerelle d’entreprise ou un service proxy.
 ** *Anthropic* pour les modèles Claude d'Anthropic.
++
+link:concept-llm-integration.html["Découvrez l'intégration LLM dans le déploiement local de NetApp Console"].
 
 
 
+. Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné.
+. Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige.
+. Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné.
+. Sélectionnez un modèle dans la liste.
+. Vérifiez la configuration, puis sélectionnez *Enregistrer*.
++
+Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.
 
-link:concept-llm-integration.html["Découvrez l'intégration LLM dans le déploiement local de NetApp Console"]. . Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné. . Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige. . Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné. . Sélectionnez un modèle dans la liste. . Vérifiez la configuration, puis sélectionnez *Enregistrer*.
 
-+ Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.
 
 
 

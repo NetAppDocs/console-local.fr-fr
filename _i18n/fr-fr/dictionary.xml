@@ -3738,6 +3738,10 @@
   <block id="06b44c661a84a26e0ce1a017b3a10bf5" category="list-text">*Proxy compatible avec OpenAI* pour utiliser une passerelle d’entreprise ou un service proxy.</block>
   <block id="06cec8d93319a0a41f62ded52e6e388b" category="list-text">*Proxy compatible avec OpenAI* — pour utiliser une passerelle d’entreprise ou un service proxy afin de se connecter aux modèles pris en charge.</block>
   <block id="b1cda2c8041bdb2e7c757f55bc07d4e0" category="list-text">Votre choix de fournisseur : OpenAI, proxy compatible OpenAI ou Anthropic</block>
-  <block id="a9e0ed29bcf0eb9114558aea8e38b3dd" category="paragraph"><block ref="ab74dc1a527eb39bc2a75230306dc5a0" category="inline-link-macro-rx"></block>. . Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné. . Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige. . Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné. . Sélectionnez un modèle dans la liste. . Vérifiez la configuration, puis sélectionnez *Enregistrer*.</block>
-  <block id="3202e0a5b24589a1f3bedee597ddb7d9" category="paragraph">+ Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.</block>
+  <block id="cf72c8170aef768cae71f4e2a449acaf" category="list-text">Si le système vous demande un point de terminaison de fournisseur, saisissez l'URL du point de terminaison du fournisseur pour le chemin que vous avez sélectionné.</block>
+  <block id="d78f26f4373007724d98776e20cd9322" category="list-text">Dans le champ *Nom d'utilisateur*, saisissez votre nom d'utilisateur ou votre identifiant SSO si le chemin de votre fournisseur l'exige.</block>
+  <block id="b2914c614292093e506dbf4a10fd671c" category="list-text">Dans le champ *clé API*, collez la clé API provenant du chemin de votre fournisseur sélectionné.</block>
+  <block id="73d0a6de3953116536b1666d0db7c78a" category="list-text">Sélectionnez un modèle dans la liste.</block>
+  <block id="f646c307a4396cd41f6593ce84be57d7" category="list-text">Vérifiez la configuration, puis sélectionnez *Enregistrer*.</block>
+  <block id="26033ba1ab8ce1319bdb0de963d1cdcc" category="paragraph">Vérifiez le type de fournisseur, l'URL du point de terminaison, la clé API et le modèle sélectionné avant d'enregistrer la configuration.</block>
 </blocks>
